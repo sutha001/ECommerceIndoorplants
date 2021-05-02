@@ -82,15 +82,23 @@
   flex:3
   
 }
+.dot {
+  height: 90%;
+  width: 90%;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: block;
+  margin:0 auto;
+  margin-top: 5%;
+  border: solid;
+}
 .product-three-color{
   background-color:red;
   display:flex;
   flex: 1;
 }
 .pic-three-color{
-  background-color:orange;
   flex: 1;
-  border: solid;
 }
 .order-detail{
   background-color:pink;
@@ -98,7 +106,6 @@
   display: block;
 }
 .empty-order-detail{
-  background-color:red;
   display: flex;
   height:7%;
 }
