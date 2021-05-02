@@ -5,6 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+  <link rel="stylesheet" href="/path/to/flickity.css" media="screen">
   <link rel="stylesheet" href="./main.css">
   <title>HousePlantEcom</title>
 </head>
@@ -19,12 +21,6 @@
       </button>
       <div class="navbar-collapse collapse" id="menu">
         <ul class="navbar-nav ms-auto">
-          <li>
-            <form class="searchbar navbar-item px-5 d-flex">
-              <input class="form-control mr-sm-2 col-12" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success my-2 my-sm-0 mx-3" type="submit">Search</button>
-            </form>
-          </li>
           <li class="navbar-item px-4">
             <a href="" class="nav-link">Account</a>
           </li>
@@ -81,6 +77,91 @@
   <!--  -->
   <div class="container">
     <div class="row">
+
+      <div class="bestsell">
+        <div><h1>Best Seller</h1></div>
+
+        <div class="main-carousel" data-flickity='{ "cellAlign": "center", "contain": true, "pageDots": false, "draggable": false}'>
+
+          <div class="carousel-cell">
+            <div class="card">
+              <img src="img/พลูด่าง.jpg" >
+              <div class="card-body"><p>พลูด่าง</p></div>
+            </div>
+          </div>
+
+          <div class="carousel-cell">
+            <div class="card">
+              <img src="img/พลูด่าง.jpg">
+              <div class="card-body"><p>พลูด่าง</p></div>
+            </div>
+          </div>
+
+          <div class="carousel-cell">
+            <div class="card">
+              <img src="img/พลูด่าง.jpg">
+              <div class="card-body"><p>พลูด่าง</p></div>
+            </div>
+          </div>
+
+          <div class="carousel-cell">
+            <div class="card">
+              <img src="img/พลูด่าง.jpg">
+              <div class="card-body"><p>พลูด่าง</p></div>
+            </div>
+          </div>
+
+          <div class="carousel-cell">
+            <div class="card">
+              <img src="img/พลูด่าง.jpg">
+              <div class="card-body"><p>พลูด่าง</p></div>
+            </div>
+          </div>
+
+          <div class="carousel-cell">
+            <div class="card">
+              <img src="img/พลูด่าง.jpg">
+              <div class="card-body"><p>พลูด่าง</p></div>
+            </div>
+          </div>
+
+          <div class="carousel-cell">
+            <div class="card">
+              <img src="img/พลูด่าง.jpg">
+              <div class="card-body"><p>พลูด่าง</p></div>
+            </div>
+          </div>
+
+          
+        </div>
+      </div>
+
+      <div class="filtertag" style=" height: 100px; width: 100%;">
+        <div class="filter" style=" width: auto; height: 50%;">
+          <span style="padding-left: 20px;">Filter By :&ensp; </span>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+            <label class="form-check-label" for="inlineCheckbox1">ดูดสารพิษ</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+            <label class="form-check-label" for="inlineCheckbox2">ไม่ต้องการแดด</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+            <label class="form-check-label" for="inlineCheckbox1">คลายความชื้น</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+            <label class="form-check-label" for="inlineCheckbox2">มีดอก</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+            <label class="form-check-label" for="inlineCheckbox1">ฟอกอากาศ</label>
+          </div>
+        </div>
+      </div>
+
       <div class="col-lg-4 p-4">
         <div class="card">
           <img src="img/พลูด่าง.jpg" class="card-img-top p-4" alt="...">
@@ -178,5 +259,8 @@
   </div>
 </body>
 <script src="bootstrap/js/bootstrap.min.js"></script>
+<script src="/path/to/flickity.pkgd.min.js"></script>
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+
 
 </html>

@@ -35,3 +35,34 @@
     height: 500px;
   }
 }
+.bestsell{
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  border-radius: 20px;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  height: auto;
+}
+.carousel-cell {
+  width: 20%; /* half-width */
+  height: auto;
+  margin-right: 180px;
+}
+.filtertag{
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  font-size: 20px;
+}
+.filter{
+  display: flex;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+
