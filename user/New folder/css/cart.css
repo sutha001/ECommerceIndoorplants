@@ -14,7 +14,6 @@
 }
 .go-check-out{
   flex: 1;
-  background-color:skyblue;
   border: solid;
 }
 .button {
@@ -28,3 +27,7 @@
   cursor: pointer;
   width: 100%;
   height: 100%;
+  opacity: 0.8;
+  transition: 0.3s;
+}
+.button:hover {opacity: 1}

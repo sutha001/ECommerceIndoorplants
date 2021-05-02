@@ -18,14 +18,12 @@
   height:7%;
 }
 .box-place-order{
-  background-color:orange;
   display: flex;
   height:13%;
 }
 .place-order{
   display: flex;
   width: 100%;
-  background-color: blue;
   border: solid;
 }
 .box-order-confirm{
@@ -67,3 +65,7 @@
   cursor: pointer;
   width: 100%;
   height: 100%;
+  opacity: 0.8;
+  transition: 0.3s;
+}
+.button:hover {opacity: 1}
