@@ -1,3 +1,15 @@
+.carousel,
+.carousel-inner,
+.carousel-item > img {
+  height: 280px;
+  width: 400px;
+}
+.slide-work{
+  width:100%;
+  height:100%;
+  margin: 0 auto;
+  display: block;
+}
 .box-product{
   margin: auto;
   height: 400px;
@@ -8,7 +20,7 @@
   height: 300px;
   width: 400px;
 }
-.slide{
+.slideproduct{
   background-color:pink;
   height: 70%;
   display: block;
