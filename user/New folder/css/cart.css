@@ -1,111 +1,19 @@
-.box-product{
+.your-order{
   margin: auto;
   height: 400px;
-  width: 400px;
+  width:900px;
+  background-color: pink;
+  margin-top: 3%;
 }
-.box-product2{
-  margin: auto;
-  height: 300px;
-  width: 400px;
+.box-go-check-out{
+  width:100%;
+  height:50px;
 }
-.slide{
-  background-color:pink;
-  height: 70%;
-  display: block;
-}
-.three-pic{
-  background-color:red;
-  display: flex;
-  height:30%;
-}
-.in-three-pic{
-  display: flex;
-  width: 33.33%;
-  background-color: blue;
-  border: solid;
-}
-.detail-product{
-  background-color:pink;
-  height: 70%;
-  display: block;
-}
-.quantity-product{
-  background-color:red;
-  display: flex;
-  height:20%;
-}
-.add-and-check-out{
-  background-color:orange;
-  display: flex;
-  height:10%;
-}
-.add-to-cart{
-  display: flex;
-  width: 50%;
-  background-color: blue;
-  border: solid;
-}
-.check-out{
-  display: flex;
-  width: 50%;
-  background-color: skyblue;
-  border: solid;
-}
-.pic-product{
-  background-color:pink;
-  display: flex;
-  flex:3
-  
-}
-.product-three-color{
-  background-color:red;
-  display:flex;
-  flex: 1;
-}
-.pic-three-color{
-  background-color:orange;
-  flex: 1;
-  border: solid;
-}
-.order-detail{
-  background-color:pink;
-  height: 80%;
-  display: block;
-}
-.empty-order-detail{
-  background-color:red;
-  display: flex;
-  height:7%;
-}
-.add-check-order{
-  background-color:orange;
-  display: flex;
-  height:13%;
-}
-.add-to-cart{
-  display: flex;
-  width: 50%;
-  background-color: blue;
-  border: solid;
-}
-.check-out{
-  display: flex;
-  width: 50%;
-  background-color: skyblue;
-  border: solid;
-}
-.box-related-products{
-  height:200px;
-  width: 1400px;
-}
-.empty-related{
+.empty{
   flex:1;
 }
-.box-related{
-  flex:10;
-}
-.related-products{
-  flex:1;
-  background-color: skyblue;
+.go-check-out{
+  flex: 1;
+  background-color:skyblue;
   border: solid;
 }
