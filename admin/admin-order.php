@@ -19,10 +19,10 @@
     <div class="area_all" style="background-color: black;">
         <div class="menu_editor">
             <div class="row_edit">
-                <a class="btn btn-dark" style="background-color: #ffffff; color:#1b221b;">การจัดการสินค้า</a>
+                <a href="admin_editor.php" class="btn btn-dark" style="background-color: #4f4f4f;">การจัดการสินค้า</a>
             </div>
             <div class="row_edit">
-                <a href="admin-order.php" class="btn btn-dark" style="background-color: #4f4f4f;">Order</a>
+                <a  class="btn btn-dark" style="background-color: #ffffff; color:#1b221b;">Order</a>
             </div>
             <div class="row_edit">
                 <a href="admin_manage_user.php" class="btn btn-dark" style="background-color: #4f4f4f;">การจัดการผู้ใช้</a>
@@ -41,9 +41,12 @@
 
         $start = ($page - 1) * $perpage;
 
-        $sql = "SELECT *
-        FROM product
-        NATURAL JOIN product_type limit {$start} , {$perpage}";
+        $sql = "SELECT order_id, sum(price)'priceall'
+        FROM orders
+        NATURAL JOIN order_detali
+        NATURAL JOIN product
+        GROUP BY order_id
+        limit {$start} , {$perpage}";
 
         $result = $connect->query($sql) or die(mysqli_error($connect) . ":" . $sql);
 
@@ -53,42 +56,37 @@
         <div class="other_editor">
             <div class="container">
                 <div class="info_right">
-                    <h1>การจัดการสินค้า</h1>
-                    <a class="btn btn-dark" style="background-color: #4d4d4d;" href="manage/admin_add_product.php">เพิ่มสินค้าใหม่</a>
+                    <h1>Order</h1>
                     <hr>
                     <div style="margin: 3% 0%;">
-                        <a class="btn btn-dark" style="background-color: #ffffff; color:#1b221b;" href="admin_editor.php">ทั้งหมด</a>
-                        <a class="btn btn-dark" style="background-color: #4d4d4d;" href="admin_editor.php">มีดอก</a>
-                        <a class="btn btn-dark" style="background-color: #4d4d4d;" href="admin_editor.php">ประดับ</a>
-                        <a class="btn btn-dark" style="background-color: #4d4d4d;" href="admin_editor.php">กระบองเพชร</a><br>
+                        <a class="btn btn-dark" style="background-color: #ffffff; color:#1b221b;" href="admin_order.php">ทั้งหมด</a>
+                        <a class="btn btn-dark" style="background-color: #4d4d4d;" href="admin_editor.php">หลักฐาน</a>
                     </div>
                     <table>
                         <thead>
                             <tr>
                                 <th width="5%">ID</th>
                                 <th width="10%">ชื่อ</th>
-                                <th width="10%">รูปภาพ</th>
-                                <th width="10%">ราคา(บาท)</th>
-                                <th width="10%">หมวด</th>
-                                <th width="10%">จำนวนคงเหลือ </th>
+                                <th width="10%">สินค้า</th>
+                                <th width="10%">ราคา(รวม)</th>
+                                <th width="10%">สถาณะ</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php while ($row = $result->fetch_assoc()) : ?>
                                 <tr>
-                                    <td><?php echo $row['product_id']; ?></td>
-                                    <td><?php echo $row['product_name']; ?></td>
+                                    <td><?php echo $row['order_id']; ?></td>
+                                    <td><a class="btn btn-dark" style="background-color: #4d4d4d;" href="admin_editor.php">รายละเอียด</a></td>
                                     <td><?php echo $row['image']; ?></td>
-                                    <td><?php echo $row['price']; ?></td>
-                                    <td><?php echo $row['type_name']; ?></td>
-                                    <td><?php echo $row['amount']; ?></td>
+                                    <td><?php echo $row['priceall']; ?></td>
+                                    <td><?php echo $row['status']; ?></td>
                                 </tr>
                             <?php endwhile ?>
                         </tbody>
                     </table>
                     <hr>
                     <?php
-                    $sql2 = "select * from product ";
+                    $sql2 = "select * from orders ";
                     $query2 = mysqli_query($connect, $sql2);
                     $total_record = mysqli_num_rows($query2);
                     $total_page = ceil($total_record / $perpage);
@@ -96,15 +94,15 @@
                     <nav>
                         <ul class="pagination">
                             <li>
-                                <a class="btn btn-dark" style="background-color: #4d4d4d;" href="admin_editor.php" aria-label="Previous">
+                                <a class="btn btn-dark" style="background-color: #4d4d4d;" href="admin_order.php" aria-label="Previous">
                                     <span aria-hidden="true">&laquo;</span>
                                 </a>
                             </li>
                             <?php for ($i = 1; $i <= $total_page; $i++) { ?>
-                                <li><a class="btn btn-dark" style="background-color: #4d4d4d;" href="admin_editor.php?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+                                <li><a class="btn btn-dark" style="background-color: #4d4d4d;" href="admin_order.php?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
                             <?php } ?>
                             <li>
-                                <a class="btn btn-dark" style="background-color: #4d4d4d;" href="admin_editor.php?page=<?php echo $total_page; ?>" aria-label="Next">
+                                <a class="btn btn-dark" style="background-color: #4d4d4d;" href="admin_order.php?page=<?php echo $total_page; ?>" aria-label="Next">
                                     <span aria-hidden="true">&raquo;</span>
                                 </a>
                             </li>
