@@ -113,7 +113,7 @@
   height:13%;
 }
 .box-related-products{
-  height:200px;
+  height:250px;
   width: 1400px;
 }
 .empty-related{
@@ -124,5 +124,4 @@
 }
 .related-products{
   flex:1;
-  background-color: skyblue;
 }
