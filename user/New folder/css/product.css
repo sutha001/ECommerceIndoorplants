@@ -67,12 +67,12 @@
 .add-to-cart{
   display: flex;
   width: 50%;
-  border: solid;
+  border-right:solid;
+
 }
 .check-out{
   display: flex;
   width: 50%;
-  border: solid;
 }
 .pic-product{
   display: flex;
