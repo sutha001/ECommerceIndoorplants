@@ -37,7 +37,7 @@
   border: solid;
 }
 .detail-product{
-  background-color:pink;
+  background-color:gray;
   height: 70%;
   display: block;
 }
@@ -75,7 +75,6 @@
   border: solid;
 }
 .pic-product{
-  background-color:pink;
   display: flex;
   flex:3
   
@@ -83,7 +82,7 @@
 .dot {
   height: 90%;
   width: 90%;
-  background-color: #bbb;
+  background-color:white;
   border-radius: 50%;
   display: block;
   margin:0 auto;
@@ -91,7 +90,7 @@
   border: solid;
 }
 .product-three-color{
-  background-color:red;
+  background-color:gray;
   display:flex;
   flex: 1;
 }
@@ -99,7 +98,7 @@
   flex: 1;
 }
 .order-detail{
-  background-color:pink;
+  background-color:gray;
   height: 80%;
   display: block;
 }
