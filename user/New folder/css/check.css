@@ -4,17 +4,16 @@
   width: 550px;
 }
 .box-adress{
-  background-color:pink;
+  background-color:gray;
   display: flex;
   height:100%;
 }
 .your-order{
-  background-color:pink;
+  background-color:gray;
   height: 80%;
   display: block;
 }
 .empty-order-detail{
-  background-color:red;
   display: flex;
   height:7%;
 }
@@ -31,37 +30,40 @@
 }
 .box-order-confirm{
   width:100%;
-  height:100px;
+  height:90px;
 }
 .empty{
   flex:1;
 }
 .box-order-slip{
   flex: 1;
-  background-color:skyblue;
-  border: solid;
 }
 .box-order-number{
   flex: 1;
-  background-color:skyblue;
 }
 .box-tranfer-slip{
   flex: 1;
-  background-color:blue;
 }
 .label-order-number{
   flex: 1;
-  background-color:blue;
 }
 .text-box-order-number{
   flex: 1;
-  background-color:skyblue;
 }
 .text-box-tranfer-slip{
   flex: 1;
-  background-color:blue;
 }
 .label-tranfer-slip{
   flex: 1;
-  background-color:skyblue;
 }
+.button {
+  background-color: gray;
+  border: none;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
