@@ -19,7 +19,7 @@
     <div class="area_all" style="background-color: black;">
         <div class="menu_editor">
             <div class="row_edit">
-                <a  class="btn btn-dark" style="background-color: #ffffff; color:#1b221b;">การจัดการสินค้า</a>
+                <a class="btn btn-dark" style="background-color: #ffffff; color:#1b221b;">การจัดการสินค้า</a>
             </div>
             <div class="row_edit">
                 <a href="../admin-order.php" class="btn btn-dark" style="background-color: #4f4f4f;">Order</a>
@@ -34,21 +34,37 @@
                 <div class="info_right">
                     <h1>Order</h1>
                     <hr>
-                    <form>
+                    <form action="process_manage/add-product-process.php" method="POST">
                         <label>ชื่อสินค้า :</label>
                         <input type="text" name="product_name"><br><br>
                         <label>รูปสินค้า (หลัก) :</label>
-                        <input type="file" name="image"><br><br>
+                        <input type="file" name="main_image"><br><br>
+                        <label>รูปสินค้า (รอง1) :</label>
+                        <input type="file" name="image1">
+                        <label>รูปสินค้า (รอง2) :</label>
+                        <input type="file" name="image2">
+                        <label>รูปสินค้า (รอง3) :</label>
+                        <input type="file" name="image3"><br><br>
                         <label>รายละเอียด :</label>
                         <textarea type="text" name="description" rows="5" cols="50"></textarea><br><br>
                         <label>คุณสมบัติ :</label>
                         <input type="text" name="property"><br><br>
+                        <label>การดูแลรักษา :</label>
+                        <input type="text" name="care"><br><br>
                         <label>ราคา :</label>
                         <input type="number" name="price"><br><br>
                         <label>หมวด :</label>
-                        <input type="text" name="type_name"><br><br>
+                        <select name="type_name">
+                            <option value="ดูดสารพิษ">ดูดสารพิษ</option>
+                            <option value="ไม่ต้องการแดด">ไม่ต้องการแดด</option>
+                            <option value="มีดอก">มีดอก</option>
+                            <option value="ฟอกอากาศ">ฟอกอากาศ</option>
+                        </select>
+                        <label>จำนวน :</label>
+                        <input type="number" name="amount"><br><br>
+                        <hr>
+                        <input type="submit" name="submit" class="btn btn-dark">
                     </form>
-                    <hr>
                 </div>
             </div>
         </div>

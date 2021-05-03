@@ -58,9 +58,10 @@
                     <hr>
                     <div style="margin: 3% 0%;">
                         <a class="btn btn-dark" style="background-color: #ffffff; color:#1b221b;" href="admin_editor.php">ทั้งหมด</a>
+                        <a class="btn btn-dark" style="background-color: #4d4d4d;" href="admin_editor.php">ดูดสารพิษ</a>
+                        <a class="btn btn-dark" style="background-color: #4d4d4d;" href="admin_editor.php">คลายความชื้น</a>
                         <a class="btn btn-dark" style="background-color: #4d4d4d;" href="admin_editor.php">มีดอก</a>
-                        <a class="btn btn-dark" style="background-color: #4d4d4d;" href="admin_editor.php">ประดับ</a>
-                        <a class="btn btn-dark" style="background-color: #4d4d4d;" href="admin_editor.php">กระบองเพชร</a><br>
+                        <a class="btn btn-dark" style="background-color: #4d4d4d;" href="admin_editor.php">ฟอกอากาศ</a><br>
                     </div>
                     <table>
                         <thead>
