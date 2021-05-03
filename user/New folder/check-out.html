@@ -6,11 +6,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="css\check.css">
+  <link rel="stylesheet" href="main.css">
   <title>Lab07</title>
 </head>
 
 <body>
-  
+  <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand px-5" href="index.html">LOGO</a>
+      <button class="navbar-toggler" data-bs-target="#menu" data-bs-toggle="collapse">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="navbar-collapse collapse" id="menu">
+        <ul class="navbar-nav ms-auto">
+          <li class="navbar-item px-4">
+            <a href="" class="nav-link">Account</a>
+          </li>
+          <li class="navbar-item px-4">
+            <a href="cart.html" class="nav-link">Cart</a>
+          </li>
+          <li class="navbar-item px-4">
+            <a href="check-out.html" class="nav-link">Checkout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    </div>
+  </nav>
   <!--Adress and place order-->
   <div style="margin-top: 3%;">
     <h1 style="text-align: center;">Check out</h1>
@@ -69,7 +91,7 @@
 
       <div class="box-order-number" style="display: flex;flex-direction:column;">
         <div class="label-order-number">
-          <p style="font-size:24px;">ORDER NUMBER</p>
+          <p style="font-size:24px;">Order Number</p>
         </div>
         <div class="text-box-order-number">
           <input type="text" id="fname" name="fname" style="width: 90%;height: 100%;">
@@ -89,6 +111,9 @@
     <div class="empty"></div>
   </div>
 
+  <div class="footer d-flex flex-column" style="margin-top: 3%;">
+    <p>This is a fucking FOOTER.</p>
+  </div>
     
 </body>
 <script src="bootstrap/js/bootstrap.min.js"></script>

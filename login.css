@@ -1,0 +1,28 @@
+hr{
+    border: 4px solid gray;
+    width: 66.67%;
+}
+.signin{
+    align-content: center;
+}
+.imglogin{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.bigcard{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+img{
+    border: 4px solid gray;
+}
+
+  

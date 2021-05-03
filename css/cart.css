@@ -31,18 +31,3 @@
   transition: 0.3s;
 }
 .button:hover {opacity: 1}
-table, td, th {  
-  border: 1px solid #ddd;
-  text-align: left;
-}
-
-table {
-  border-collapse: collapse;
-  width: 90%;
-  margin-right: auto;
-  margin-left: auto;
-  background-color: white;
-}
-th, td {
-  padding: 15px;
-}

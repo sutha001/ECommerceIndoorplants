@@ -6,11 +6,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="css\cart.css">
+  <link rel="stylesheet" href="main.css">
   <title>Lab07</title>
 </head>
 
 <body>
-  
+  <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand px-5" href="index.html">LOGO</a>
+      <button class="navbar-toggler" data-bs-target="#menu" data-bs-toggle="collapse">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="navbar-collapse collapse" id="menu">
+        <ul class="navbar-nav ms-auto">
+          <li class="navbar-item px-4">
+            <a href="" class="nav-link">Account</a>
+          </li>
+          <li class="navbar-item px-4">
+            <a href="cart.html" class="nav-link">Cart</a>
+          </li>
+          <li class="navbar-item px-4">
+            <a href="check-out.html" class="nav-link">Checkout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    </div>
+  </nav>
   <!--Adress and place order-->
   <div style="margin-top: 3%;">
     <h1 style="text-align: center;">Cart</h1>
@@ -19,13 +41,26 @@
   <div class="container">
     <div class="your-order">
       <h1 style="font-size: 24px;text-align: center;padding-top: 3%;">YOUR ORDER</h1>
-      <p style="padding-left: 3%;font-size:20px;line-height: 28pt;margin-top: 3%;">
-        พพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพ
-        พพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพ
-        พพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพ
-        พพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพ
-        พพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพ
-      </p>
+      <table style="margin-top: 2%;">
+  <tr>
+    <th>ลำดับ</th>
+    <th>ชื่อสินค้า</th>
+    <th>จำนวนสินค้า</th>
+    <th>ราคา</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>พูลด่าง</td>
+    <td>10</td>
+    <td>$100</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>กล้วยไม้</td>
+    <td>1</td>
+    <td>$100</td>
+  </tr>
+</table>
     </div>
   </div>
 
@@ -40,6 +75,9 @@
     <div class="empty"></div>
   </div>
 
+  <div class="footer d-flex flex-column" style="margin-top: 3%;">
+    <p>This is a fucking FOOTER.</p>
+  </div>
     
 </body>
 <script src="bootstrap/js/bootstrap.min.js"></script>
