@@ -7,6 +7,7 @@ body,html{
   font-family: 'Source Sans Pro', sans-serif;
   background: rgb(204,222,237);
   background: linear-gradient(0deg, rgba(204,222,237,1) 0%, rgba(255,255,255,1) 100%);
+  /*background-color: #ccdeed;*/
 }
 .carousel-item > img {
   object-fit: cover;
