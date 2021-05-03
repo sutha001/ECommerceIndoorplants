@@ -2,7 +2,6 @@
   margin: auto;
   height: 400px;
   width:900px;
-  background-color: gray;
   margin-top: 3%;
 }
 .box-go-check-out{
@@ -14,11 +13,9 @@
 }
 .go-check-out{
   flex: 1;
-  border: solid;
 }
 .button {
   background-color: gray;
-  border: none;
   color: black;
   text-align: center;
   text-decoration: none;
