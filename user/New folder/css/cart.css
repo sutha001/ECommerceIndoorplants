@@ -32,7 +32,6 @@
 }
 .button:hover {opacity: 1}
 table, td, th {  
-  border: 1px solid #ddd;
   text-align: left;
 }
 
@@ -45,4 +44,26 @@ table {
 }
 th, td {
   padding: 15px;
+}
+.close {
+  position: absolute;
+  opacity: 0.3;
+}
+.close:hover {
+  opacity: 1;
+}
+.close:before, .close:after {
+  position: absolute;
+  content: ' ';
+  height: 20px;
+  width: 2px;
+  background-color: #333;
+  left:20px;
+  bottom:-10px;
+}
+.close:before {
+  transform: rotate(45deg);
+}
+.close:after {
+  transform: rotate(-45deg);
 }
