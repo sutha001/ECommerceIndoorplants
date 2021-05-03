@@ -18,7 +18,7 @@ $result = mysqli_query($connect, $sql);
   <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
   <link rel="stylesheet" href="/path/to/flickity.css" media="screen">
-  <link rel="stylesheet" href="./main.css">
+  <link rel="stylesheet" href="main.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&family=Taviraj&display=swap" rel="stylesheet"> 
   <title>HousePlantEcom</title>
@@ -35,13 +35,13 @@ $result = mysqli_query($connect, $sql);
       <div class="navbar-collapse collapse" id="menu">
         <ul class="navbar-nav ms-auto">
           <li class="navbar-item px-5">
-            <a href="cart.html" class="nav">Cart</a>
+            <a href="cart-tung.php" class="nav">Cart</a>
           </li>
           <li class="navbar-item px-5">
-            <a href="html.html" class="nav">Checkout</a>
+            <a href="check-out.php" class="nav">Checkout</a>
           </li>
           <li class="navbar-item px-5">
-            <a href="" class="nav" >Account</a>
+            <a href="login.php" class="nav" >Log-in</a>
           </li>
         </ul>
       </div>
@@ -88,7 +88,7 @@ $result = mysqli_query($connect, $sql);
     </a>
   </div>-->
   <div class="head"style="height: auto; display: flex; align-items: center; justify-content: center;">
-    <img src="./img/logo.png" width="45%">
+    <img src="img/logo.png" width="45%">
   </div>
   <!--  -->
   <div class="container">

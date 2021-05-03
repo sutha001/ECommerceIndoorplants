@@ -44,10 +44,10 @@ $result = mysqli_query($connect, $sql);
                 <div class="navbar-collapse collapse" id="menu">
                     <ul class="navbar-nav ms-auto">
                         <li class="navbar-item px-5">
-                            <a href="cart.html" class="nav">Cart</a>
+                            <a href="cart_user.php" class="nav">Cart</a>
                         </li>
                         <li class="navbar-item px-5">
-                            <a href="html.html" class="nav">Checkout</a>
+                            <a href="check-out_user.php" class="nav">Checkout</a>
                         </li>
                         <li class="navbar-item px-5">
                             <a href="../account.php" class="nav">Account</a>
@@ -215,7 +215,7 @@ $result = mysqli_query($connect, $sql);
                             <div class="card-body">
                                 <p class="plant-name h3 pb-3"><?php echo $row['product_name']; ?></p>
                                 <p>ราคา : <?php echo $row['price']; ?></p>
-                                <button class="btn btn-primary btn-lg" style="text-align: center;" type="AddtoCart">ใส่ลงตะกร้า</button>
+                                <a class="btn btn-primary btn-lg" style="text-align: center;" type="AddtoCart" href='cart_user.php?product_id=<?php echo $row['product_id']; ?>&act=add' >ใส่ลงตะกร้า</a>
                             </div>
                         </div>
                     </div>

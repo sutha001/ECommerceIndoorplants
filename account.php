@@ -40,20 +40,20 @@ $result = mysqli_query($connect, $sql) or die(mysqli_error($connect) . ":" . $sq
   ?>
     <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
       <div class="container-fluid">
-        <a class="navbar-brand px-5" href="index.html">LOGO</a>
+        <a class="navbar-brand px-5" href="user/index_user.php">LOGO</a>
         <button class="navbar-toggler" data-bs-target="#menu" data-bs-toggle="collapse">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="navbar-collapse collapse" id="menu">
           <ul class="navbar-nav ms-auto">
             <li class="navbar-item px-4">
-              <a href="" class="nav-link">Account</a>
+              <a href="user/cart_user.php" class="nav-link">Cart</a>
             </li>
             <li class="navbar-item px-4">
-              <a href="cart.html" class="nav-link">Cart</a>
+              <a href="user/check-out_user.php" class="nav-link">Checkout</a>
             </li>
             <li class="navbar-item px-4">
-              <a href="check-out.html" class="nav-link">Checkout</a>
+              <a href="account.php" class="nav-link">Account</a>
             </li>
           </ul>
         </div>

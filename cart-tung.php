@@ -3,7 +3,7 @@ include "connect.php";
 session_start();
 
 @$product_id = $_GET['product_id'];
-$act = $_GET['act'];
+@$act = $_GET['act'];
 
 if ($act == 'add' && !empty($product_id)) {
   if (isset($_SESSION['cart'][$product_id])) {
@@ -99,7 +99,7 @@ if ($act == 'update') {
                 echo "<td width='334'>" . $row["product_name"] . "</td>";
                 echo "<td width='46' align='right'>" . number_format($row["price"], 2) . "</td>";
                 echo "<td width='57' align='right'>";
-                echo "<input type='text' name='amount[$product_id]' value='$qty' size='2'/></td>";
+                echo "<input type='number' name='amount[$product_id]' value='$qty' style='width: 5em'/></td>";
                 echo "<td width='93' align='right'>" . number_format($sum, 2) . "</td>";
                 //remove product
                 echo "<td width='46' align='center'><a href='cart-tung.php?product_id=$product_id&act=remove'>ลบ</a></td>";
@@ -116,7 +116,7 @@ if ($act == 'update') {
               <td><a href="index-fix.php">กลับหน้ารายการสินค้า</a></td>
               <td colspan="4" align="right">
                 <input type="submit" name="button" id="button" value="ปรับปรุง" />
-                <input type="button" name="Submit2" value="สั่งซื้อ" onclick="window.location='#';" />
+                <input type="button" name="Submit2" value="สั่งซื้อ" onclick="window.location='check-out.php';" />
               </td>
             </tr>
           </table>
