@@ -30,27 +30,31 @@ $rowimg = mysqli_num_rows($result2);
   <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
   <link rel="stylesheet" href="/path/to/flickity.css" media="screen">
   <link rel="stylesheet" href="css/product-test.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&family=Taviraj&display=swap" rel="stylesheet">
   <title>product</title>
 </head>
 
 <body>
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+  <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container-fluid">
-      <a class="navbar-brand px-5" href="#">LOGO</a>
+      <a class="navbar-brand px-4" href="./index.html">
+        <div style="width:100px; cursor: pointer;"><img src="./img/Ser.png" width="100%"></div>
+      </a>
       <button class="navbar-toggler" data-bs-target="#menu" data-bs-toggle="collapse">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="navbar-collapse collapse" id="menu">
         <ul class="navbar-nav ms-auto">
-          <li class="navbar-item px-4">
-            <a href="" class="nav-link">Account</a>
+          <li class="navbar-item px-5">
+            <a href="cart.html" class="nav">Cart</a>
           </li>
-          <li class="navbar-item px-4">
-            <a href="" class="nav-link">Cart</a>
+          <li class="navbar-item px-5">
+            <a href="html.html" class="nav">Checkout</a>
           </li>
-          <li class="navbar-item px-4">
-            <a href="" class="nav-link">Checkout</a>
+          <li class="navbar-item px-5">
+            <a href="" class="nav">Account</a>
           </li>
         </ul>
       </div>
@@ -111,8 +115,9 @@ $rowimg = mysqli_num_rows($result2);
 
         <?php while ($row = mysqli_fetch_assoc($result)) : ?>
           <div class="box-product">
-            <div class="detail-product" style="background-color: gray;">
-              <h1 style="font-size: 18px;text-align: center;">PRODUCT DETAIL</h1>
+            <div class="detail-product">
+
+              <h1 style="font-size: 28px;text-align: center; font-family: 'Taviraj', serif;">รายละเอียดสินค้า</h1>
               <div style="text-align: left;">
                 <p>ชื่อ : <?php echo $row['product_name']; ?> </p>
                 <p>ประเภท : <?php echo $row['type_name']; ?></p>
@@ -125,63 +130,62 @@ $rowimg = mysqli_num_rows($result2);
             <div class="quantity-product" style="display: flex;flex-direction:column;">
               <div class="empty-quantity" style="flex:1;"></div>
               <div class="text-box-quantity-product" style="display: flex; flex-direction: row; justify-content: center;">
-                <a style="display: flex; align-items: center;">จำนวน (ชิ้น) </a>&ensp;<input type="number" min="1" id="fname" name="fname" style="width: 10%;">
-                <input type="button" class="btn btn-secondary" style="width: 30%; margin-left: 20px; margin-right: 5px;" value="ADD TO CART">
-                <input type="button" class="btn btn-secondary" style="width: 30%; margin-left: 5px; margin-right: 5px;" value="CHECKOUT">
+                <a style="display: flex; align-items: center; font-family: 'Taviraj', serif;">จำนวน (ชิ้น) </a>&ensp;<input type="number" min="1" id="fname" name="fname" style="width: 10%;">
+                <input type="button" class="btn btn-primary" style="width: 30%; margin-left: 20px; margin-right: 5px;font-family: 'Taviraj', serif;" value="ใส่ลงตะกร้า">
+                <input type="button" class="btn btn-primary" style="width: 30%; margin-left: 5px; margin-right: 5px;font-family: 'Taviraj', serif;" value="ซื้อเลย">
               </div>
               <div class="empty-quantity" style="flex:1;"></div>
             </div>
-          </div>
-        <?php endwhile ?>
-        <div class="col-12 col-sm-6 px-2">
+          <?php endwhile ?>
+          <div class="col-12 col-sm-6 px-2">
 
-        </div>
+          </div>
+          </div>
+          <hr style="height: 10px; margin-top: 5%;">
+
+
+          <div class="bestsell">
+            <div>
+              <h1>Related Products</h1>
+            </div>
+
+            <div class="main-carousel" data-flickity='{ "cellAlign": "center", "contain": true, "pageDots": false, "draggable": false}'>
+
+              <div id="related" class="carousel-cell">
+                <div class="card">
+                  <img src="img/พลูด่าง.jpg">
+                  <div class="card-body">
+                    <p>พลูด่าง</p>
+                  </div>
+                </div>
+              </div>
+
+              <div id="related" class="carousel-cell">
+                <div class="card">
+                  <img src="img/พลูด่าง.jpg">
+                  <div class="card-body">
+                    <p>พลูด่าง</p>
+                  </div>
+                </div>
+              </div>
+
+              <div id="related" class="carousel-cell">
+                <div class="card">
+                  <img src="img/พลูด่าง.jpg">
+                  <div class="card-body">
+                    <p>พลูด่าง</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
       </div>
-      <hr style="height: 10px; margin-top: 5%;">
-
-
-      <div class="bestsell">
-        <div>
-          <h1>Related Products</h1>
-        </div>
-
-        <div class="main-carousel" data-flickity='{ "cellAlign": "center", "contain": true, "pageDots": false, "draggable": false}'>
-
-          <div id="related" class="carousel-cell">
-            <div class="card">
-              <img src="img/พลูด่าง.jpg">
-              <div class="card-body">
-                <p>พลูด่าง</p>
-              </div>
-            </div>
-          </div>
-
-          <div id="related" class="carousel-cell">
-            <div class="card">
-              <img src="img/พลูด่าง.jpg">
-              <div class="card-body">
-                <p>พลูด่าง</p>
-              </div>
-            </div>
-          </div>
-
-          <div id="related" class="carousel-cell">
-            <div class="card">
-              <img src="img/พลูด่าง.jpg">
-              <div class="card-body">
-                <p>พลูด่าง</p>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
     </div>
-  </div>
-  <div class="footer d-flex flex-column">
-    <p>This is a fucking FOOTER.</p>
-  </div>
+    <div class="footer d-flex flex-column">
+      <p>This is a fucking FOOTER.</p>
+    </div>
 </body>
 <script src="bootstrap/js/bootstrap.min.js"></script>
 <script src="/path/to/flickity.pkgd.min.js"></script>

@@ -1,6 +1,6 @@
 <?php
 
-include "connect.php";
+include "../connect.php";
 
 
 
@@ -18,10 +18,10 @@ $result = mysqli_query($connect, $sql);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
     <link rel="stylesheet" href="/path/to/flickity.css" media="screen">
-    <link rel="stylesheet" href="./main.css">
+    <link rel="stylesheet" href="../main.css">
     <title>HousePlantEcom</title>
 </head>
 
@@ -58,21 +58,21 @@ $result = mysqli_query($connect, $sql);
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img class="d-block w-100" src="./img/cat1.jpg" alt="">
+                <img class="d-block w-100" src="../img/cat1.jpg" alt="">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>แมว1</h5>
                     <p>น้อนแมว</p>
                 </div>
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="./img/cat2.jpg" alt="">
+                <img class="d-block w-100" src="../img/cat2.jpg" alt="">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>แมว2</h5>
                     <p>น้อนแมว</p>
                 </div>
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="./img/cat3.jpg" alt="">
+                <img class="d-block w-100" src="../img/cat3.jpg" alt="">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>แมว3</h5>
                     <p>น้อนแมว</p>
@@ -101,7 +101,7 @@ $result = mysqli_query($connect, $sql);
 
                     <div class="carousel-cell">
                         <div class="card">
-                            <img src="img/พลูด่าง.jpg">
+                            <img src="New folder/img/พลูด่าง.jpg">
                             <div class="card-body">
                                 <p>พลูด่าง</p>
                             </div>
@@ -110,7 +110,7 @@ $result = mysqli_query($connect, $sql);
 
                     <div class="carousel-cell">
                         <div class="card">
-                            <img src="img/พลูด่าง.jpg">
+                            <img src="New folder/img/พลูด่าง.jpg">
                             <div class="card-body">
                                 <p>พลูด่าง</p>
                             </div>
@@ -119,7 +119,7 @@ $result = mysqli_query($connect, $sql);
 
                     <div class="carousel-cell">
                         <div class="card">
-                            <img src="img/พลูด่าง.jpg">
+                            <img src="New folder/img/พลูด่าง.jpg">
                             <div class="card-body">
                                 <p>พลูด่าง</p>
                             </div>
@@ -128,7 +128,7 @@ $result = mysqli_query($connect, $sql);
 
                     <div class="carousel-cell">
                         <div class="card">
-                            <img src="img/พลูด่าง.jpg">
+                            <img src="New folder/img/พลูด่าง.jpg">
                             <div class="card-body">
                                 <p>พลูด่าง</p>
                             </div>
@@ -137,7 +137,7 @@ $result = mysqli_query($connect, $sql);
 
                     <div class="carousel-cell">
                         <div class="card">
-                            <img src="img/พลูด่าง.jpg">
+                            <img src="New folder/img/พลูด่าง.jpg">
                             <div class="card-body">
                                 <p>พลูด่าง</p>
                             </div>
@@ -146,7 +146,7 @@ $result = mysqli_query($connect, $sql);
 
                     <div class="carousel-cell">
                         <div class="card">
-                            <img src="img/พลูด่าง.jpg">
+                            <img src="New folder/img/พลูด่าง.jpg">
                             <div class="card-body">
                                 <p>พลูด่าง</p>
                             </div>
@@ -155,7 +155,7 @@ $result = mysqli_query($connect, $sql);
 
                     <div class="carousel-cell">
                         <div class="card">
-                            <img src="img/พลูด่าง.jpg">
+                            <img src="New folder/img/พลูด่าง.jpg">
                             <div class="card-body">
                                 <p>พลูด่าง</p>
                             </div>
@@ -195,8 +195,8 @@ $result = mysqli_query($connect, $sql);
             <?php while ($row = $result->fetch_assoc()) : ?>
                 <div class="col-lg-4 p-4">
                     <div class="card">
-                        <a href='product-test.php?product_id=<?php echo $row['product_id'];?>'>
-                            <img src="admin/images_product/<?php echo $row['image']; ?>" class="card-img-top p-4" alt="...">
+                        <a href='../product-test.php?product_id=<?php echo $row['product_id'];?>'>
+                            <img src="../admin/images_product/<?php echo $row['image']; ?>" class="card-img-top p-4" alt="...">
                         </a>
                         <div class="card-body">
                             <p class="plant-name h3 pb-3"><?php echo $row['product_name']; ?></p>
@@ -214,7 +214,7 @@ $result = mysqli_query($connect, $sql);
         <p>This is a fucking FOOTER.</p>
     </div>
 </body>
-<script src="bootstrap/js/bootstrap.min.js"></script>
+<script src="../bootstrap/js/bootstrap.min.js"></script>
 <script src="/path/to/flickity.pkgd.min.js"></script>
 <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 
