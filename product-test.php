@@ -112,7 +112,9 @@ $rowimg = mysqli_num_rows($result2);
             </a>
           </div>
         </div>
-
+        <div class="col-12 col-sm-6 px-2">
+          
+        </div>
         <?php while ($row = mysqli_fetch_assoc($result)) : ?>
           <div class="box-product">
             <div class="detail-product">
