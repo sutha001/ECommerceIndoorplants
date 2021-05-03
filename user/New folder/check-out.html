@@ -6,27 +6,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="css\check.css">
-  <link rel="stylesheet" href="main.css">
-  <title>Lab07</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&family=Taviraj&display=swap" rel="stylesheet">
+  
+  <title>Check out</title>
 </head>
 
-<body>
-  <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+<body style="font-family: 'Taviraj', serif; background-color: whitesmoke;">
+  <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container-fluid">
-      <a class="navbar-brand px-5" href="index.html">LOGO</a>
+      <a class="navbar-brand px-4" href="./index.html">
+        <div style="width:100px; cursor: pointer;"><img src="./img/Ser.png" width="100%"></div>
+      </a>
       <button class="navbar-toggler" data-bs-target="#menu" data-bs-toggle="collapse">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="navbar-collapse collapse" id="menu">
+      <div class="navbar-collapse collapse" id="menu" style="font-family: 'Source Sans Pro', sans-serif;">
         <ul class="navbar-nav ms-auto">
-          <li class="navbar-item px-4">
-            <a href="" class="nav-link">Account</a>
+          <li class="navbar-item px-5">
+            <a href="cart.html" class="nav">Cart</a>
           </li>
-          <li class="navbar-item px-4">
-            <a href="cart.html" class="nav-link">Cart</a>
+          <li class="navbar-item px-5">
+            <a href="html.html" class="nav">Checkout</a>
           </li>
-          <li class="navbar-item px-4">
-            <a href="check-out.html" class="nav-link">Checkout</a>
+          <li class="navbar-item px-5">
+            <a href="" class="nav" >Account</a>
           </li>
         </ul>
       </div>
@@ -35,57 +39,120 @@
   </nav>
   <!--Adress and place order-->
   <div style="margin-top: 3%;">
-    <h1 style="text-align: center;">Check out</h1>
+    <h1 style="text-align: center; font-family: 'Source Sans Pro', sans-serif; font-size:50px; margin-bottom: 20px;">Check out</h1>
   </div>
 
   <div class="container">
     <div class="row">
-
-      <div class="col-md-12 col-lg-6 mt-5">
-       <div class="box-check">
-       <div class="box-adress"style="display: flex;flex-direction:column;">
-        <h1 style="font-size:24px;margin-top: 3%;text-align:center;width: 100%;height:10%;display: block;">ADDRESS
-          </h1>
-        <p style="padding-left: 3%;font-size:20px;line-height: 28pt;margin-top: 3%;">
-        พพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพ
-        พพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพ
-        พพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพ
-        พพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพ
-        พพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพพ
-      </p>
-        </div>    
-       </div>
-     </div>
-
-     <div class="col-md-12 col-lg-6 mt-5">
-       <div class="box-check">
-        <div class="your-order" style="display: flex;flex-direction:column;">
-          <h1 style="font-size:24px;text-align:center;width: 100%;height:10%;display: block;margin-top: 3%;">YOUR ORDER
-          </h1>
+      <div class="col-12 d-flex">
+        <div class="col-12 col-md-6">
+          <div class="box-address">
+            <h2 style="text-align: center;">กรอกที่อยู่สำหรับจัดส่ง</h2>
+            <form>
+              <div class="row">
+                <div class="col px-4 py-2">
+                  <label>ชื่อจริง : </label>
+                  <input type="text" class="form-control" placeholder="First name">
+                </div>
+                <div class="col px-4 py-2">
+                  <label>นามสกุล : </label>
+                  <input type="text" class="form-control" placeholder="Last name">
+                </div>
+              </div>
+            </form>
+            <form>
+              <div class="row">
+                <div class="col px-4 py-2">
+                  <label>Email : </label>
+                  <input type="text" class="form-control" placeholder="Email address">
+                </div>
+                <div class="col px-4 py-2">
+                  <label>เบอร์โทรศัพท์ : </label>
+                  <input type="text" class="form-control" placeholder="Phone number">
+                </div>
+              </div>
+            </form>
+            <form>
+              <div class="row">
+                <div class="col px-4 py-4">
+                  <label>ที่อยู่ : </label>
+                  <div><textarea style="width: 100%;"></textarea></div>
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
-        <div class="empty-order-detail"></div>
-        <div class="box-place-order">
-          <div class="place-order">
-            <input type="button" class="button" value="PLACE ORDER">
+        <div class="col-12 col-md-6">
+          <div class="box-order">
+            <h2 style="text-align: center;">รายการของคุณ</h2>
+            <div style="margin: 50px; padding-bottom: 20px;">
+              <table class="table table-border-bottom">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">ชื่อสินค้า</th>
+                    <th scope="col">จำนวนสินค้า</th>
+                    <th scope="col">ราคา</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>ต้น</td>
+                    <td>จำนวน</td>
+                    <td>ราคา</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p style="text-align: right; font-size: 20px;"><span style="font-weight: bold;">ราคารวมทั้งสิ้น</span> : 150 บาท</p>
+            </div>
+          </div>
+          <div style ="display: flex; justify-content: center;">
+            <input type="button" class="btn btn-primary btn-lg" style="width: 40%;font-family: 'Taviraj', serif;" value="ชำระเงิน">
+          </div>
+          <div style ="text-align: center; margin-top: 5%; background-color: red;">
+            กล่องนี้จะขึ้นหลังจากกดชำระเงิน
+            <p>ชื่อบัญชี : นาย สุธา บินกามิตร์ <span style="padding-left: 20px;">เลขที่บัญชี : x-xxxxxxxxxxx</span></p>
+            <p>หมายเลข order ของคุณ : xxxxxx <span style="padding-left: 20px;">จำนวนเงินที่ต้องชำระ : xx บาท</span></p>
           </div>
         </div>
       </div>
-     </div>
-
-    
-
     </div>
   </div>
 
   <hr style="margin-top:3%;width:80%;margin-left: auto;border: solid;margin-right: auto;">
 
   <!--Order confirmation-->
-  <div style="margin-top: 3%;">
+  <div class="container" style="height: auto;">
+    <div class="row justify-content-center">
+      <h2 style="text-align: center; font-family: 'Source Sans Pro', sans-serif;">Order Confirmation</h2>
+      <div class="col-3" style="text-align: center;">
+        <p>หมายเลข Order</p>
+        <input type="text" id="fname" name="fname" placeholder="#125"style="width: 50%;">
+      </div>
+      <div class="col-3" style="text-align: center;">
+        <p>สลิปการชำระเงิน</p>
+        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+      </div>
+      <div class="w-100"></div>
+      <div class="col-6 py-3" style="text-align: center;">
+        <input type="button" class="btn btn-primary btn-lg" style="width: 40%;font-family: 'Taviraj', serif; margin-top: 20px;" value="ยืนยัน">
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+  <!--<div style="margin-top: 3%;">
     <h1 style="text-align: center;">ORDER CONFIRMATION</h1>
   </div>
 
   <div class="box-order-confirm" style="display: flex;flex-direction:row;margin-top: 3%;">
-    <div class="empty"></div>
 
     <div class="box-order-slip" style="display: flex;flex-direction:row;">
 
@@ -94,7 +161,7 @@
           <p style="font-size:24px;">Order Number</p>
         </div>
         <div class="text-box-order-number">
-          <input type="text" id="fname" name="fname" style="width: 90%;height: 100%;">
+          <input type="text" id="fname" name="fname" placeholder="#125"style="width: 50%;">
         </div>
       </div>
 
@@ -103,16 +170,14 @@
           <p style="font-size:24px;">Tranfer Slip</p>
         </div>
         <div class="text-box-tranfer-slip">
-          <button class="button" style="text-align:left;width: 90%;">Browse..</button>
+          <input type="file" class="form-control-file" id="exampleFormControlFile1">
         </div>
       </div>
-    </div>
+    </div>-->
       
-    <div class="empty"></div>
-  </div>
 
   <div class="footer d-flex flex-column" style="margin-top: 3%;">
-    <p>This is a fucking FOOTER.</p>
+    <p style="font-family: 'Source Sans Pro', sans-serif;">This is a fucking FOOTER.</p>
   </div>
     
 </body>
