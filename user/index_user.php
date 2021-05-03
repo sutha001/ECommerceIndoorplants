@@ -7,7 +7,8 @@ if (!isset($_SESSION['username'])) {
     header('location: ../login.php');
 }
 
-$sql = "SELECT * FROM product";
+$sql = "SELECT * FROM product 
+natural join product_type";
 
 $result = mysqli_query($connect, $sql);
 

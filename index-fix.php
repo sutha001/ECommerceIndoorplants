@@ -2,7 +2,7 @@
 
 include "connect.php";
 
-
+session_start();
 
 
 $sql = "SELECT * FROM product";
@@ -179,6 +179,7 @@ $result = mysqli_query($connect, $sql);
       </div>
 
     <?php while ($row = $result->fetch_assoc()) : ?>
+      <?php echo $row['product_id'];?>
       <div class="col-lg-4 p-4">
         <div class="carditem card">
           <a href='product.php?product_id=<?php echo $row['product_id'];?>'>
@@ -187,7 +188,7 @@ $result = mysqli_query($connect, $sql);
           <div class="card-body">
             <p class="plant-name h3 pb-3"><?php echo $row['product_name']; ?></p>
             <p>ราคา : <?php echo $row['price']; ?> บาท</p>
-            <button class="btn btn-primary btn-lg" style="text-align: center;" type="AddtoCart">ใส่ลงตะกร้า</button>
+            <a class="btn btn-primary btn-lg" style="text-align: center;" href='cart-tung.php?product_id=<?php echo $row['product_id']; ?>&act=add' >ใส่ลงตะกร้า</a>
           </div>
         </div>
       </div>
