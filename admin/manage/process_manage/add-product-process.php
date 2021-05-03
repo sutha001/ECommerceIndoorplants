@@ -7,7 +7,12 @@
 if (isset($_POST['submit'])) {
 
     $product_name = $_POST['product_name'];
-    $main_image = $_POST['main_image'];
+
+    $main_image_tmp_name = $_FILES['main_image']['tmp_name'];
+    $main_image_type = $_FILES['main_image']['type'];
+    $main_image_name = "../../images_product/" . $_FILES['main_image']['name'];
+    $main_image_filename = $_FILES['main_image']['name'];
+
     $description = $_POST['description'];
     $property = $_POST['property'];
     $care = $_POST['care'];
@@ -15,96 +20,89 @@ if (isset($_POST['submit'])) {
     $type_name = $_POST['type_name'];
     $amount = $_POST['amount'];
 
+    $type_id = "";
+    $product_id_image = "";
 
-    $date = date("U");
-    // สร้าเลข 10 หลักมาจากเวลาเพื่อนำไปเป็นชื่อรูปภาพ
-    if ($main_image != "") {
-        $type = getimagesize($main_image);            // หาประเภทของรูปภาพ
-        if ($type[2] == 1) {
-            $image = $date . "_img.gif";          // เมื่อรูปเป็น .gif
-        } else if ($type[2] == 2) {
-            $image = $date . "_img.jpg";         // เมื่อรูปเป็น .jpg
-        } else {
-            $image = $date . "_img.bmp";      // เมื่อรูปเป็น .bmp
-        }
-        copy($main_image, "../images_product/$image");           // copy รูปไว้ในโฟลเดอร์ image
-        chmod("../images_product/$image", 0777);
+
+    if (is_uploaded_file($main_image_tmp_name)) {
+        copy($main_image_tmp_name, $main_image_name);
     }
 
-    $sql2 = "INSERT INTO product_type (type_name) 
-    VALUES('$type_name')";
-    $result = mysqli_query($connect, $sql2);
+    $type_sql = "SELECT type_id FROM product_type WHERE type_name like '%$type_name%'";
+    $result = mysqli_query($connect, $type_sql);
 
-    $row = $result -> fetch_assoc();
+    while ($row = mysqli_fetch_assoc($result)) {
 
-    $select_type_name_id = "SELECT max(type_id) as type_id FROM product_type";
-    $type_name_id = mysqli_query($connect, $sql2);
-    $ty_id = $row['type_id'];
+        $type_id = $row['type_id'];
+    }
+
+
 
     $sql = "INSERT INTO product (product_name, price,image,description,property,care,type_id,amount) 
-            VALUES('$product_name',$price,'$main_image','$description','$property','$care',$ty_id,$amount)";
+        VALUES('$product_name',$price,'$main_image_filename','$description','$property','$care',$type_id,$amount)";
     mysqli_query($connect, $sql);
 
-    $image1s = $_POST['image1'];
-    $date1 = date("U");
-    // สร้าเลข 10 หลักมาจากเวลาเพื่อนำไปเป็นชื่อรูปภาพ
-    if ($image1s != "") {
-        $type1 = getimagesize($image1s);            // หาประเภทของรูปภาพ
-        if ($type1[2] == 1) {
-            $image1 = $date1 . "_img.gif";          // เมื่อรูปเป็น .gif
-        } else if ($type1[2] == 2) {
-            $image1 = $date1 . "_img.jpg";         // เมื่อรูปเป็น .jpg
-        } else {
-            $image1 = $date1 . "_img.bmp";      // เมื่อรูปเป็น .bmp
-        }
-        copy($image1s, "../images_product/$image1");           // copy รูปไว้ในโฟลเดอร์ image
-        chmod("../images_product/$image1", 0777);
 
 
-        $sql3 = "INSERT INTO images_product (image_orther) 
-    VALUES('$image1s')";
-        mysqli_query($connect, $sql3);
+    $proid = "SELECT max(product_id) as product_id  FROM product";
+    $result_pro_id = mysqli_query($connect, $proid);
+
+    while ($row = mysqli_fetch_assoc($result_pro_id)) {
+        $product_id_image = $row['product_id'];
     }
 
-    $image2s = $_POST['image2'];
-    $date2 = date("U");
-    // สร้าเลข 10 หลักมาจากเวลาเพื่อนำไปเป็นชื่อรูปภาพ
-    if ($image2s != "") {
-        $type2 = getimagesize($image2s);            // หาประเภทของรูปภาพ
-        if ($type2[2] == 1) {
-            $image2 = $date2 . "_img.gif";          // เมื่อรูปเป็น .gif
-        } else if ($type2[2] == 2) {
-            $image2 = $date2 . "_img.jpg";         // เมื่อรูปเป็น .jpg
-        } else {
-            $image2 = $date2 . "_img.bmp";      // เมื่อรูปเป็น .bmp
-        }
-        copy($image2s, "../images_product/$image2");           // copy รูปไว้ในโฟลเดอร์ image2
-        chmod("../images_product/$image2", 0777);
 
-        $sql4 = "INSERT INTO images_product (image_orther) 
-    VALUES('$image2s')";
-        mysqli_query($connect, $sql4);
+
+
+    //image รองต่างๆ
+
+    $main_image_tmp_name1 = $_FILES['image1']['tmp_name'];
+    $main_image_type1 = $_FILES['image1']['type'];
+    $main_image_name1 = "../../images_product/" . $_FILES['image1']['name'];
+    $main_image_filename1 = $_FILES['image1']['name'];
+
+    if ($main_image_filename1 != "") {
+        if (is_uploaded_file($main_image_tmp_name1)) {
+            copy($main_image_tmp_name1, $main_image_name1);
+        }
+        $sqlimg1 = "INSERT INTO images_product (product_id, image_orther) 
+        VALUES($product_id_image,'$main_image_filename1')";
+        mysqli_query($connect, $sqlimg1);
     }
 
-    $image3s = $_POST['image3'];
-    $date3 = date("U");
-    // สร้าเลข 10 หลักมาจากเวลาเพื่อนำไปเป็นชื่อรูปภาพ
-    if ($image3s != "") {
-        $type3 = getimagesize($image3s);            // หาประเภทของรูปภาพ
-        if ($type3[2] == 1) {
-            $image3 = $date3 . "_img.gif";          // เมื่อรูปเป็น .gif
-        } else if ($type3[2] == 2) {
-            $image3 = $date3 . "_img.jpg";         // เมื่อรูปเป็น .jpg
-        } else {
-            $image3 = $date3 . "_img.bmp";      // เมื่อรูปเป็น .bmp
-        }
-        copy($image3s, "../images_product/$image3");           // copy รูปไว้ในโฟลเดอร์ image
-        chmod("../images_product/$image3", 0777);
 
-        $sql5 = "INSERT INTO images_product (image_orther) 
-    VALUES('$image3s')";
-        mysqli_query($connect, $sql5);
+    $main_image_tmp_name2 = $_FILES['image2']['tmp_name'];
+    $main_image_type2 = $_FILES['image2']['type'];
+    $main_image_name2 = "../../images_product/" . $_FILES['image2']['name'];
+    $main_image_filename2 = $_FILES['image2']['name'];
+
+    if ($main_image_filename2 != "") {
+        if (is_uploaded_file($main_image_tmp_name2)) {
+            copy($main_image_tmp_name2, $main_image_name2);
+        }
+        $sqlimg2 = "INSERT INTO images_product (product_id, image_orther) 
+        VALUES($product_id_image,'$main_image_filename2')";
+        mysqli_query($connect, $sqlimg2);
     }
+
+    $main_image_tmp_name3 = $_FILES['image3']['tmp_name'];
+    $main_image_type3 = $_FILES['image3']['type'];
+    $main_image_name3 = "../../images_product/" . $_FILES['image3']['name'];
+    $main_image_filename3 = $_FILES['image3']['name'];
+    if ($main_image_filename3 != "") {
+        if (is_uploaded_file($main_image_tmp_name3)) {
+            copy($main_image_tmp_name3, $main_image_name3);
+        }
+        $sqlimg3 = "INSERT INTO images_product (product_id, image_orther) 
+        VALUES($product_id_image,'$main_image_filename3')";
+        mysqli_query($connect, $sqlimg3);
+    }
+
+
+
+
+
+
     echo "<script type='text/javascript'>";
     echo "alert('เพิ่มสินค้าสำเร็จ');";
     echo "</script>";
