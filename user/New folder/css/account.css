@@ -1,0 +1,49 @@
+input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin-top:auto;
+  margin-bottom: auto;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  background-color: #f8f8f8;
+  color: black;
+}
+textarea {
+  width: 100%;
+  height: 150px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-size: 16px;
+  resize: none;
+}
+.pic-profile{
+	width:300px;
+	height: 300px;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	border: solid;
+}
+.box-profile-detail{
+	width:80%;
+	height:800px;
+	margin-left: auto;
+	margin-right: auto;
+	display: flex;
+	margin-top: 3%;
+	flex-direction:column;
+}
+.profile-detail{
+	flex:1;
+	display: flex;
+	flex-direction:row;
+}
+.text-username{
+	flex: 1;
+}
+.profile-username{
+	flex:1.5;
+}
