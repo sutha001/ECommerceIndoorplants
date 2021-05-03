@@ -1,3 +1,17 @@
+<?php
+
+include "connect.php";
+
+
+
+
+$sql = "SELECT * FROM product";
+$result = mysqli_query($connect, $sql);
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,8 +31,8 @@
         <div class="container-fluid">
             <a class="navbar-brand px-5" href="#">LOGO</a>
             <button class="navbar-toggler" data-bs-target="#menu" data-bs-toggle="collapse">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="navbar-collapse collapse" id="menu">
                 <ul class="navbar-nav ms-auto">
                     <li class="navbar-item px-4">
@@ -178,95 +192,21 @@
                 </div>
             </div>
 
-            <div class="col-lg-4 p-4">
-                <div class="card">
-                    <img src="img/พลูด่าง.jpg" class="card-img-top p-4" alt="...">
-                    <div class="card-body">
-                        <p class="plant-name h3 pb-3">พลูด่าง</p>
-                        <button class="btn btn-primary btn-lg" style="text-align: center;" type="AddtoCart">Add to cart</button>
+            <?php while ($row = $result->fetch_assoc()) : ?>
+                <div class="col-lg-4 p-4">
+                    <div class="card">
+                        <a href='product-test.php?product_id=<?php echo $row['product_id'];?>'>
+                            <img src="admin/images_product/<?php echo $row['image']; ?>" class="card-img-top p-4" alt="...">
+                        </a>
+                        <div class="card-body">
+                            <p class="plant-name h3 pb-3"><?php echo $row['product_name']; ?></p>
+                            <button class="btn btn-primary btn-lg" style="text-align: center;" type="AddtoCart">Add to cart</button>
+                        </div>
                     </div>
                 </div>
-            </div>
+            <?php endwhile ?>
 
-            <div class="col-lg-4 p-4">
-                <div class="card">
-                    <img src="img/พลูด่าง.jpg" class="card-img-top p-4" alt="...">
-                    <div class="card-body">
-                        <p class="plant-name h3 pb-3">พลูด่าง</p>
-                        <button class="btn btn-primary btn-lg" style="text-align: center;" type="AddtoCart">Add to cart</button>
-                    </div>
-                </div>
-            </div>
 
-            <div class="col-lg-4 p-4">
-                <div class="card">
-                    <img src="img/พลูด่าง.jpg" class="card-img-top p-4" alt="...">
-                    <div class="card-body">
-                        <p class="plant-name h3 pb-3">พลูด่าง</p>
-                        <button class="btn btn-primary btn-lg" style="text-align: center;" type="AddtoCart">Add to cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 p-4">
-                <div class="card">
-                    <img src="img/พลูด่าง.jpg" class="card-img-top p-4" alt="...">
-                    <div class="card-body">
-                        <p class="plant-name h3 pb-3">พลูด่าง</p>
-                        <button class="btn btn-primary btn-lg" style="text-align: center;" type="AddtoCart">Add to cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 p-4">
-                <div class="card">
-                    <img src="img/พลูด่าง.jpg" class="card-img-top p-4" alt="...">
-                    <div class="card-body">
-                        <p class="plant-name h3 pb-3">พลูด่าง</p>
-                        <button class="btn btn-primary btn-lg" style="text-align: center;" type="AddtoCart">Add to cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 p-4">
-                <div class="card">
-                    <img src="img/พลูด่าง.jpg" class="card-img-top p-4" alt="...">
-                    <div class="card-body">
-                        <p class="plant-name h3 pb-3">พลูด่าง</p>
-                        <button class="btn btn-primary btn-lg" style="text-align: center;" type="AddtoCart">Add to cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 p-4">
-                <div class="card">
-                    <img src="img/พลูด่าง.jpg" class="card-img-top p-4" alt="...">
-                    <div class="card-body">
-                        <p class="plant-name h3 pb-3">พลูด่าง</p>
-                        <button class="btn btn-primary btn-lg" style="text-align: center;" type="AddtoCart">Add to cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 p-4">
-                <div class="card">
-                    <img src="img/พลูด่าง.jpg" class="card-img-top p-4" alt="...">
-                    <div class="card-body">
-                        <p class="plant-name h3 pb-3">พลูด่าง</p>
-                        <button class="btn btn-primary btn-lg" style="text-align: center;" type="AddtoCart">Add to cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 p-4">
-                <div class="card">
-                    <img src="img/พลูด่าง.jpg" class="card-img-top p-4" alt="...">
-                    <div class="card-body">
-                        <p class="plant-name h3 pb-3">พลูด่าง</p>
-                        <button class="btn btn-primary btn-lg" style="text-align: center;" type="AddtoCart">Add to cart</button>
-                    </div>
-                </div>
-            </div>
 
         </div>
     </div>
