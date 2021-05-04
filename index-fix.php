@@ -8,7 +8,9 @@ session_start();
 $sql = "SELECT * FROM product";
 $result = mysqli_query($connect, $sql);
 
-$sql_new_product = "SELECT product_id, image, product_name FROM product ORDER BY product_id ASC";
+$sql_new_product = "SELECT product_id, image, product_name 
+FROM product 
+ORDER BY product_id ASC";
 
 $result_product = mysqli_query($connect, $sql_new_product);
 
@@ -110,7 +112,7 @@ $i = 0;
           <?php while ($row = $result_product->fetch_assoc()) : ?>
             <div class="carousel-cell">
               <div class="card">
-                <img src="../admin/images_product/<?php echo $row['image']; ?>">
+                <img src="admin/images_product/<?php echo $row['image']; ?>">
                 <div class="card-body">
                   <p><?php echo $row['product_name']; ?></p>
                 </div>
@@ -165,11 +167,12 @@ $i = 0;
               <p class="plant-name h3 pb-3"><?php echo $row['product_name']; ?></p>
               <p>ราคา : <?php echo $row['price']; ?> บาท</p>
               <?php
-
               if ($row['amount'] == 0) {
-                echo '<a  style="text-align: center; margin:32%; font-size:1.8vw; color:red;" type="AddtoCart" >สินค้าหมด</a>';
-              } else {
-                echo '<a class="btn btn-primary btn-lg" style="text-align: center;" type="AddtoCart" href="cart_user.php?product_id=' . $row['product_id'] . '?>&act=add">ใส่ลงตะกร้า</a>';
+                echo '<a  style="text-align: center; margin:32%; font-size:1.8vw; color:red;" type="AddtoCart">สินค้าหมด</a>';
+              } else { ?>
+                <a class="btn btn-primary btn-lg" style="text-align: center;" type="AddtoCart" href="cart-tung.php?product_id=<?php echo $row['product_id'];?>&act=add">ใส่ลงตะกร้า</a>
+
+                <?php
               }
               ?>
             </div>

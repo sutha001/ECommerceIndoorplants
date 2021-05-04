@@ -18,8 +18,6 @@ $result_product = mysqli_query($connect, $sql_new_product);
 
 $i = 0;
 
-
-
 ?>
 
 <!DOCTYPE html>
@@ -180,12 +178,12 @@ $i = 0;
                                 <p class="plant-name h3 pb-3"><?php echo $row['product_name']; ?></p>
                                 <p>ราคา : <?php echo $row['price']; ?></p>
                                 <?php 
-    
+                                $product_id = $row['product_id'];
                                 if($row['amount'] == 0){
                                     echo '<a  style="text-align: center; margin:32%; font-size:1.8vw; color:red;" type="AddtoCart" >สินค้าหมด</a>';
                                 }
                                 else{
-                                    echo '<a class="btn btn-primary btn-lg" style="text-align: center;" type="AddtoCart" href="cart_user.php?product_id=' . $row['product_id'] .'?>&act=add">ใส่ลงตะกร้า</a>';
+                                    echo "<a class='btn btn-primary btn-lg' style='text-align: center;' type='AddtoCart' href='cart_user.php?product_id=$product_id&act=add'>ใส่ลงตะกร้า</a>";
                                 }
                                 ?>
                             </div>

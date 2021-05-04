@@ -100,7 +100,7 @@ if ($act == 'update') {
                             if (!empty($_SESSION['cart'])) {
                                 include("../connect.php");
                                 foreach ($_SESSION['cart'] as $product_id => $qty) {
-                                    $sql = "SELECT * from product where product_id = $product_id ";
+                                    $sql = "SELECT * FROM product WHERE product_id = $product_id ";
                                     $query = mysqli_query($connect, $sql) or die(mysqli_error($connect) . ":" . $sql);
                                     $row = mysqli_fetch_array($query);
                                     $sum = $row['price'] * $qty;
