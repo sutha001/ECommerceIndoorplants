@@ -11,6 +11,9 @@ WHERE product_id = $product_id";
 
 $result = mysqli_query($connect, $sql) or die(mysqli_error($connect) . ":" . $sql);
 
+$sql_new_product = "SELECT product_id, image, product_name FROM product ORDER BY product_id ASC";
+$result_product = mysqli_query($connect, $sql_new_product);
+
 $sqlimg = "SELECT image_orther FROM images_product WHERE product_id = $product_id";
 $result2 = mysqli_query($connect, $sqlimg) or die(mysqli_error($connect) . ":" . $sqlimg);
 
@@ -39,7 +42,7 @@ $rowimg = mysqli_num_rows($result2);
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
             <a class="navbar-brand px-4" href="index_user.php">
-                <div style="width:100px; cursor: pointer;"><img src="img/Ser.png" width="100%"></div>
+                <div style="width:100px; cursor: pointer;"><img src="user/New folder/img/Ser.png" width="100%"></div>
             </a>
             <button class="navbar-toggler" data-bs-target="#menu" data-bs-toggle="collapse">
                 <span class="navbar-toggler-icon"></span>
@@ -130,8 +133,23 @@ $rowimg = mysqli_num_rows($result2);
                                 <div class="empty-quantity" style="flex:1;"></div>
                                 <div class="text-box-quantity-product" style="display: flex; flex-direction: row; justify-content: center;">
                                     <a style="display: flex; align-items: center; font-family: 'Taviraj', serif;">จำนวน (ชิ้น) </a>&ensp;<input type="number" min="1" id="fname" name="fname" style="width: 10%;">
-                                    <input type="button" class="btn btn-primary" style="width: 30%; margin-left: 20px; margin-right: 5px;font-family: 'Taviraj', serif;" value="ใส่ลงตะกร้า">
-                                    <input type="button" class="btn btn-primary" style="width: 30%; margin-left: 5px; margin-right: 5px;font-family: 'Taviraj', serif;" value="ซื้อเลย">
+
+            <?php
+
+              if ($row['amount'] == 0) {
+                echo '<a  style="text-align: center; margin:32%; font-size:1.8vw; color:red;" type="AddtoCart" >สินค้าหมด</a>';
+              } else {
+                echo '<a class="btn btn-primary btn-lg" style="width: 30%; margin-left: 20px; margin-right: 5px;" type="AddtoCart" href="cart_user.php?product_id=' . $row['product_id'] . '?>&act=add">ใส่ลงตะกร้า</a>';
+              }
+              ?>
+            <?php
+
+              if ($row['amount'] == 0) {
+                echo '<a  style="text-align: center; margin:32%; font-size:1.8vw; color:red;" type="AddtoCart" >สินค้าหมด</a>';
+              } else {
+                echo '<a class="btn btn-primary btn-lg" style="width: 30%; margin-left: 5px; margin-right: 5px;" type="AddtoCart" href="cart_user.php?product_id=' . $row['product_id'] . '?>&act=add">ซื้อเลย</a>';
+              }
+              ?>
                                 </div>
                                 <div class="empty-quantity" style="flex:1;"></div>
                             </div>
@@ -150,32 +168,24 @@ $rowimg = mysqli_num_rows($result2);
 
                 <div class="main-carousel" data-flickity='{ "cellAlign": "center", "contain": true, "pageDots": false, "draggable": false}'>
 
-                    <div id="related" class="carousel-cell">
-                        <div class="card">
-                            <img src="img/พลูด่าง.jpg">
-                            <div class="card-body">
-                                <p>พลูด่าง</p>
+                    <?php while ($row = $result_product->fetch_assoc()) : ?>
+                        <div class="carousel-cell" style="width:250px;">
+                            <div class="card">
+                                <img src="admin/images_product/<?php echo $row['image']; ?>">
+                                    <div class="card-body">
+                                        <p><?php echo $row['product_name']; ?></p>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
+                    <?php if ($i == 5) {
+                        break;
+                            }
+                        $i++;
 
-                    <div id="related" class="carousel-cell">
-                        <div class="card">
-                            <img src="img/พลูด่าง.jpg">
-                            <div class="card-body">
-                                <p>พลูด่าง</p>
-                            </div>
-                        </div>
-                    </div>
+                            ?>
+            <?php endwhile ?>
 
-                    <div id="related" class="carousel-cell">
-                        <div class="card">
-                            <img src="img/พลูด่าง.jpg">
-                            <div class="card-body">
-                                <p>พลูด่าง</p>
-                            </div>
-                        </div>
-                    </div>
+                    
 
                 </div>
             </div>
