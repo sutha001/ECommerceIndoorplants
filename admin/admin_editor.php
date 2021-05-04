@@ -54,7 +54,7 @@
             <div class="container">
                 <div class="info_right">
                     <h1>การจัดการสินค้า</h1>
-                    <a class="btn btn-dark" style="background-color: #4d4d4d;" href="manage/admin_add_product.php">เพิ่มสินค้าใหม่</a>
+                    <a class="btn btn-dark" style="background-color: #4d4d4d;" href="manage/admin_add_newproduct.php">เพิ่มสินค้าใหม่</a>
                     <hr>
                     <div style="margin: 3% 0%;">
                         <a class="btn btn-dark" style="background-color: #ffffff; color:#1b221b;" href="admin_editor.php">ทั้งหมด</a>

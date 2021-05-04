@@ -149,23 +149,33 @@ include "connect.php";
       <hr style="margin-top:3%;width:80%;margin-left: auto;border: solid;margin-right: auto;">
 
       <!--Order confirmation-->
-      <div class="container" style="height: auto;">
-        <div class="row justify-content-center">
-          <h2 style="text-align: center; font-family: 'Source Sans Pro', sans-serif;">Order Confirmation</h2>
-          <div class="col-3" style="text-align: center;">
-            <p>หมายเลข Order</p>
-            <input type="text" id="fname" name="fname" placeholder="#125" style="width: 50%;">
-          </div>
-          <div class="col-3" style="text-align: center;">
-            <p>สลิปการชำระเงิน</p>
-            <input type="file" class="form-control-file" id="exampleFormControlFile1">
-          </div>
-          <div class="w-100"></div>
-          <div class="col-6 py-3" style="text-align: center;">
-            <input type="button" class="btn btn-primary btn-lg" style="width: 40%;font-family: 'Taviraj', serif; margin-top: 20px;" value="ยืนยัน">
+      <form action="admin/orders/process/payment_process.php" method="POST" enctype=multipart/form-data>
+        <div class="container" style="height: auto;">
+          <div class="row justify-content-center">
+            <h2 style="text-align: center; font-family: 'Source Sans Pro', sans-serif;">Order Confirmation</h2>
+            <div class="col-3" style="text-align: center;">
+              <p>หมายเลข Order</p>
+              <input type="text" id="order_id" name="order_id" placeholder="#125" style="width: 50%;" required>
+            </div>
+            <div class="col-3" style="text-align: center;">
+              <p>จำนวนเงินที่ชำระ</p>
+              <input type="number" id="payment_price" name="payment_price" placeholder="#125" style="width: 50%;" required>
+            </div>
+            <div class="col-3" style="text-align: center;">
+              <p>วันและเวลาที่โอนเงิน</p>
+              <input type="datetime-local" id="datetimes" name="datetimes" placeholder="#125" style="width: 50%;" required>
+            </div>
+            <div class="col-3" style="text-align: center;">
+              <p>สลิปการชำระเงิน</p>
+              <input type="file" name="payment_image" class="form-control-file" id="exampleFormControlFile1" required>
+            </div>
+            <div class="w-100"></div>
+            <div class="col-6 py-3" style="text-align: center;">
+              <input type="submit" class="btn btn-primary btn-lg" style="width: 40%;font-family: 'Taviraj', serif; margin-top: 20px;" name="confirm" value="ยืนยัน">
+            </div>
           </div>
         </div>
-      </div>
+      </form>
 
 
       <?php
@@ -215,7 +225,7 @@ include "connect.php";
           $query3  = mysqli_query($connect, $sql3);
           $row3  = mysqli_fetch_array($query3);
 
-          $sql4  = "INSERT INTO order_detali VALUES($order_id, $product_id)";
+          $sql4  = "INSERT INTO order_detali VALUES($order_id, $product_id,$qty)";
           $query4  = mysqli_query($connect, $sql4);
 
           $sql_amount = "UPDATE product
