@@ -8,6 +8,12 @@ session_start();
 $sql = "SELECT * FROM product";
 $result = mysqli_query($connect, $sql);
 
+$sql_new_product = "SELECT product_id, image, product_name FROM product ORDER BY product_id ASC";
+
+$result_product = mysqli_query($connect, $sql_new_product);
+
+$i = 0;
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -88,7 +94,7 @@ $result = mysqli_query($connect, $sql);
     </a>
   </div>-->
   <div class="head" style="height: auto; display: flex; align-items: center; justify-content: center;">
-    <img src="img/logo.png" width="45%">
+    <img src="user/New folder/img/logo.png" width="45%">
   </div>
   <!--  -->
   <div class="container">
@@ -96,73 +102,27 @@ $result = mysqli_query($connect, $sql);
 
       <div class="bestsell">
         <div>
-          <h1 style="font-family: 'Source Sans Pro', sans-serif;">Best Seller</h1>
+          <h1 style="font-family: 'Source Sans Pro', sans-serif;">สิ้นค้าใหม่</h1>
         </div>
 
         <div class="main-carousel" data-flickity='{ "cellAlign": "center", "contain": true, "pageDots": false, "draggable": false}'>
 
-          <div class="carousel-cell">
-            <div class="card">
-              <img src="img/พลูด่าง.jpg">
-              <div class="card-body">
-                <p>พลูด่าง</p>
+          <?php while ($row = $result_product->fetch_assoc()) : ?>
+            <div class="carousel-cell">
+              <div class="card">
+                <img src="../admin/images_product/<?php echo $row['image']; ?>">
+                <div class="card-body">
+                  <p><?php echo $row['product_name']; ?></p>
+                </div>
               </div>
             </div>
-          </div>
+            <?php if ($i == 5) {
+              break;
+            }
+            $i++;
 
-          <div class="carousel-cell">
-            <div class="card">
-              <img src="img/พลูด่าง.jpg">
-              <div class="card-body">
-                <p>พลูด่าง</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="carousel-cell">
-            <div class="card">
-              <img src="img/พลูด่าง.jpg">
-              <div class="card-body">
-                <p>พลูด่าง</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="carousel-cell">
-            <div class="card">
-              <img src="img/พลูด่าง.jpg">
-              <div class="card-body">
-                <p>พลูด่าง</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="carousel-cell">
-            <div class="card">
-              <img src="img/พลูด่าง.jpg">
-              <div class="card-body">
-                <p>พลูด่าง</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="carousel-cell">
-            <div class="card">
-              <img src="img/พลูด่าง.jpg">
-              <div class="card-body">
-                <p>พลูด่าง</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="carousel-cell">
-            <div class="card">
-              <img src="img/พลูด่าง.jpg">
-              <div class="card-body">
-                <p>พลูด่าง</p>
-              </div>
-            </div>
-          </div>
+            ?>
+          <?php endwhile ?>
 
 
         </div>
