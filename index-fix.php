@@ -18,7 +18,7 @@ $result = mysqli_query($connect, $sql);
   <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
   <link rel="stylesheet" href="/path/to/flickity.css" media="screen">
-  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="user/New folder/main.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&family=Taviraj&display=swap" rel="stylesheet">
   <title>HousePlantEcom</title>
