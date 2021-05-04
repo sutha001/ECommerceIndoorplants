@@ -58,7 +58,7 @@ $resultid = mysqli_query($connect, $sql_userid) or die(mysqli_error($connect) . 
               <a href="account.php" class="nav">Account</a>
             </li>
             <li class="navbar-item px-5">
-              <a href="process/logout-process.php" class="nav">log out</a>
+              <a href="user/process/logout-process.php" class="nav">log out</a>
             </li>
           </ul>
         </div>
