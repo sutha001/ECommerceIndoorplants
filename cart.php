@@ -117,7 +117,7 @@ if ($act == 'update') {
             }
             ?>
             <tr>
-              <td><a href="index-fix.php">กลับหน้ารายการสินค้า</a></td>
+              <td><a href="index.php">กลับหน้ารายการสินค้า</a></td>
               <td colspan="4" align="right">
                 <input type="submit" name="button" id="button" value="ปรับปรุง" />
                 <input type="button" name="Submit2" value="สั่งซื้อ" onclick="window.location='check-out.php';" />

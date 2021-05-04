@@ -132,14 +132,14 @@ $rowimg = mysqli_num_rows($result2);
                             <div class="quantity-product" style="display: flex;flex-direction:column;">
                                 <div class="empty-quantity" style="flex:1;"></div>
                                 <div class="text-box-quantity-product" style="display: flex; flex-direction: row; justify-content: center;">
-                                    <a style="display: flex; align-items: center; font-family: 'Taviraj', serif;">จำนวน (ชิ้น) </a>&ensp;<input type="number" min="1" id="fname" name="fname" style="width: 10%;">
+                                    <a style="display: flex; align-items: center; font-family: 'Taviraj', serif;">จำนวนสินค้าในสต๊อก</a>&ensp;<input readonly="" type="number" min="1" id="fname" name="fname" style="width: 10%;" value = <?= $row['amount'];?>>
 
             <?php
 
               if ($row['amount'] == 0) {
                 echo '<a  style="text-align: center; margin:32%; font-size:1.8vw; color:red;" type="AddtoCart" >สินค้าหมด</a>';
               } else {
-                echo '<a class="btn btn-primary btn-lg" style="width: 30%; margin-left: 20px; margin-right: 5px;" type="AddtoCart" href="cart_user.php?product_id=' . $row['product_id'] . '?>&act=add">ใส่ลงตะกร้า</a>';
+                echo "<a class='btn btn-primary btn-lg' style='width: 30%; margin-left: 20px; margin-right: 5px;' type='AddtoCart' href='cart.php?product_id=$product_id&act=add'>ใส่ลงตะกร้า</a>";
               }
               ?>
             <?php
@@ -147,7 +147,7 @@ $rowimg = mysqli_num_rows($result2);
               if ($row['amount'] == 0) {
                 echo '<a  style="text-align: center; margin:32%; font-size:1.8vw; color:red;" type="AddtoCart" >สินค้าหมด</a>';
               } else {
-                echo '<a class="btn btn-primary btn-lg" style="width: 30%; margin-left: 5px; margin-right: 5px;" type="AddtoCart" href="cart_user.php?product_id=' . $row['product_id'] . '?>&act=add">ซื้อเลย</a>';
+                echo "<a class='btn btn-primary btn-lg' style='width: 30%; margin-left: 20px; margin-right: 5px;' type='AddtoCart' href='cart.php?product_id=$product_id&act=add'>ใส่ลงตะกร้า</a>";
               }
               ?>
                                 </div>

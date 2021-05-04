@@ -21,7 +21,7 @@ include "connect.php";
 <body style="font-family: 'Taviraj', serif; background-color: whitesmoke;">
   <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container-fluid">
-      <a class="navbar-brand px-4" href="./index.html">
+      <a class="navbar-brand px-4" href="index.php">
         <div style="width:100px; cursor: pointer;"><img src="./user/New folder/img/Ser.png" width="100%"></div>
       </a>
       <button class="navbar-toggler" data-bs-target="#menu" data-bs-toggle="collapse">
@@ -30,7 +30,7 @@ include "connect.php";
       <div class="navbar-collapse collapse" id="menu" style="font-family: 'Source Sans Pro', sans-serif;">
         <ul class="navbar-nav ms-auto">
           <li class="navbar-item px-5">
-            <a href="cart-tung.php" class="nav">Cart</a>
+            <a href="cart.php" class="nav">Cart</a>
           </li>
           <li class="navbar-item px-5">
             <a href="check-out.php" class="nav">Checkout</a>

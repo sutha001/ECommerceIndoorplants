@@ -35,7 +35,7 @@ $i = 0;
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container-fluid">
-      <a class="navbar-brand px-4" href="index_user.php">
+      <a class="navbar-brand px-4" href="index.php">
                 <div style="width:100px; cursor: pointer;"><img src="user/New folder/img/Ser.png" width="100%"></div>
             </a>
       <button class="navbar-toggler" data-bs-target="#menu" data-bs-toggle="collapse">
@@ -44,7 +44,7 @@ $i = 0;
       <div class="navbar-collapse collapse" id="menu">
         <ul class="navbar-nav ms-auto">
           <li class="navbar-item px-5">
-            <a href="cart-tung.php" class="nav">Cart</a>
+            <a href="cart.php" class="nav">Cart</a>
           </li>
           <li class="navbar-item px-5">
             <a href="check-out.php" class="nav">Checkout</a>
@@ -158,7 +158,7 @@ $i = 0;
               } else {
                
 
-                echo "<a class='btn btn-primary btn-lg' style='text-align: center;' type='AddtoCart' href='cart-tung.php?product_id=$product_id&act=add'>ใส่ลงตะกร้า</a>";
+                echo "<a class='btn btn-primary btn-lg' style='text-align: center;' type='AddtoCart' href='cart.php?product_id=$product_id&act=add'>ใส่ลงตะกร้า</a>";
               }
               ?>
             </div>
