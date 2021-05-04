@@ -41,11 +41,10 @@
 
         $start = ($page - 1) * $perpage;
 
-        $sql = "SELECT order_id, sum(price)'priceall'
+        $sql = "SELECT *, concat(fname, ' ' , lname) AS name
         FROM orders
-        NATURAL JOIN order_detali
-        NATURAL JOIN product
-        GROUP BY order_id
+        NATURAL JOIN user
+        NATURAL JOIN user_detail
         limit {$start} , {$perpage}";
 
         $result = $connect->query($sql) or die(mysqli_error($connect) . ":" . $sql);
@@ -66,20 +65,18 @@
                         <thead>
                             <tr>
                                 <th width="5%">ID</th>
-                                <th width="10%">ชื่อ</th>
-                                <th width="10%">สินค้า</th>
-                                <th width="10%">ราคา(รวม)</th>
+                                <th width="15%">ชื่อ</th>
                                 <th width="10%">สถาณะ</th>
+                                <th width="10%">สินค้า</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php while ($row = $result->fetch_assoc()) : ?>
                                 <tr>
                                     <td><?php echo $row['order_id']; ?></td>
-                                    <td><a class="btn btn-dark" style="background-color: #4d4d4d;" href="admin_editor.php">รายละเอียด</a></td>
-                                    <td><?php echo $row['image']; ?></td>
-                                    <td><?php echo $row['priceall']; ?></td>
+                                    <td><?php echo $row['name']; ?></td>
                                     <td><?php echo $row['status']; ?></td>
+                                    <td width="10%"><a class="btn btn-dark" style="background-color: #4d4d4d;" href="admin_editor.php">รายละเอียด</a></td>
                                 </tr>
                             <?php endwhile ?>
                         </tbody>

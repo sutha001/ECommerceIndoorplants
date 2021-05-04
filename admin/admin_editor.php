@@ -83,6 +83,8 @@
                                     <td><?php echo $row['price']; ?></td>
                                     <td><?php echo $row['type_name']; ?></td>
                                     <td><?php echo $row['amount']; ?></td>
+
+                                    <td width="10%"><a class="btn btn-dark" style="background-color: #4d4d4d;" href="manage/admin_add_product.php?product_id=<?php echo $row['product_id']; ?>">เพิ่มจำนวนสินค้า</a><br></td>
                                 </tr>
                             <?php endwhile ?>
                         </tbody>
