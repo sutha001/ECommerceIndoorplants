@@ -4,7 +4,7 @@ include "../connect.php";
 
 
 if (!isset($_SESSION['username'])) {
-  header('location: ../login.php');
+  header('location: login.php');
 }
 $user_id = $_SESSION['user_id'];
 
@@ -41,8 +41,8 @@ $resultid = mysqli_query($connect, $sql_userid) or die(mysqli_error($connect) . 
     <nav class="navbar navbar-expand-lg navbar-light">
       <div class="container-fluid">
         <a class="navbar-brand px-4" href="index_user.php">
-          <div style="width:100px; cursor: pointer;"><img src="Ser.png" width="100%"></div>
-        </a>
+                <div style="width:100px; cursor: pointer;"><img src="user/New folder/img/Ser.png" width="100%"></div>
+            </a>
         <button class="navbar-toggler" data-bs-target="#menu" data-bs-toggle="collapse">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -173,7 +173,7 @@ $resultid = mysqli_query($connect, $sql_userid) or die(mysqli_error($connect) . 
         <hr style="margin-top:3%;width:80%;margin-left: auto;border: solid;margin-right: auto;">
 
         <!--Order confirmation-->
-        <form action="../admin/orders/process/payment_process.php" method="POST" enctype=multipart/form-data>
+        <form action="admin/orders/process/payment_process.php" method="POST" enctype=multipart/form-data>
           <div class="container" style="height: auto;">
             <div class="row justify-content-center">
               <h2 style="text-align: center; font-family: 'Source Sans Pro', sans-serif;">Order Confirmation</h2>

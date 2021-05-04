@@ -30,7 +30,7 @@ if (isset($_POST['confirm'])) {
 
     echo "<script type='text/javascript'>";
     echo "alert('แจ้งการโอนเงินสำเร็จ');";
-    echo "window.location ='../user/index_user.php';";
+    echo "window.location ='../../user/index_user.php';";
     echo "</script>";
 }
 

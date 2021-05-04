@@ -44,10 +44,10 @@ $i = 0;
       <div class="navbar-collapse collapse" id="menu">
         <ul class="navbar-nav ms-auto">
           <li class="navbar-item px-5">
-            <a href="cart-tung.php" class="nav">Cart</a>
+            <a href="cart_user.php" class="nav">Cart</a>
           </li>
           <li class="navbar-item px-5">
-            <a href="check-out.php" class="nav">Checkout</a>
+            <a href="check-out_user.php" class="nav">Checkwout</a>
           </li>
           <li class="navbar-item px-5">
             <a href="../account.php" class="nav">Account</a>
@@ -161,7 +161,7 @@ $i = 0;
               } else {
                
 
-                echo "<a class='btn btn-primary btn-lg' style='text-align: center;' type='AddtoCart' href='cart-tung.php?product_id=$product_id&act=add'>ใส่ลงตะกร้า</a>";
+                echo "<a class='btn btn-primary btn-lg' style='text-align: center;' type='AddtoCart' href='cart_user.php?product_id=$product_id&act=add'>ใส่ลงตะกร้า</a>";
               }
               ?>
             </div>

@@ -31,7 +31,7 @@ $result = mysqli_query($connect, $sql) or die(mysqli_error($connect) . ":" . $sq
   <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="css\account.css">
   <link rel="stylesheet" href="main.css">
-  <title>Lab07</title>
+  <title>Account</title>
 </head>
 
 <body>
@@ -39,40 +39,42 @@ $result = mysqli_query($connect, $sql) or die(mysqli_error($connect) . ":" . $sq
   if ($_SESSION["username"]) {
   ?>
     <nav class="navbar navbar-expand-lg navbar-light">
-    <div class="container-fluid">
-      <a class="navbar-brand px-4" href="index_user.php">
-                <div style="width:100px; cursor: pointer;"><img src="user/New folder/img/Ser.png" width="100%"></div>
-            </a>
-      <button class="navbar-toggler" data-bs-target="#menu" data-bs-toggle="collapse">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="navbar-collapse collapse" id="menu">
-        <ul class="navbar-nav ms-auto">
-          <li class="navbar-item px-5">
-            <a href="cart-tung.php" class="nav">Cart</a>
-          </li>
-          <li class="navbar-item px-5">
-            <a href="check-out.php" class="nav">Checkout</a>
-          </li>
-          <li class="navbar-item px-5">
-            <a href="../account.php" class="nav">Account</a>
-          </li>
-          <li class="navbar-item px-5">
-            <a href="process/logout-process.php" class="nav">log out</a>
-          </li>
-        </ul>
+      <div class="container-fluid">
+        <a class="navbar-brand px-4" href="index_user.php">
+          <div style="width:100px; cursor: pointer;"><img src="../New folder/img/Ser.png" width="100%"></div>
+        </a>
+        <button class="navbar-toggler" data-bs-target="#menu" data-bs-toggle="collapse">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="menu">
+          <ul class="navbar-nav ms-auto">
+            <li class="navbar-item px-5">
+              <a href="cart-tung.php" class="nav">Cart</a>
+            </li>
+            <li class="navbar-item px-5">
+              <a href="check-out.php" class="nav">Checkout</a>
+            </li>
+            <li class="navbar-item px-5">
+              <a href="../account.php" class="nav">Account</a>
+            </li>
+            <li class="navbar-item px-5">
+              <a href="process/logout-process.php" class="nav">log out</a>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
-    </div>
-  </nav>
+      </div>
+    </nav>
 
     <!--Profile-->
     <div class="container">
       <div style="margin-top: 3%;">
-        <h1>Account</h1>
+        <a class="btn btn btn-light btn-lg" style="border: black solid 1px; width:20%">Account</a>
+      </div>
+      <div style="margin-top: 3%;">
+        <a class="btn btn-primary btn-lg" style="width:20%" href="order_account.php">สถาณะคำสั่งซื้อ</a>
       </div>
       <hr>
-
       <?php while ($row = mysqli_fetch_assoc($result)) : ?>
         <div class="box-profile-detail">
           <div class="profile-detail">
@@ -141,9 +143,7 @@ $result = mysqli_query($connect, $sql) or die(mysqli_error($connect) . ":" . $sq
               </p>
             </div>
             <div class="profile-username">
-              <form>
-                <textarea readonly><?php echo $row['address']; ?></textarea>
-              </form>
+              <textarea readonly><?php echo $row['address']; ?></textarea>
             </div>
           </div>
           <hr>
@@ -151,7 +151,9 @@ $result = mysqli_query($connect, $sql) or die(mysqli_error($connect) . ":" . $sq
         </div>
 
       <?php endwhile ?>
-
+      <div style="margin: 1% 10% 1%;">
+        <a class="btn btn-dark" style="width:20%" href="user/process/account-update.php">แก้ไขข้อมูลส่วนตัว</a>
+      </div>
     </div>
 
     <div class="footer d-flex flex-column" style="margin-top: 3%;">

@@ -17,6 +17,22 @@
 </head>
 
 <body>
+    <style>
+        #thumbwrap {
+            position: relative;
+        }
+
+        .thumb span {
+            position: absolute;
+            visibility: hidden;
+        }
+
+        .thumb:hover,
+        .thumb:hover span {
+            visibility: visible;
+            z-index: 1;
+        }
+    </style>
     <div class="area_all" style="background-color: black;">
         <div class="menu_editor">
             <div class="row_edit">
@@ -71,6 +87,7 @@
                                 <th width="15%">ชื่อ</th>
                                 <th width="15%">สลิป</th>
                                 <th width="10%">ยืนยันการชำระเงิน</th>
+                                <th width="10%">สลิปผิดพลาด</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -79,22 +96,20 @@
                                     <td><?php echo $row['order_id']; ?></td>
                                     <td><?php echo $row['fullname']; ?></td>
                                     <td>
-                                        <a class="lightbox" href="#dog">
-                                            <img src="../image_payment/<?php echo $row['payment_image']; ?>" />
-                                        </a>
-                                        <div class="lightbox-target" id="dog">
-                                            <img src="../image_payment/<?php echo $row['payment_image']; ?>" />
-                                            <a class="lightbox-close" href="#"></a>
+                                        <div id="thumbwrap">
+                                            <a class="thumb" href="#"><img src="../image_payment/<?php echo $row['payment_image']; ?>" style="width: 30%;" alt="">
+                                                <span><img src="../image_payment/<?php echo $row['payment_image']; ?>" alt=""style="width: 200%;"></span></a>
                                         </div>
                                     </td>
-                                    <td><a class="btn btn-dark" style="background-color: #4d4d4d;" href="process/payment_process.php?order_id=<?php echo $row['order_id']; ?>">ยืนยัน</a></td>
+                                    <td><a class="btn btn-dark" style="background-color: #4d4d4d;" href="process/payment_process_status.php?order_id=<?php echo $row['order_id']; ?>">ยืนยัน</a></td>
+                                    <td><a class="btn btn-danger" href="process/payment_process_status_error.php?order_id=<?php echo $row['order_id']; ?>">ยกเลิก</a></td>
                                 </tr>
                             <?php endwhile ?>
                         </tbody>
                     </table>
                     <hr>
                     <?php
-                    $sql2 = "select * from order_detali ";
+                    $sql2 = "SELECT * FROM order_detali ";
                     $query2 = mysqli_query($connect, $sql2);
                     $total_record = mysqli_num_rows($query2);
                     $total_page = ceil($total_record / $perpage);
@@ -120,6 +135,24 @@
             </div>
         </div>
     </div>
+
+    <script>
+        $(function() {
+            "use strict";
+
+            $(".popup img").click(function() {
+                var $src = $(this).attr("src");
+                $(".show").fadeIn();
+                $(".img-show img").attr("src", $src);
+            });
+
+            $("span, .overlay").click(function() {
+                $(".show").fadeOut();
+            });
+
+        });
+    </script>
+
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>

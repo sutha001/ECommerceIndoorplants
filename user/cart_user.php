@@ -56,10 +56,10 @@ if ($act == 'update') {
                 <div class="navbar-collapse collapse" id="menu">
                     <ul class="navbar-nav ms-auto">
                         <li class="navbar-item px-4">
-                            <a href="cart.html" class="nav-link">Cart</a>
+                            <a class="nav-link">Cart</a>
                         </li>
                         <li class="navbar-item px-4">
-                            <a href="check-out.html" class="nav-link">Checkout</a>
+                            <a href="check-out_user.html" class="nav-link">Checkout</a>
                         </li>
                         <li class="navbar-item px-4">
                             <a href="../account.php" class="nav-link">Account</a>
