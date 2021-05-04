@@ -34,28 +34,31 @@ if ($act == 'update') {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&family=Taviraj&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css\cart.css">
-  <link rel="stylesheet" href="main.css">
-  <title>Lab07</title>
+  <title>cart</title>
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+  <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container-fluid">
-      <a class="navbar-brand px-5" href="index.html">LOGO</a>
+      <a class="navbar-brand px-4" href="./index.html">
+        <div style="width:100px; cursor: pointer;"><img src="./img/Ser.png" width="100%"></div>
+      </a>
       <button class="navbar-toggler" data-bs-target="#menu" data-bs-toggle="collapse">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="navbar-collapse collapse" id="menu">
         <ul class="navbar-nav ms-auto">
-          <li class="navbar-item px-4">
-            <a href="" class="nav-link">Account</a>
+          <li class="navbar-item px-5">
+            <a href="cart.html" class="nav">Cart</a>
           </li>
-          <li class="navbar-item px-4">
-            <a href="cart.html" class="nav-link">Cart</a>
+          <li class="navbar-item px-5">
+            <a href="html.html" class="nav">Checkout</a>
           </li>
-          <li class="navbar-item px-4">
-            <a href="check-out.html" class="nav-link">Checkout</a>
+          <li class="navbar-item px-5">
+            <a href="" class="nav">Account</a>
           </li>
         </ul>
       </div>
@@ -122,9 +125,6 @@ if ($act == 'update') {
           </table>
         </form>
 
-        <div class="footer d-flex flex-column" style="margin-top: 3%;">
-          <p>This is a fucking FOOTER.</p>
-        </div>
 
         <?php
 
