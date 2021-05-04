@@ -104,7 +104,7 @@ $resultid = mysqli_query($connect, $sql_userid) or die(mysqli_error($connect) . 
                       <div><textarea style="width: 100%;" name="address" placeholder="กรุณากรอกที่อยู่อย่างละเอีนดโดยเฉพาะ**** รหัสไปรษณีย์ เขต จังหวัด****" value="<?= $row['address']; ?>" readonly><?= $row['address']; ?></textarea></div>
                     </div>
                   </div>
-                  <div style="display: flex; justify-content: center;">
+                  <div style="display: flex; justify-content: center; padding-bottom:20px;">
                     <input type="submit" name="saveorder" class="btn btn-primary btn-lg" style="width: 40%;font-family: 'Taviraj', serif;" value="ชำระเงิน">
                   </div>
                 <?php endwhile ?>
@@ -169,12 +169,14 @@ $resultid = mysqli_query($connect, $sql_userid) or die(mysqli_error($connect) . 
             </div>
           </div>
         </div>
-
+      </div>
+    </div>
         <hr style="margin-top:3%;width:80%;margin-left: auto;border: solid;margin-right: auto;">
 
         <!--Order confirmation-->
-        <form action="admin/orders/process/payment_process.php" method="POST" enctype=multipart/form-data>
+        
           <div class="container" style="height: auto;">
+          <form action="admin/orders/process/payment_process.php" method="POST" enctype=multipart/form-data>
             <div class="row justify-content-center">
               <h2 style="text-align: center; font-family: 'Source Sans Pro', sans-serif;">Order Confirmation</h2>
               <div class="col-3" style="text-align: center;">
@@ -183,11 +185,11 @@ $resultid = mysqli_query($connect, $sql_userid) or die(mysqli_error($connect) . 
               </div>
               <div class="col-3" style="text-align: center;">
                 <p>จำนวนเงินที่ชำระ</p>
-                <input type="number" id="payment_price" name="payment_price" placeholder="#125" style="width: 50%;" required>
+                <input type="text" id="payment_price" name="payment_price" placeholder="" style="width: 50%;" required>
               </div>
               <div class="col-3" style="text-align: center;">
                 <p>วันและเวลาที่โอนเงิน</p>
-                <input type="datetime-local" id="datetimes" name="datetimes" placeholder="#125" style="width: 50%;" required>
+                <input type="datetime-local" id="datetimes" name="datetimes" placeholder="" style="width: 50%;" required>
               </div>
               <div class="col-3" style="text-align: center;">
                 <p>สลิปการชำระเงิน</p>
@@ -198,8 +200,8 @@ $resultid = mysqli_query($connect, $sql_userid) or die(mysqli_error($connect) . 
                 <input type="submit" class="btn btn-primary btn-lg" style="width: 40%;font-family: 'Taviraj', serif; margin-top: 20px;" name="confirm" value="ยืนยัน">
               </div>
             </div>
+          </form>
           </div>
-        </form>
       <?php
     } ?>
 
@@ -295,7 +297,7 @@ $resultid = mysqli_query($connect, $sql_userid) or die(mysqli_error($connect) . 
 
 
       <div class="footer d-flex flex-column" style="margin-top: 3%;">
-        <p style="font-family: 'Source Sans Pro', sans-serif;">This is a fucking FOOTER.</p>
+        <p style="font-family: 'Source Sans Pro', sans-serif;"></p>
       </div>
 
 </body>

@@ -22,7 +22,7 @@ include "connect.php";
   <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container-fluid">
       <a class="navbar-brand px-4" href="./index.html">
-        <div style="width:100px; cursor: pointer;"><img src="./img/Ser.png" width="100%"></div>
+        <div style="width:100px; cursor: pointer;"><img src="./user/New folder/img/Ser.png" width="100%"></div>
       </a>
       <button class="navbar-toggler" data-bs-target="#menu" data-bs-toggle="collapse">
         <span class="navbar-toggler-icon"></span>
@@ -81,7 +81,7 @@ include "connect.php";
                   <div><textarea style="width: 100%;" name="address" placeholder="กรุณากรอกที่อยู่อย่างละเอีนดโดยเฉพาะ**** รหัสไปรษณีย์ เขต จังหวัด****" required></textarea></div>
                 </div>
               </div>
-              <div style="display: flex; justify-content: center;">
+              <div style="display: flex; justify-content: center; padding-bottom:20px;">
                 <input type="submit" name="saveorder" class="btn btn-primary btn-lg" style="width: 40%;font-family: 'Taviraj', serif;" value="ชำระเงิน">
               </div>
             </form>
@@ -145,37 +145,38 @@ include "connect.php";
           </div>
         </div>
       </div>
-
+    </div>
+  </div>
       <hr style="margin-top:3%;width:80%;margin-left: auto;border: solid;margin-right: auto;">
 
       <!--Order confirmation-->
-      <form action="admin/orders/process/payment_process.php" method="POST" enctype=multipart/form-data>
-        <div class="container" style="height: auto;">
-          <div class="row justify-content-center">
-            <h2 style="text-align: center; font-family: 'Source Sans Pro', sans-serif;">Order Confirmation</h2>
-            <div class="col-3" style="text-align: center;">
-              <p>หมายเลข Order</p>
-              <input type="text" id="order_id" name="order_id" placeholder="#125" style="width: 50%;" required>
+  <div class="container" style="height: auto;">
+          <form action="admin/orders/process/payment_process.php" method="POST" enctype=multipart/form-data>
+            <div class="row justify-content-center">
+              <h2 style="text-align: center; font-family: 'Source Sans Pro', sans-serif;">Order Confirmation</h2>
+              <div class="col-3" style="text-align: center;">
+                <p>หมายเลข Order</p>
+                <input type="text" id="order_id" name="order_id" placeholder="#125" style="width: 50%;" required>
+              </div>
+              <div class="col-3" style="text-align: center;">
+                <p>จำนวนเงินที่ชำระ</p>
+                <input type="text" id="payment_price" name="payment_price" placeholder="" style="width: 50%;" required>
+              </div>
+              <div class="col-3" style="text-align: center;">
+                <p>วันและเวลาที่โอนเงิน</p>
+                <input type="datetime-local" id="datetimes" name="datetimes" placeholder="" style="width: 50%;" required>
+              </div>
+              <div class="col-3" style="text-align: center;">
+                <p>สลิปการชำระเงิน</p>
+                <input type="file" name="payment_image" class="form-control-file" id="exampleFormControlFile1" required>
+              </div>
+              <div class="w-100"></div>
+              <div class="col-6 py-3" style="text-align: center;">
+                <input type="submit" class="btn btn-primary btn-lg" style="width: 40%;font-family: 'Taviraj', serif; margin-top: 20px;" name="confirm" value="ยืนยัน">
+              </div>
             </div>
-            <div class="col-3" style="text-align: center;">
-              <p>จำนวนเงินที่ชำระ</p>
-              <input type="number" id="payment_price" name="payment_price" placeholder="#125" style="width: 50%;" required>
-            </div>
-            <div class="col-3" style="text-align: center;">
-              <p>วันและเวลาที่โอนเงิน</p>
-              <input type="datetime-local" id="datetimes" name="datetimes" placeholder="#125" style="width: 50%;" required>
-            </div>
-            <div class="col-3" style="text-align: center;">
-              <p>สลิปการชำระเงิน</p>
-              <input type="file" name="payment_image" class="form-control-file" id="exampleFormControlFile1" required>
-            </div>
-            <div class="w-100"></div>
-            <div class="col-6 py-3" style="text-align: center;">
-              <input type="submit" class="btn btn-primary btn-lg" style="width: 40%;font-family: 'Taviraj', serif; margin-top: 20px;" name="confirm" value="ยืนยัน">
-            </div>
-          </div>
-        </div>
-      </form>
+          </form>
+  </div>
 
 
       <?php
@@ -251,45 +252,9 @@ include "connect.php";
       echo "</script>";
       ?>
 
-
-
-
-
-
-
-
-
-      <!--<div style="margin-top: 3%;">
-    <h1 style="text-align: center;">ORDER CONFIRMATION</h1>
+  <div class="footer d-flex flex-column" style="margin-top: 3%;">
+    <p style="font-family: 'Source Sans Pro', sans-serif;"></p>
   </div>
-
-  <div class="box-order-confirm" style="display: flex;flex-direction:row;margin-top: 3%;">
-
-    <div class="box-order-slip" style="display: flex;flex-direction:row;">
-
-      <div class="box-order-number" style="display: flex;flex-direction:column;">
-        <div class="label-order-number">
-          <p style="font-size:24px;">Order Number</p>
-        </div>
-        <div class="text-box-order-number">
-          <input type="text" id="fname" name="fname" placeholder="#125"style="width: 50%;">
-        </div>
-      </div>
-
-      <div class="box-tranfer-slip" style="display: flex;flex-direction:column;">
-        <div class="label-tranfer-slip">
-          <p style="font-size:24px;">Tranfer Slip</p>
-        </div>
-        <div class="text-box-tranfer-slip">
-          <input type="file" class="form-control-file" id="exampleFormControlFile1">
-        </div>
-      </div>
-    </div>-->
-
-
-      <div class="footer d-flex flex-column" style="margin-top: 3%;">
-        <p style="font-family: 'Source Sans Pro', sans-serif;">This is a fucking FOOTER.</p>
-      </div>
 
 </body>
 <script src="bootstrap/js/bootstrap.min.js"></script>
