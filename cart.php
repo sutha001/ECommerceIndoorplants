@@ -3,7 +3,9 @@ include "connect.php";
 session_start();
 
 @$product_id = $_GET['product_id'];
-
+echo "<script type='text/javascript'>";
+    echo "alert('".$product_id."');";
+    echo "</script>";
   
 
 @$act = $_GET['act'];
@@ -39,29 +41,30 @@ if ($act == 'update') {
   <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&family=Taviraj&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css\cart.css">
+  <link rel="stylesheet" href="user/New folder/css/cart.css">
+  <link rel="stylesheet" href="main.css">
   <title>cart</title>
 </head>
 
 <body>
   <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container-fluid">
-      <a class="navbar-brand px-4" href="./index.html">
-        <div style="width:100px; cursor: pointer;"><img src="./img/Ser.png" width="100%"></div>
-      </a>
+      <a class="navbar-brand px-4" href="index.php">
+                <div style="width:100px; cursor: pointer;"><img src="user/New folder/img/Ser.png" width="100%"></div>
+            </a>
       <button class="navbar-toggler" data-bs-target="#menu" data-bs-toggle="collapse">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="navbar-collapse collapse" id="menu">
         <ul class="navbar-nav ms-auto">
           <li class="navbar-item px-5">
-            <a href="cart.html" class="nav">Cart</a>
+            <a href="cart.php" class="nav">Cart</a>
           </li>
           <li class="navbar-item px-5">
-            <a href="html.html" class="nav">Checkout</a>
+            <a href="check-out.php" class="nav">Checkout</a>
           </li>
           <li class="navbar-item px-5">
-            <a href="" class="nav">Account</a>
+            <a href="login.php" class="nav">Log-in</a>
           </li>
         </ul>
       </div>
@@ -108,7 +111,7 @@ if ($act == 'update') {
                 echo "<input type='number' name='amount[$product_id]' value='$qty' style='width: 5em'/></td>";
                 echo "<td width='93' align='right'>" . number_format($sum, 2) . "</td>";
                 //remove product
-                echo "<td width='46' align='center'><a href='cart-tung.php?product_id=$product_id&act=remove'>ลบ</a></td>";
+                echo "<td width='46' align='center'><a href='cart.php?product_id=$product_id&act=remove'>ลบ</a></td>";
                 echo "</tr>";
               }
               echo "<tr>";
@@ -127,7 +130,7 @@ if ($act == 'update') {
             </tr>
           </table>
         </form>
-
+        
 
         <?php
 
