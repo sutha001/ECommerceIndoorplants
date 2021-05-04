@@ -169,7 +169,7 @@ $rowimg = mysqli_num_rows($result2);
                 <div class="main-carousel" data-flickity='{ "cellAlign": "center", "contain": true, "pageDots": false, "draggable": false}'>
 
                     <?php while ($row = $result_product->fetch_assoc()) : ?>
-                        <div class="carousel-cell" style="width:250px;">
+                        <div class="carousel-cell" style="width:250px;margin-left: 3%;">
                             <div class="card">
                                 <img src="admin/images_product/<?php echo $row['image']; ?>">
                                     <div class="card-body">

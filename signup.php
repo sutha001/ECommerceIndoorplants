@@ -56,7 +56,7 @@
             <button type="submit" class="btn btn-primary btn-lg btn-block" style="width: 66.67%;" name="reg_user">Sign up</button>
             <hr>
             <div style="text-align: center;">
-              <p>Already have an account ? <a href="#">Sign in</a></p>
+              <p>Already have an account ? <a href="login.php">Sign in</a></p>
             </div>
           </form>
         </div>

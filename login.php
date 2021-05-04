@@ -37,8 +37,8 @@ include "connect.php";
             <button type="submit" name="login" class="btn btn-primary btn-lg btn-block" style="width: 66.67%;">Login</button>
             <hr>
             <div style="text-align: center;">
-              <p><a href="#">Sign up</a></p>
-              <p><a href="#">Forgot your password</a></p>
+              <p><a href="signup.php">Sign up</a></p>
+              
             </div>
           </form>
         </div>
