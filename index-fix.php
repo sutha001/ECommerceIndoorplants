@@ -20,7 +20,7 @@ $result = mysqli_query($connect, $sql);
   <link rel="stylesheet" href="/path/to/flickity.css" media="screen">
   <link rel="stylesheet" href="main.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&family=Taviraj&display=swap" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&family=Taviraj&display=swap" rel="stylesheet">
   <title>HousePlantEcom</title>
 </head>
 
@@ -41,7 +41,7 @@ $result = mysqli_query($connect, $sql);
             <a href="check-out.php" class="nav">Checkout</a>
           </li>
           <li class="navbar-item px-5">
-            <a href="login.php" class="nav" >Log-in</a>
+            <a href="login.php" class="nav">Log-in</a>
           </li>
         </ul>
       </div>
@@ -87,7 +87,7 @@ $result = mysqli_query($connect, $sql);
       <span class="visually-hidden">Next</span>
     </a>
   </div>-->
-  <div class="head"style="height: auto; display: flex; align-items: center; justify-content: center;">
+  <div class="head" style="height: auto; display: flex; align-items: center; justify-content: center;">
     <img src="img/logo.png" width="45%">
   </div>
   <!--  -->
@@ -95,60 +95,76 @@ $result = mysqli_query($connect, $sql);
     <div class="row">
 
       <div class="bestsell">
-        <div><h1 style="font-family: 'Source Sans Pro', sans-serif;">Best Seller</h1></div>
+        <div>
+          <h1 style="font-family: 'Source Sans Pro', sans-serif;">Best Seller</h1>
+        </div>
 
         <div class="main-carousel" data-flickity='{ "cellAlign": "center", "contain": true, "pageDots": false, "draggable": false}'>
 
           <div class="carousel-cell">
             <div class="card">
-              <img src="img/พลูด่าง.jpg" >
-              <div class="card-body"><p>พลูด่าง</p></div>
+              <img src="img/พลูด่าง.jpg">
+              <div class="card-body">
+                <p>พลูด่าง</p>
+              </div>
             </div>
           </div>
 
           <div class="carousel-cell">
             <div class="card">
               <img src="img/พลูด่าง.jpg">
-              <div class="card-body"><p>พลูด่าง</p></div>
+              <div class="card-body">
+                <p>พลูด่าง</p>
+              </div>
             </div>
           </div>
 
           <div class="carousel-cell">
             <div class="card">
               <img src="img/พลูด่าง.jpg">
-              <div class="card-body"><p>พลูด่าง</p></div>
+              <div class="card-body">
+                <p>พลูด่าง</p>
+              </div>
             </div>
           </div>
 
           <div class="carousel-cell">
             <div class="card">
               <img src="img/พลูด่าง.jpg">
-              <div class="card-body"><p>พลูด่าง</p></div>
+              <div class="card-body">
+                <p>พลูด่าง</p>
+              </div>
             </div>
           </div>
 
           <div class="carousel-cell">
             <div class="card">
               <img src="img/พลูด่าง.jpg">
-              <div class="card-body"><p>พลูด่าง</p></div>
+              <div class="card-body">
+                <p>พลูด่าง</p>
+              </div>
             </div>
           </div>
 
           <div class="carousel-cell">
             <div class="card">
               <img src="img/พลูด่าง.jpg">
-              <div class="card-body"><p>พลูด่าง</p></div>
+              <div class="card-body">
+                <p>พลูด่าง</p>
+              </div>
             </div>
           </div>
 
           <div class="carousel-cell">
             <div class="card">
               <img src="img/พลูด่าง.jpg">
-              <div class="card-body"><p>พลูด่าง</p></div>
+              <div class="card-body">
+                <p>พลูด่าง</p>
+              </div>
             </div>
           </div>
 
-          
+
         </div>
       </div>
 
@@ -178,25 +194,32 @@ $result = mysqli_query($connect, $sql);
         </div>
       </div>
 
-    <?php while ($row = $result->fetch_assoc()) : ?>
-      <?php echo $row['product_id'];?>
-      <div class="col-lg-4 p-4">
-        <div class="carditem card">
-          <a href='product.php?product_id=<?php echo $row['product_id'];?>'>
-                            <img src="admin/images_product/<?php echo $row['image']; ?>" class="card-img-top p-4" alt="...">
-                        </a>
-          <div class="card-body">
-            <p class="plant-name h3 pb-3"><?php echo $row['product_name']; ?></p>
-            <p>ราคา : <?php echo $row['price']; ?> บาท</p>
-            <a class="btn btn-primary btn-lg" style="text-align: center;" href='cart-tung.php?product_id=<?php echo $row['product_id']; ?>&act=add' >ใส่ลงตะกร้า</a>
+      <?php while ($row = $result->fetch_assoc()) : ?>
+        <?php echo $row['product_id']; ?>
+        <div class="col-lg-4 p-4">
+          <div class="carditem card">
+            <a href='product.php?product_id=<?php echo $row['product_id']; ?>'>
+              <img src="admin/images_product/<?php echo $row['image']; ?>" class="card-img-top p-4" alt="...">
+            </a>
+            <div class="card-body">
+              <p class="plant-name h3 pb-3"><?php echo $row['product_name']; ?></p>
+              <p>ราคา : <?php echo $row['price']; ?> บาท</p>
+              <?php
+
+              if ($row['amount'] == 0) {
+                echo '<a  style="text-align: center; margin:32%; font-size:1.8vw; color:red;" type="AddtoCart" >สินค้าหมด</a>';
+              } else {
+                echo '<a class="btn btn-primary btn-lg" style="text-align: center;" type="AddtoCart" href="cart_user.php?product_id=' . $row['product_id'] . '?>&act=add">ใส่ลงตะกร้า</a>';
+              }
+              ?>
+            </div>
           </div>
         </div>
-      </div>
-    <?php endwhile ?>
+      <?php endwhile ?>
 
-      
 
-      
+
+
 
 
     </div>
