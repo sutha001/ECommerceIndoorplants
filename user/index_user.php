@@ -12,6 +12,12 @@ natural join product_type";
 
 $result = mysqli_query($connect, $sql);
 
+$sql_new_product = "SELECT product_id, image, product_name FROM product ORDER BY product_id ASC";
+
+$result_product = mysqli_query($connect, $sql_new_product);
+
+$i = 0;
+
 
 
 ?>
@@ -108,74 +114,27 @@ $result = mysqli_query($connect, $sql);
 
                 <div class="bestsell">
                     <div>
-                        <h1 style="font-family: 'Source Sans Pro', sans-serif;">Best Seller</h1>
+                        <h1 style="font-family: 'Source Sans Pro', sans-serif;">สิ้นค้าใหม่</h1>
                     </div>
 
                     <div class="main-carousel" data-flickity='{ "cellAlign": "center", "contain": true, "pageDots": false, "draggable": false}'>
 
-                        <div class="carousel-cell">
-                            <div class="card">
-                                <img src="img/พลูด่าง.jpg">
-                                <div class="card-body">
-                                    <p>พลูด่าง</p>
+                        <?php while ($row = $result_product->fetch_assoc()) : ?>
+                            <div class="carousel-cell">
+                                <div class="card">
+                                    <img src="../admin/images_product/<?php echo $row['image']; ?>">
+                                    <div class="card-body">
+                                        <p><?php echo $row['product_name']; ?></p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                            <?php if ($i == 5) {
+                                break;
+                            }
+                            $i++;
 
-                        <div class="carousel-cell">
-                            <div class="card">
-                                <img src="img/พลูด่าง.jpg">
-                                <div class="card-body">
-                                    <p>พลูด่าง</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="carousel-cell">
-                            <div class="card">
-                                <img src="img/พลูด่าง.jpg">
-                                <div class="card-body">
-                                    <p>พลูด่าง</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="carousel-cell">
-                            <div class="card">
-                                <img src="img/พลูด่าง.jpg">
-                                <div class="card-body">
-                                    <p>พลูด่าง</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="carousel-cell">
-                            <div class="card">
-                                <img src="img/พลูด่าง.jpg">
-                                <div class="card-body">
-                                    <p>พลูด่าง</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="carousel-cell">
-                            <div class="card">
-                                <img src="img/พลูด่าง.jpg">
-                                <div class="card-body">
-                                    <p>พลูด่าง</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="carousel-cell">
-                            <div class="card">
-                                <img src="img/พลูด่าง.jpg">
-                                <div class="card-body">
-                                    <p>พลูด่าง</p>
-                                </div>
-                            </div>
-                        </div>
-
+                            ?>
+                        <?php endwhile ?>
 
                     </div>
                 </div>
@@ -183,26 +142,31 @@ $result = mysqli_query($connect, $sql);
                 <div class="filtertag" style=" height: 100px; width: 100%;">
                     <div class="filter" style=" width: auto; height: 50%;">
                         <span style="padding-left: 20px; font-family: 'Source Sans Pro', sans-serif;">Filter By :&ensp; </span>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                            <label class="form-check-label" for="inlineCheckbox1">ดูดสารพิษ</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                            <label class="form-check-label" for="inlineCheckbox2">ไม่ต้องการแดด</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
-                            <label class="form-check-label" for="inlineCheckbox3">คลายความชื้น</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option4">
-                            <label class="form-check-label" for="inlineCheckbox4">มีดอก</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="option">
-                            <label class="form-check-label" for="inlineCheckbox5">ฟอกอากาศ</label>
-                        </div>
+                        <form actiom="#" method="POST">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="type[]" value="ดูดสารพิษ">
+                                <label class="form-check-label" for="inlineCheckbox1">ดูดสารพิษ</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" name="type[]" value="ไม่ต้องการแดด">
+                                <label class="form-check-label" for="inlineCheckbox2">ไม่ต้องการแดด</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox3" name="type[]" value="คลายความชื้น">
+                                <label class="form-check-label" for="inlineCheckbox3">คลายความชื้น</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox4" name="type[]" value="มีดอก">
+                                <label class="form-check-label" for="inlineCheckbox4">มีดอก</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox5" name="type[]" value="ฟอกอากาศ">
+                                <label class="form-check-label" for="inlineCheckbox5">ฟอกอากาศ</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input type="submit" name="fillters" class="btn btn-dark" id="inlineCheckbox5">
+                            </div>
+                        </form>
                     </div>
                 </div>
 
@@ -215,7 +179,7 @@ $result = mysqli_query($connect, $sql);
                             <div class="card-body">
                                 <p class="plant-name h3 pb-3"><?php echo $row['product_name']; ?></p>
                                 <p>ราคา : <?php echo $row['price']; ?></p>
-                                <a class="btn btn-primary btn-lg" style="text-align: center;" type="AddtoCart" href='cart_user.php?product_id=<?php echo $row['product_id']; ?>&act=add' >ใส่ลงตะกร้า</a>
+                                <a class="btn btn-primary btn-lg" style="text-align: center;" type="AddtoCart" href='cart_user.php?product_id=<?php echo $row['product_id']; ?>&act=add'>ใส่ลงตะกร้า</a>
                             </div>
                         </div>
                     </div>

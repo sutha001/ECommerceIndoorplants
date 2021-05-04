@@ -124,101 +124,129 @@ $resultid = mysqli_query($connect, $sql_userid) or die(mysqli_error($connect) . 
                       <th scope="col">ราคา</th>
                     </tr>
                     <?php
-                    $total = 0;
-                    foreach ($_SESSION['cart'] as $product_id => $qty) {
-                      $sql  = "SELECT * FROM product WHERE product_id = $product_id";
-                      $query  = mysqli_query($connect, $sql);
-                      $row  = mysqli_fetch_array($query);
-                      $sum  = $row['price'] * $qty;
-                      $total  += $sum;
+                    if (!isset($_SESSION['cart'])) {
+                      echo '<tr>';
+                      echo '<th scope="row"></th>';
+                      echo '<td></td>';
+                      echo '<td></td>';
+                      echo '<td></td>';
+                      echo '</tr>';
+                      echo '</tbody>';
+                      echo '</table>';
+                      echo '<p style="text-align: right; font-size: 20px;"><span style="font-weight: bold;">ราคารวมทั้งสิ้น</span> : 0 บาท</p>';
+                    } else {
+                      $total = 0;
+                      foreach ($_SESSION['cart'] as $product_id => $qty) {
+                        $sql  = "SELECT * FROM product WHERE product_id = $product_id";
+                        $query  = mysqli_query($connect, $sql);
+                        $row  = mysqli_fetch_array($query);
+                        $sum  = $row['price'] * $qty;
+                        $total  += $sum;
+                        echo "<tr>";
+                        echo "<td>" . $row["product_name"] . "</td>";
+                        echo "<td align='right'>" . number_format($row['price'], 2) . "</td>";
+                        echo "<td align='right'>$qty</td>";
+                        echo "<td align='right'>" . number_format($sum, 2) . "</td>";
+                        echo "</tr>";
+                      }
                       echo "<tr>";
-                      echo "<td>" . $row["product_name"] . "</td>";
-                      echo "<td align='right'>" . number_format($row['price'], 2) . "</td>";
-                      echo "<td align='right'>$qty</td>";
-                      echo "<td align='right'>" . number_format($sum, 2) . "</td>";
+                      echo "<td  align='right' colspan='3' bgcolor='#F9D5E3'><b>รวม</b></td>";
+                      echo "<td align='right' bgcolor='#F9D5E3'>" . "<b>" . number_format($total, 2) . "</b>" . "</td>";
                       echo "</tr>";
+
+                      echo '</table>';
+                      echo '<p style="text-align: right; font-size: 20px;"><span style="font-weight: bold;">ราคารวมทั้งสิ้น</span> : ' . number_format($total, 2) . '</p>';
+                      echo  '</div>';
+                      echo '</div>';
                     }
-                    echo "<tr>";
-                    echo "<td  align='right' colspan='3' bgcolor='#F9D5E3'><b>รวม</b></td>";
-                    echo "<td align='right' bgcolor='#F9D5E3'>" . "<b>" . number_format($total, 2) . "</b>" . "</td>";
-                    echo "</tr>";
                     ?>
-                </table>
-                <p style="text-align: right; font-size: 20px;"><span style="font-weight: bold;">ราคารวมทั้งสิ้น</span> : <?php echo number_format($total, 2); ?></p>
-              </div>
-            </div>
-            <!--<div style ="text-align: center; margin-top: 5%; background-color: red;">
+                    <!--<div style ="text-align: center; margin-top: 5%; background-color: red;">
             กล่องนี้จะขึ้นหลังจากกดชำระเงิน
             <p>ชื่อบัญชี : นาย สุธา บินกามิตร์ <span style="padding-left: 20px;">เลขที่บัญชี : x-xxxxxxxxxxx</span></p>
             <p>หมายเลข order ของคุณ : xxxxxx <span style="padding-left: 20px;">จำนวนเงินที่ต้องชำระ : xx บาท</span></p>
           </div>-->
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
 
-    <hr style="margin-top:3%;width:80%;margin-left: auto;border: solid;margin-right: auto;">
+        <hr style="margin-top:3%;width:80%;margin-left: auto;border: solid;margin-right: auto;">
 
-    <!--Order confirmation-->
-    <div class="container" style="height: auto;">
-      <div class="row justify-content-center">
-        <h2 style="text-align: center; font-family: 'Source Sans Pro', sans-serif;">Order Confirmation</h2>
-        <div class="col-3" style="text-align: center;">
-          <p>หมายเลข Order</p>
-          <input type="text" id="fname" name="fname" placeholder="#125" style="width: 50%;">
+        <!--Order confirmation-->
+        <div class="container" style="height: auto;">
+          <div class="row justify-content-center">
+            <h2 style="text-align: center; font-family: 'Source Sans Pro', sans-serif;">Order Confirmation</h2>
+            <div class="col-3" style="text-align: center;">
+              <p>หมายเลข Order</p>
+              <input type="text" id="fname" name="fname" placeholder="#125" style="width: 50%;">
+            </div>
+            <div class="col-3" style="text-align: center;">
+              <p>สลิปการชำระเงิน</p>
+              <input type="file" class="form-control-file" id="exampleFormControlFile1">
+            </div>
+            <div class="w-100"></div>
+            <div class="col-6 py-3" style="text-align: center;">
+              <input type="button" class="btn btn-primary btn-lg" style="width: 40%;font-family: 'Taviraj', serif; margin-top: 20px;" value="ยืนยัน">
+            </div>
+          </div>
         </div>
-        <div class="col-3" style="text-align: center;">
-          <p>สลิปการชำระเงิน</p>
-          <input type="file" class="form-control-file" id="exampleFormControlFile1">
-        </div>
-        <div class="w-100"></div>
-        <div class="col-6 py-3" style="text-align: center;">
-          <input type="button" class="btn btn-primary btn-lg" style="width: 40%;font-family: 'Taviraj', serif; margin-top: 20px;" value="ยืนยัน">
-        </div>
-      </div>
-    </div>
-  <?php
-  } ?>
+      <?php
+    } ?>
 
 
-  <?php
-  if (isset($_POST['saveorder'])) {
-    // collect value of input field
-    date_default_timezone_set('Asia/Bangkok');
-    $creat_data = date('Y-m-d');
+      <?php
+      if (isset($_POST['saveorder'])) {
+        // collect value of input field
+        date_default_timezone_set('Asia/Bangkok');
+        $creat_data = date('Y-m-d');
 
-    $sql1  = "INSERT INTO orders (order_date,status,user_id) VALUES('$creat_data','กำลังตรวจสอบ',$user_id)";
-    $query1  = mysqli_query($connect, $sql1);
-    //ฟังก์ชั่น MAX() จะคืนค่าที่มากที่สุดในคอลัมน์ที่ระบุ ออกมา หรือจะพูดง่ายๆก็ว่า ใช้สำหรับหาค่าที่มากที่สุด นั่นเอง.
-    $sql2 = "SELECT MAX(order_id) AS order_id FROM orders ";
-    $query2  = mysqli_query($connect, $sql2);
-    $roworder = mysqli_fetch_array($query2);
-    $order_id = $roworder["order_id"];
+        $sql1  = "INSERT INTO orders (order_date,status,user_id) VALUES('$creat_data','กำลังตรวจสอบ',$user_id)";
+        $query1  = mysqli_query($connect, $sql1);
+        //ฟังก์ชั่น MAX() จะคืนค่าที่มากที่สุดในคอลัมน์ที่ระบุ ออกมา หรือจะพูดง่ายๆก็ว่า ใช้สำหรับหาค่าที่มากที่สุด นั่นเอง.
+        $sql2 = "SELECT MAX(order_id) AS order_id FROM orders ";
+        $query2  = mysqli_query($connect, $sql2);
+        $roworder = mysqli_fetch_array($query2);
+        $order_id = $roworder["order_id"];
 
-    foreach ($_SESSION['cart'] as $product_id => $qty) {
-      $sql3  = "SELECT * FROM product WHERE product_id = $product_id ";
-      $query3  = mysqli_query($connect, $sql3);
-      $row3  = mysqli_fetch_array($query3);
+        foreach ($_SESSION['cart'] as $product_id => $qty) {
 
-      $sql4  = "INSERT INTO order_detali VALUES($order_id, $product_id)";
-      $query4  = mysqli_query($connect, $sql4);
-    }
+          $sql_amount_get = "SELECT amount FROM product WHERE $product_id";
+          $query_amount_get  = mysqli_query($connect, $sql_amount_get);
+          $row_amount_get = mysqli_fetch_array($query_amount_get);
 
-    if ($query1 && $query4) {
-      $msg = "บันทึกข้อมูลเรียบร้อยแล้ว ";
-      foreach ($_SESSION['cart'] as $product_id) {
-        //unset($_SESSION['cart'][$p_id]);
-        unset($_SESSION['cart']);
+          $amount_set = $row_amount_get['amount'] - $qty;
+
+
+
+          $sql3  = "SELECT * FROM product WHERE product_id = $product_id ";
+          $query3  = mysqli_query($connect, $sql3);
+          $row3  = mysqli_fetch_array($query3);
+
+          $sql4  = "INSERT INTO order_detali VALUES($order_id, $product_id)";
+          $query4  = mysqli_query($connect, $sql4);
+
+          $sql_amount = "UPDATE product
+          SET amount = $amount_set
+          WHERE product_id = $product_id";
+
+          mysqli_query($connect, $sql_amount);
+        }
+
+        if ($query1 && $query4) {
+          $msg = "บันทึกข้อมูลเรียบร้อยแล้ว ";
+          foreach ($_SESSION['cart'] as $product_id) {
+            //unset($_SESSION['cart'][$p_id]);
+            unset($_SESSION['cart']);
+          }
+        } else {
+          $msg = "บันทึกข้อมูลไม่สำเร็จ กรุณาติดต่อเจ้าหน้าที่ค่ะ ";
+        }
       }
-    } else {
-      $msg = "บันทึกข้อมูลไม่สำเร็จ กรุณาติดต่อเจ้าหน้าที่ค่ะ ";
-    }
-  }
-  echo '<script type="text/javascript">';
-  echo 'alert(' . $msg . ');';
-  echo "window.location ='index_fix.php';";
-  echo "</script>";
-  ?>
+      echo '<script type="text/javascript">';
+      echo 'alert("' . $msg . '");';
+      echo "window.location ='index_user.php';";
+      echo "</script>";
+      ?>
 
 
 
@@ -228,7 +256,7 @@ $resultid = mysqli_query($connect, $sql_userid) or die(mysqli_error($connect) . 
 
 
 
-  <!--<div style="margin-top: 3%;">
+      <!--<div style="margin-top: 3%;">
     <h1 style="text-align: center;">ORDER CONFIRMATION</h1>
   </div>
 
@@ -256,9 +284,9 @@ $resultid = mysqli_query($connect, $sql_userid) or die(mysqli_error($connect) . 
     </div>-->
 
 
-  <div class="footer d-flex flex-column" style="margin-top: 3%;">
-    <p style="font-family: 'Source Sans Pro', sans-serif;">This is a fucking FOOTER.</p>
-  </div>
+      <div class="footer d-flex flex-column" style="margin-top: 3%;">
+        <p style="font-family: 'Source Sans Pro', sans-serif;">This is a fucking FOOTER.</p>
+      </div>
 
 </body>
 <script src="../bootstrap/js/bootstrap.min.js"></script>
