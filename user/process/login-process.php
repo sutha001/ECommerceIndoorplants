@@ -20,8 +20,12 @@ if (isset($_POST['login'])) {
     if (isset($_SESSION["username"])) {
         header("Location: ../index_user.php");
     }
+    else{
+        echo '<script type="text/javascript">';
+        echo 'alert("Username หรือ Password ไม่ถูกต้อง");';
+        echo "window.location ='../../login.php';";
+        echo "</script>";
+    }
 }
-
-?>
 
 ?>

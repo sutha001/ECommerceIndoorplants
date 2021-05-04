@@ -15,10 +15,11 @@ if (isset($_POST['submit'])) {
 
 
     $sql = "UPDATE user_detail
-    SET fname = '$fname'
-    lname = '$lname'
-    email = '$email'
-    phone_number = '$phone_number'
+    SET 
+    fname = '$fname',
+    lname = '$lname',
+    email = '$email',
+    phone_number = '$phone_number',
     address = '$address'
     WHERE user_id = $user_id";
 
@@ -29,8 +30,7 @@ if (isset($_POST['submit'])) {
         echo 'alert("แก้ไขข้อมูลสำเร็จ");';
         echo "window.location ='../../account.php';";
         echo "</script>";
-    }
-    else{
+    } else {
         echo '<script type="text/javascript">';
         echo 'alert("แก้ไขข้อมูลสำเร็จ");';
         echo "window.location ='../../account.php';";

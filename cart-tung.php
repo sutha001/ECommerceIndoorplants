@@ -3,11 +3,6 @@ include "connect.php";
 session_start();
 
 @$product_id = $_GET['product_id'];
-echo "<script type='text/javascript'>";
-    echo "alert('".$product_id."');";
-    echo "</script>";
-  
-
 @$act = $_GET['act'];
 
 if ($act == 'add' && !empty($product_id)) {

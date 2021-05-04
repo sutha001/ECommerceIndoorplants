@@ -41,7 +41,7 @@ $resultid = mysqli_query($connect, $sql_userid) or die(mysqli_error($connect) . 
     <nav class="navbar navbar-expand-lg navbar-light">
       <div class="container-fluid">
         <a class="navbar-brand px-4" href="index_user.php">
-                <div style="width:100px; cursor: pointer;"><img src="user/New folder/img/Ser.png" width="100%"></div>
+                <div style="width:100px; cursor: pointer;"><img src="New folder/img/Ser.png" width="100%"></div>
             </a>
         <button class="navbar-toggler" data-bs-target="#menu" data-bs-toggle="collapse">
           <span class="navbar-toggler-icon"></span>
