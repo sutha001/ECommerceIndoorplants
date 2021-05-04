@@ -147,7 +147,7 @@ $result = mysqli_query($connect, $sql) or die(mysqli_error($connect) . ":" . $sq
 
                         <div class="profile-detail">
                             <div class="profile-username">
-                                <input type="submit" name="submit" value="แก้ไข" class="btn btn-dark" style="width:20%">
+                                <input type="submit" name="submit" value="บันทึก" class="btn btn-dark" style="width:20%">
                             </div>
                         </div>
             </form>

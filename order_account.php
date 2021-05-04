@@ -54,13 +54,13 @@ $result = mysqli_query($connect, $sql) or die(mysqli_error($connect) . ":" . $sq
                 <div class="navbar-collapse collapse" id="menu">
                     <ul class="navbar-nav ms-auto">
                         <li class="navbar-item px-5">
-                            <a href="cart_user.php" class="nav">Cart</a>
+                            <a href="user/cart_user.php" class="nav">Cart</a>
                         </li>
                         <li class="navbar-item px-5">
-                            <a href="check-out.php" class="nav">Checkout</a>
+                            <a href="check-out_user.php" class="nav">Checkout</a>
                         </li>
                         <li class="navbar-item px-5">
-                            <a href="../account.php" class="nav">Account</a>
+                            <a href="account.php" class="nav">Account</a>
                         </li>
                         <li class="navbar-item px-5">
                             <a href="process/logout-process.php" class="nav">log out</a>
