@@ -57,9 +57,6 @@ $i = 0;
     </div>
     </div>
   </nav>
-  <div class="head" style="height: auto; display: flex; align-items: center; justify-content: center;">
-    <img src="../user/New folder/img/logo.png" width="45%">
-  </div>
   <!-- Carousel -->
   <!--<div id="multi" class="carousel slide">
     <ol class="carousel-indicators">
