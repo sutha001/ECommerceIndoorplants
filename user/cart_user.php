@@ -79,7 +79,7 @@ if ($act == 'update') {
             <h1 style="text-align: center;">Cart</h1>
         </div>
 
-        <div class="container">
+        <div class="container" style="height: 100vh;">
             <div class="your-order">
                 <h1 style="font-size: 24px;text-align: center;padding-top: 3%;">YOUR ORDER</h1>
                 <table style="margin-top: 2%;">
@@ -133,10 +133,6 @@ if ($act == 'update') {
                             </tr>
                         </table>
                     </form>
-
-                    <div class="footer d-flex flex-column" style="margin-top: 3%;">
-                        
-                    </div>
 
                 <?php
             } ?>
