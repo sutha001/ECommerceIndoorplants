@@ -44,7 +44,7 @@ $i
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&family=Taviraj&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/product-test.css">
-    <title>product</title>
+    <title>Product</title>
 </head>
 
 <body>
