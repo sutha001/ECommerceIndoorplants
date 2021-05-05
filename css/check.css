@@ -54,3 +54,8 @@ h2{
   background-color: #598faa !important;
   text-decoration: underline;
 }
+@media (max-width: 767px) {
+  .first{
+      flex-direction: column-reverse;
+  }
+}

@@ -9,11 +9,13 @@ hr{
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 100vh;
 }
 .bigcard{
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 50px;
 }
 form{
     display: flex;
@@ -24,5 +26,13 @@ form{
 img{
     border: 4px solid gray;
 }
+body{
+    background-color:whitesmoke;
+}
+@media (max-width: 767px) {
+    .imglogin{
+        height: 65vh;
+    }
+  }
 
   

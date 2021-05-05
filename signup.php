@@ -16,12 +16,12 @@
 <body>
 
 
-  <div class="container-fluid h-100">
+<div class="container-fluid h-100">
     <div class="row">
-      <div class="imglogin col-6" style="height: 100vh;">
+      <div class="imglogin col-md-12 col-lg-6">
         <img src="img/test.jpg" width="90%">
       </div>
-      <div class="bigcard col-6" style="height: auto;">
+      <div class="bigcard col-md-12 col-lg-6" style="height: auto;">
         <div class="card" style="width: 80%;">
           <h1 class="card-header  text-center">Sign up</h1>
           <form action="process/insert-user.php" method="POST" name="form1">

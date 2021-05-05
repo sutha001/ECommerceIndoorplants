@@ -19,10 +19,10 @@ include "connect.php";
 <body>
   <div class="container-fluid h-100">
     <div class="row">
-      <div class="imglogin col-6" style="height: 100vh;">
-        <img src="img/test.jpg" width="90%" >
+      <div class="imglogin col-sm-12 col-md-6">
+        <img src="../img/test.jpg" width="90%" >
       </div>
-      <div class="bigcard col-6" style="height: auto;">
+      <div class="bigcard col-sm-12 col-md-6 my-sm-5" style="height: auto;">
         <div class="card" style="width: 80%;">
           <h1 class="card-header  text-center">Log-in</h1>
           <form action="user/process/login-process.php" method="POST">

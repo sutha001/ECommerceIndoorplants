@@ -103,7 +103,17 @@ body{
   border-radius: 10px;
 }
 p{
-  padding:10px;
+  padding-left:20px;
+  padding-bottom: 5px;
   font-family: 'Taviraj', serif;
+}
+.first{
+  display: flex;
+  flex-direction: row;
+}
+@media (max-width: 767px) {
+  .first{
+      flex-direction: column;
+  }
 }
 

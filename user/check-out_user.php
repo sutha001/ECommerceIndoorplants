@@ -72,8 +72,8 @@ $resultid = mysqli_query($connect, $sql_userid) or die(mysqli_error($connect) . 
 
     <div class="container">
       <div class="row">
-        <div class="col-12 d-flex">
-          <div class="col-12 col-md-6">
+        <div class="first col d-flex">
+          <div class="col-sm-12 col-md-6">
             <div class="box-address">
               <h2 style="text-align: center;">กรอกที่อยู่สำหรับจัดส่ง</h2>
               <form actiom="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
@@ -104,14 +104,14 @@ $resultid = mysqli_query($connect, $sql_userid) or die(mysqli_error($connect) . 
                       <div><textarea style="width: 100%;" name="address" placeholder="กรุณากรอกที่อยู่อย่างละเอีนดโดยเฉพาะ**** รหัสไปรษณีย์ เขต จังหวัด****" value="<?= $row['address']; ?>" readonly><?= $row['address']; ?></textarea></div>
                     </div>
                   </div>
-                  <div style="display: flex; justify-content: center;">
+                  <div style="display: flex; justify-content: center;  padding-bottom:20px;">
                     <input type="submit" name="saveorder" class="btn btn-primary btn-lg" style="width: 40%;font-family: 'Taviraj', serif;" value="ชำระเงิน">
                   </div>
                 <?php endwhile ?>
               </form>
             </div>
           </div>
-          <div class="col-12 col-md-6">
+          <div class="col-sm-12 col-md-6">
             <div class="box-order">
               <h2 style="text-align: center;">รายการของคุณ</h2>
               <div style="margin: 50px; padding-bottom: 20px;">

@@ -83,8 +83,8 @@ $i
         <div class="container">
             <div class="row">
 
-                <div class="col-6 col-sm-12 d-flex flex-row" style="margin-top: 50px;">
-                    <div class="col-12 col-sm-6 px-2">
+                <div class="first col" style="margin-top: 50px;">
+                    <div class="col-sm-12 col-md-6 px-2">
                         <div id="slide" class="carousel slide">
                             <ol class="carousel-indicators">
                                 <?php
@@ -129,7 +129,7 @@ $i
                         </div>
                     </div>
 
-                    <div class="col-12 col-sm-6 px-2">
+                    <div class="col-sm-12 col-md-6 px-2">
                         <?php while ($row = mysqli_fetch_assoc($result)) : ?>
                             <div class="box-product">
                                 <div class="detail-product">

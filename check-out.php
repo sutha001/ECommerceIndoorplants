@@ -11,7 +11,7 @@ include "connect.php";
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="css\check.css">
+  <link rel="stylesheet" href="css/check.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&family=Taviraj&display=swap" rel="stylesheet">
 
@@ -50,8 +50,8 @@ include "connect.php";
 
   <div class="container">
     <div class="row">
-      <div class="col-12 d-flex">
-        <div class="col-12 col-md-6">
+      <div class="first col d-flex">
+        <div class="col-sm-12 col-md-6">
           <div class="box-address">
             <h2 style="text-align: center;">กรอกที่อยู่สำหรับจัดส่ง</h2>
             <form actiom="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
@@ -87,7 +87,7 @@ include "connect.php";
             </form>
           </div>
         </div>
-        <div class="col-12 col-md-6">
+        <div class="col-sm-12 col-md-6">
           <div class="box-order">
             <h2 style="text-align: center;">รายการของคุณ</h2>
             <div style="margin: 50px; padding-bottom: 20px;">
