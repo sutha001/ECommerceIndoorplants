@@ -180,7 +180,7 @@ $i = 0;
     </div>
   </div>
   <div class="footer d-flex flex-column">
-    <p>This is a fucking FOOTfER.</p>
+    
   </div>
 </body>
 <script src="../bootstrap/js/bootstrap.min.js"></script>

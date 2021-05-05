@@ -205,7 +205,7 @@ $i
             </div>
         </div>
         <div class="footer d-flex flex-column">
-            <p>This is a fucking FOOTER.</p>
+            
         </div>
     <?php
     } ?>

@@ -186,7 +186,7 @@ $rowimg = mysqli_num_rows($result2);
         </div>
     </div>
     <div class="footer d-flex flex-column">
-        <p>This is a fucking FOOTER.</p>
+       
     </div>
 </body>
 <script src="bootstrap/js/bootstrap.min.js"></script>

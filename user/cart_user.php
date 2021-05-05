@@ -135,7 +135,7 @@ if ($act == 'update') {
                     </form>
 
                     <div class="footer d-flex flex-column" style="margin-top: 3%;">
-                        <p>This is a fucking FOOTER.</p>
+                        
                     </div>
 
                 <?php

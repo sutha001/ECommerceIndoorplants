@@ -157,7 +157,7 @@ $result = mysqli_query($connect, $sql) or die(mysqli_error($connect) . ":" . $sq
     </div>
 
     <div class="footer d-flex flex-column" style="margin-top: 3%;">
-      <p>This is a fucking FOOTER.</p>
+      
     </div>
   <?php
   } ?>

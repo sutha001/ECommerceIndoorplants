@@ -295,7 +295,7 @@ $resultid = mysqli_query($connect, $sql_userid) or die(mysqli_error($connect) . 
 
 
       <div class="footer d-flex flex-column" style="margin-top: 3%;">
-        <p style="font-family: 'Source Sans Pro', sans-serif;">This is a fucking FOOTER.</p>
+        
       </div>
 
 </body>
