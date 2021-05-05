@@ -173,7 +173,7 @@ $i = 0;
     </div>
   </div>
   <div class="footer d-flex flex-column">
-    <p></p>
+    
   </div>
 </body>
 <script src="bootstrap/js/bootstrap.min.js"></script>
