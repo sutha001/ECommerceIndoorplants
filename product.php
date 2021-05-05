@@ -41,7 +41,7 @@ $rowimg = mysqli_num_rows($result2);
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
-            <a class="navbar-brand px-4" href="index_user.php">
+            <a class="navbar-brand px-4" href="index.php">
                 <div style="width:100px; cursor: pointer;"><img src="user/New folder/img/Ser.png" width="100%"></div>
             </a>
             <button class="navbar-toggler" data-bs-target="#menu" data-bs-toggle="collapse">
@@ -50,13 +50,13 @@ $rowimg = mysqli_num_rows($result2);
             <div class="navbar-collapse collapse" id="menu">
                 <ul class="navbar-nav ms-auto">
                     <li class="navbar-item px-5">
-                        <a href="cart.html" class="nav">Cart</a>
+                        <a href="cart.php" class="nav">Cart</a>
                     </li>
                     <li class="navbar-item px-5">
-                        <a href="html.html" class="nav">Checkout</a>
+                        <a href="check-out.php" class="nav">Checkout</a>
                     </li>
                     <li class="navbar-item px-5">
-                        <a href="" class="nav">Account</a>
+                        <a href="login.php" class="nav">Log-in</a>
                     </li>
                 </ul>
             </div>
@@ -132,24 +132,15 @@ $rowimg = mysqli_num_rows($result2);
                             <div class="quantity-product" style="display: flex;flex-direction:column;">
                                 <div class="empty-quantity" style="flex:1;"></div>
                                 <div class="text-box-quantity-product" style="display: flex; flex-direction: row; justify-content: center;">
-                                    <a style="display: flex; align-items: center; font-family: 'Taviraj', serif;">จำนวนสินค้าในสต๊อก</a>&ensp;<input readonly="" type="number" min="1" id="fname" name="fname" style="width: 10%;" value = <?= $row['amount'];?>>
+                                    <a style="display: flex; align-items: center; font-family: 'Taviraj', serif;">จำนวนสินค้าในสต๊อก</a>&ensp;<input readonly="" type="number" min="1" id="fname" name="fname" style="width: 10%;" value=<?= $row['amount']; ?>>
+                                    <?php
 
-            <?php
-
-              if ($row['amount'] == 0) {
-                echo '<a  style="text-align: center; margin:32%; font-size:1.8vw; color:red;" type="AddtoCart" >สินค้าหมด</a>';
-              } else {
-                echo "<a class='btn btn-primary btn-lg' style='width: 30%; margin-left: 20px; margin-right: 5px;' type='AddtoCart' href='cart.php?product_id=$product_id&act=add'>ใส่ลงตะกร้า</a>";
-              }
-              ?>
-            <?php
-
-              if ($row['amount'] == 0) {
-                echo '<a  style="text-align: center; margin:32%; font-size:1.8vw; color:red;" type="AddtoCart" >สินค้าหมด</a>';
-              } else {
-                echo "<a class='btn btn-primary btn-lg' style='width: 30%; margin-left: 20px; margin-right: 5px;' type='AddtoCart' href='cart.php?product_id=$product_id&act=add'>ใส่ลงตะกร้า</a>";
-              }
-              ?>
+                                    if ($row['amount'] == 0) {
+                                        echo '<a  style="text-align: center; margin:32%; font-size:1.8vw; color:red;" type="AddtoCart" >สินค้าหมด</a>';
+                                    } else {
+                                        echo "<a class='btn btn-primary btn-lg' style='width: 30%; margin-left: 20px; margin-right: 5px;' type='AddtoCart' href='cart.php?product_id=$product_id&act=add'>ใส่ลงตะกร้า</a>";
+                                    }
+                                    ?>
                                 </div>
                                 <div class="empty-quantity" style="flex:1;"></div>
                             </div>
@@ -171,21 +162,23 @@ $rowimg = mysqli_num_rows($result2);
                     <?php while ($row = $result_product->fetch_assoc()) : ?>
                         <div class="carousel-cell" style="width:250px;margin-left: 3%;">
                             <div class="card">
-                                <img src="admin/images_product/<?php echo $row['image']; ?>">
-                                    <div class="card-body">
-                                        <p><?php echo $row['product_name']; ?></p>
-                                    </div>
+                                <a href='product.php?product_id=<?php echo $row['product_id']; ?>'>
+                                    <img src="admin/images_product/<?php echo $row['image']; ?>" style="width: 70%; margin: 10% 10% 10% 15%;">
+                                </a>
+                                <div class="card-body">
+                                    <p><?php echo $row['product_name']; ?></p>
                                 </div>
                             </div>
-                    <?php if ($i == 5) {
-                        break;
-                            }
+                        </div>
+                        <?php if ($i == 5) {
+                            break;
+                        }
                         $i++;
 
-                            ?>
-            <?php endwhile ?>
+                        ?>
+                    <?php endwhile ?>
 
-                    
+
 
                 </div>
             </div>

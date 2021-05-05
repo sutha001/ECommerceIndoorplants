@@ -58,10 +58,11 @@
                     <hr>
                     <div style="margin: 3% 0%;">
                         <a class="btn btn-dark" style="background-color: #ffffff; color:#1b221b;" href="admin_editor.php">ทั้งหมด</a>
-                        <a class="btn btn-dark" style="background-color: #4d4d4d;" href="admin_editor.php">ดูดสารพิษ</a>
-                        <a class="btn btn-dark" style="background-color: #4d4d4d;" href="admin_editor.php">คลายความชื้น</a>
-                        <a class="btn btn-dark" style="background-color: #4d4d4d;" href="admin_editor.php">มีดอก</a>
-                        <a class="btn btn-dark" style="background-color: #4d4d4d;" href="admin_editor.php">ฟอกอากาศ</a><br>
+                        <a class="btn btn-dark" style="background-color: #4d4d4d;" href="manage/admin_type1.php">ดูดสารพิษ</a>
+                        <a class="btn btn-dark" style="background-color: #4d4d4d;" href="manage/admin_type2.php">ไม่ต้องการแดด</a>
+                        <a class="btn btn-dark" style="background-color: #4d4d4d;" href="manage/admin_type3.php">คลายความชื้น</a>
+                        <a class="btn btn-dark" style="background-color: #4d4d4d;" href="manage/admin_type4.php">มีดอก</a>
+                        <a class="btn btn-dark" style="background-color: #4d4d4d;" href="manage/admin_type5.php">ฟอกอากาศ</a>
                     </div>
                     <table>
                         <thead>
@@ -85,7 +86,7 @@
                                     <td><?php echo $row['amount']; ?></td>
 
                                     <td width="10%"><a class="btn btn-dark" style="background-color: #4d4d4d;" href="manage/admin_add_product.php?product_id=<?php echo $row['product_id']; ?>">เพิ่มจำนวนสินค้า</a><br></td>
-                                    <td width="10%"><a class="btn btn-dark" style="background-color: #4d4d4d;" href="manage/admin_delete.php?product_id=<?php echo $row['product_id']; ?>">ลบ</a><br></td>
+                                    <td width="10%"><a class="btn btn-dark" style="background-color: #4d4d4d;" href="manage/admin_delete.php?product_id=<?php echo $row['product_id']; ?>" onclick="return confirm('ต้องการที่จะลบสินค้านี้ออกจากระบบหรือไม่ออกจากระบบหรือไม่?')">ลบ</a><br></td>
                                 </tr>
                             <?php endwhile ?>
                         </tbody>

@@ -113,7 +113,9 @@ $i = 0;
           <?php while ($row = $result_product->fetch_assoc()) : ?>
             <div class="carousel-cell">
               <div class="card">
-                <img src="admin/images_product/<?php echo $row['image']; ?>">
+                <a href='product.php?product_id=<?php echo $row['product_id']; ?>'>
+                  <img src="admin/images_product/<?php echo $row['image']; ?>" style="width: 70%; margin: 10% 10% 10% 15%;">
+                </a>
                 <div class="card-body">
                   <p><?php echo $row['product_name']; ?></p>
                 </div>

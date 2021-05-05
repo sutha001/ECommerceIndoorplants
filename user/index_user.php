@@ -36,8 +36,8 @@ $i = 0;
   <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container-fluid">
       <a class="navbar-brand px-4" href="index_user.php">
-                <div style="width:100px; cursor: pointer;"><img src="../user/New folder/img/Ser.png" width="100%"></div>
-            </a>
+        <div style="width:100px; cursor: pointer;"><img src="../user/New folder/img/Ser.png" width="100%"></div>
+      </a>
       <button class="navbar-toggler" data-bs-target="#menu" data-bs-toggle="collapse">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -116,7 +116,9 @@ $i = 0;
           <?php while ($row = $result_product->fetch_assoc()) : ?>
             <div class="carousel-cell">
               <div class="card">
-                <img src="../admin/images_product/<?php echo $row['image']; ?>">
+                <a href='product.php?product_id=<?php echo $row['product_id']; ?>'>
+                  <img src="../admin/images_product/<?php echo $row['image']; ?>" style="width: 70%; margin: 10% 10% 10% 15%;">
+                </a>
                 <div class="card-body">
                   <p><?php echo $row['product_name']; ?></p>
                 </div>
@@ -143,32 +145,32 @@ $i = 0;
         <button class="button" data-filter=".ฟอกอากาศ">ฟอกอากาศ</button>
       </div>
 
-    <div class="grid d-flex text-center">
-      <?php while ($row = $result->fetch_assoc()) : ?>
-        <div class="col-lg-3 p-1 my-4 mx-5 element-item <?php echo $row['type_name']; ?>" >
-          <div class="carditem card">
-            <a href='product.php?product_id=<?php echo $row['product_id']; ?>'>
-              <img src="../admin/images_product/<?php echo $row['image']; ?>" class="card-img-top p-4" alt="...">
-            </a>
-            <div class="card-body">
-              <p class="plant-name h3 pb-3"><?php echo $row['product_name']; ?></p>
-              <p>ราคา : <?php echo $row['price']; ?> บาท</p>
-              <?php
+      <div class="grid d-flex text-center">
+        <?php while ($row = $result->fetch_assoc()) : ?>
+          <div class="col-lg-3 p-1 my-4 mx-5 element-item <?php echo $row['type_name']; ?>">
+            <div class="carditem card">
+              <a href='product.php?product_id=<?php echo $row['product_id']; ?>'>
+                <img src="../admin/images_product/<?php echo $row['image']; ?>" class="card-img-top p-4" alt="...">
+              </a>
+              <div class="card-body">
+                <p class="plant-name h3 pb-3"><?php echo $row['product_name']; ?></p>
+                <p>ราคา : <?php echo $row['price']; ?> บาท</p>
+                <?php
 
-              $product_id = $row['product_id'];
-              if ($row['amount'] == 0) {
-                echo '<a  style="text-align: center; margin:32%; font-size:1.8vw; color:red;" type="AddtoCart" >สินค้าหมด</a>';
-              } else {
-               
+                $product_id = $row['product_id'];
+                if ($row['amount'] == 0) {
+                  echo '<a  style="text-align: center; margin:32%; font-size:1.8vw; color:red;" type="AddtoCart" >สินค้าหมด</a>';
+                } else {
 
-                echo "<a class='btn btn-primary btn-lg' style='text-align: center;' type='AddtoCart' href='cart_user.php?product_id=$product_id&act=add'>ใส่ลงตะกร้า</a>";
-              }
-              ?>
+
+                  echo "<a class='btn btn-primary btn-lg' style='text-align: center;' type='AddtoCart' href='cart_user.php?product_id=$product_id&act=add'>ใส่ลงตะกร้า</a>";
+                }
+                ?>
+              </div>
             </div>
           </div>
-        </div>
-      <?php endwhile ?>
-    </div>
+        <?php endwhile ?>
+      </div>
 
 
 
@@ -189,108 +191,111 @@ $i = 0;
 <script>
   const cartButtons = document.querySelectorAll('.cart-button');
 
-cartButtons.forEach(button => {
-  button.addEventListener('click', cartClick);
-});
+  cartButtons.forEach(button => {
+    button.addEventListener('click', cartClick);
+  });
 
-function cartClick() {
-  let button = this;
-  button.classList.add('clicked');
-}
+  function cartClick() {
+    let button = this;
+    button.classList.add('clicked');
+  }
 </script>
 <script>
   var fitRows = Isotope.LayoutMode.modes.fitRows.prototype;
-fitRows._resetLayout = function() {
+  fitRows._resetLayout = function() {
 
-  // pre-calculate offsets for centering each row
-  this.x = 0;
-  this.y = 0;
-  this.maxY = 0;
-  this._getMeasurement( 'gutter', 'outerWidth' );
-  this.centerX = [];
-  this.currentRow = 0;
-  this.initializing = true;
-  for ( var i=0, len = this.items.length; i < len; i++ ) {
+    // pre-calculate offsets for centering each row
+    this.x = 0;
+    this.y = 0;
+    this.maxY = 0;
+    this._getMeasurement('gutter', 'outerWidth');
+    this.centerX = [];
+    this.currentRow = 0;
+    this.initializing = true;
+    for (var i = 0, len = this.items.length; i < len; i++) {
       var item = this.items[i];
       this._getItemLayoutPosition(item);
-  }
-  this.centerX[this.currentRow].offset = (this.isotope.size.innerWidth +this.gutter-this.x) / 2;
-  this.initializing = false;
-  this.currentRow = 0;
+    }
+    this.centerX[this.currentRow].offset = (this.isotope.size.innerWidth + this.gutter - this.x) / 2;
+    this.initializing = false;
+    this.currentRow = 0;
 
-  // centered offsets were calculated, reset layout
-  this.x = 0;
-  this.y = 0;
-  this.maxY = 0;
-  this._getMeasurement( 'gutter', 'outerWidth' );
-};
-fitRows._getItemLayoutPosition = function( item ) {
-  item.getSize();
-  var itemWidth = item.size.outerWidth + this.gutter;
-  // if this element cannot fit in the current row
-  var containerWidth = this.isotope.size.innerWidth + this.gutter;
-  if ( this.x !== 0 && itemWidth + this.x > containerWidth ) {
-
-    if (this.initializing)
-        this.centerX[this.currentRow].offset = (containerWidth-this.x) / 2;
-    this.currentRow++;
-
+    // centered offsets were calculated, reset layout
     this.x = 0;
-    this.y = this.maxY;
-  }
-
-  if (this.initializing && this.x == 0) {
-    this.centerX.push({ offset: 0});
-  }
-  //if (this.centerX[this.currentRow].offset < 0)
-  //  this.centerX[this.currentRow].offset = 0;
-
-  var position = {
-    x: this.x+(this.initializing?0:this.centerX[this.currentRow].offset),
-    y: this.y
+    this.y = 0;
+    this.maxY = 0;
+    this._getMeasurement('gutter', 'outerWidth');
   };
+  fitRows._getItemLayoutPosition = function(item) {
+    item.getSize();
+    var itemWidth = item.size.outerWidth + this.gutter;
+    // if this element cannot fit in the current row
+    var containerWidth = this.isotope.size.innerWidth + this.gutter;
+    if (this.x !== 0 && itemWidth + this.x > containerWidth) {
 
-  this.maxY = Math.max( this.maxY, this.y + item.size.outerHeight );
-  this.x += itemWidth;
+      if (this.initializing)
+        this.centerX[this.currentRow].offset = (containerWidth - this.x) / 2;
+      this.currentRow++;
 
-  return position;
-};
+      this.x = 0;
+      this.y = this.maxY;
+    }
+
+    if (this.initializing && this.x == 0) {
+      this.centerX.push({
+        offset: 0
+      });
+    }
+    //if (this.centerX[this.currentRow].offset < 0)
+    //  this.centerX[this.currentRow].offset = 0;
+
+    var position = {
+      x: this.x + (this.initializing ? 0 : this.centerX[this.currentRow].offset),
+      y: this.y
+    };
+
+    this.maxY = Math.max(this.maxY, this.y + item.size.outerHeight);
+    this.x += itemWidth;
+
+    return position;
+  };
   // external js: isotope.pkgd.js
 
-// init Isotope
-var $grid = $('.grid').isotope({
-  itemSelector: '.element-item',
-  layoutMode: 'fitRows'
-});
-// filter functions
-var filterFns = {
-  // show if number is greater than 50
-  numberGreaterThan50: function() {
-    var number = $(this).find('.number').text();
-    return parseInt( number, 10 ) > 50;
-  },
-  // show if name ends with -ium
-  ium: function() {
-    var name = $(this).find('.name').text();
-    return name.match( /ium$/ );
-  }
-};
-// bind filter button click
-$('.filters-button-group').on( 'click', 'button', function() {
-  var filterValue = $( this ).attr('data-filter');
-  // use filterFn if matches value
-  filterValue = filterFns[ filterValue ] || filterValue;
-  $grid.isotope({ filter: filterValue });
-});
-// change is-checked class on buttons
-$('.button-group').each( function( i, buttonGroup ) {
-  var $buttonGroup = $( buttonGroup );
-  $buttonGroup.on( 'click', 'button', function() {
-    $buttonGroup.find('.is-checked').removeClass('is-checked');
-    $( this ).addClass('is-checked');
+  // init Isotope
+  var $grid = $('.grid').isotope({
+    itemSelector: '.element-item',
+    layoutMode: 'fitRows'
   });
-});
-
+  // filter functions
+  var filterFns = {
+    // show if number is greater than 50
+    numberGreaterThan50: function() {
+      var number = $(this).find('.number').text();
+      return parseInt(number, 10) > 50;
+    },
+    // show if name ends with -ium
+    ium: function() {
+      var name = $(this).find('.name').text();
+      return name.match(/ium$/);
+    }
+  };
+  // bind filter button click
+  $('.filters-button-group').on('click', 'button', function() {
+    var filterValue = $(this).attr('data-filter');
+    // use filterFn if matches value
+    filterValue = filterFns[filterValue] || filterValue;
+    $grid.isotope({
+      filter: filterValue
+    });
+  });
+  // change is-checked class on buttons
+  $('.button-group').each(function(i, buttonGroup) {
+    var $buttonGroup = $(buttonGroup);
+    $buttonGroup.on('click', 'button', function() {
+      $buttonGroup.find('.is-checked').removeClass('is-checked');
+      $(this).addClass('is-checked');
+    });
+  });
 </script>
 
 </html>

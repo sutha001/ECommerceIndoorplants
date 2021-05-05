@@ -45,8 +45,8 @@ if ($act == 'update') {
   <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container-fluid">
       <a class="navbar-brand px-4" href="index.php">
-                <div style="width:100px; cursor: pointer;"><img src="user/New folder/img/Ser.png" width="100%"></div>
-            </a>
+        <div style="width:100px; cursor: pointer;"><img src="user/New folder/img/Ser.png" width="100%"></div>
+      </a>
       <button class="navbar-toggler" data-bs-target="#menu" data-bs-toggle="collapse">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -71,7 +71,7 @@ if ($act == 'update') {
     <h1 style="text-align: center;">Cart</h1>
   </div>
 
-  <div class="container">
+  <div class="container" style="height: 100vh;">
     <div class="your-order">
       <h1 style="font-size: 24px;text-align: center;padding-top: 3%;">YOUR ORDER</h1>
       <table style="margin-top: 2%;">
@@ -125,11 +125,12 @@ if ($act == 'update') {
             </tr>
           </table>
         </form>
-        
+
 
         <?php
 
         ?>
+
 
 </body>
 <script src="bootstrap/js/bootstrap.min.js"></script>
