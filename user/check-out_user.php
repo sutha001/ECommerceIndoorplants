@@ -177,19 +177,19 @@ $resultid = mysqli_query($connect, $sql_userid) or die(mysqli_error($connect) . 
           <div class="container" style="height: auto;">
             <div class="row justify-content-center">
               <h2 style="text-align: center; font-family: 'Source Sans Pro', sans-serif;">Order Confirmation</h2>
-              <div class="col-3" style="text-align: center;">
+              <div class="col-sm-6 col-md-3" style="text-align: center;">
                 <p>หมายเลข Order</p>
                 <input type="text" id="order_id" name="order_id" placeholder="#125" style="width: 50%;" required>
               </div>
-              <div class="col-3" style="text-align: center;">
+              <div class="col-sm-6 col-md-3" style="text-align: center;">
                 <p>จำนวนเงินที่ชำระ</p>
                 <input type="number" id="payment_price" name="payment_price" placeholder="#125" style="width: 50%;" required>
               </div>
-              <div class="col-3" style="text-align: center;">
+              <div class="col-sm-6 col-md-3" style="text-align: center;">
                 <p>วันและเวลาที่โอนเงิน</p>
                 <input type="datetime-local" id="datetimes" name="datetimes" placeholder="#125" style="width: 50%;" required>
               </div>
-              <div class="col-3" style="text-align: center;">
+              <div class="col-sm-6 col-md-3" style="text-align: center;">
                 <p>สลิปการชำระเงิน</p>
                 <input type="file" name="payment_image" class="form-control-file" id="exampleFormControlFile1" required>
               </div>

@@ -154,22 +154,23 @@ include "connect.php";
           <form action="admin/orders/process/payment_process.php" method="POST" enctype=multipart/form-data>
             <div class="row justify-content-center">
               <h2 style="text-align: center; font-family: 'Source Sans Pro', sans-serif;">Order Confirmation</h2>
-              <div class="col-6 col-md-3" style="text-align: center;">
+              <div class="col-sm-6 col-md-3" style="text-align: center;">
                 <p>หมายเลข Order</p>
                 <input type="text" id="order_id" name="order_id" placeholder="#125" style="width: 50%;" required>
               </div>
-              <div class="col-6 col-md-3" style="text-align: center;">
+              <div class="col-sm-6 col-md-3" style="text-align: center;">
                 <p>จำนวนเงินที่ชำระ</p>
                 <input type="text" id="payment_price" name="payment_price" placeholder="" style="width: 50%;" required>
               </div>
-              <div class="col-6 col-md-3" style="text-align: center;">
+              <div class="col-sm-6 col-md-3" style="text-align: center;">
                 <p>วันและเวลาที่โอนเงิน</p>
                 <input type="datetime-local" id="datetimes" name="datetimes" placeholder="" style="width: 50%;" required>
               </div>
-              <div class="col-6 col-md-3" style="text-align: center;">
+              <div class="col-sm-6 col-md-3" style="text-align: center;">
                 <p>สลิปการชำระเงิน</p>
                 <input type="file" name="payment_image" class="form-control-file" id="exampleFormControlFile1" required>
               </div>
+              <div class="w-100"></div>
               <div class="col-6 col-6 py-3" style="text-align: center;">
                 <input type="submit" class="btn btn-primary btn-lg" style="width: 40%;font-family: 'Taviraj', serif; margin-top: 20px;" name="confirm" value="ยืนยัน">
               </div>
