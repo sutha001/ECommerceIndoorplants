@@ -84,7 +84,7 @@ $result = mysqli_query($connect, $sql) or die(mysqli_error($connect) . ":" . $sq
               </p>
             </div>
             <div class="profile-username">
-              <input type="text" id="fname" name="fname" readonly value="<?= $row['username']; ?>">
+              <input type="text" id="fname" name="fname" readonly value="<?= $row['username']; ?>" style="background-color: #E9E6E5;">
             </div>
           </div>
           <hr>
@@ -95,7 +95,7 @@ $result = mysqli_query($connect, $sql) or die(mysqli_error($connect) . ":" . $sq
               </p>
             </div>
             <div class="profile-username">
-              <input type="text" id="fname" name="fname" readonly value="<?= $row['fname']; ?>">
+              <input type="text" id="fname" name="fname" readonly value="<?= $row['fname']; ?>" style="background-color: #E9E6E5;">
             </div>
           </div>
           <hr>
@@ -107,7 +107,7 @@ $result = mysqli_query($connect, $sql) or die(mysqli_error($connect) . ":" . $sq
               </p>
             </div>
             <div class="profile-username">
-              <input type="text" id="fname" name="fname" readonly value="<?= $row['lname']; ?>">
+              <input type="text" id="fname" name="fname" readonly value="<?= $row['lname']; ?>" style="background-color: #E9E6E5;">
             </div>
           </div>
           <hr>
@@ -119,7 +119,7 @@ $result = mysqli_query($connect, $sql) or die(mysqli_error($connect) . ":" . $sq
               </p>
             </div>
             <div class="profile-username">
-              <input type="text" id="fname" name="fname" readonly value="<?= $row['email']; ?>">
+              <input type="text" id="fname" name="fname" readonly value="<?= $row['email']; ?>" style="background-color: #E9E6E5;">
             </div>
           </div>
           <hr>
@@ -131,7 +131,7 @@ $result = mysqli_query($connect, $sql) or die(mysqli_error($connect) . ":" . $sq
               </p>
             </div>
             <div class="profile-username">
-              <input type="text" id="fname" name="fname" readonly value="<?= $row['phone_number']; ?>">
+              <input type="text" id="fname" name="fname" readonly value="<?= $row['phone_number']; ?>" style="background-color: #E9E6E5;">
             </div>
           </div>
           <hr>
@@ -143,7 +143,7 @@ $result = mysqli_query($connect, $sql) or die(mysqli_error($connect) . ":" . $sq
               </p>
             </div>
             <div class="profile-username">
-              <textarea readonly><?php echo $row['address']; ?></textarea>
+              <textarea readonly style="background-color: #E9E6E5;"><?php echo $row['address']; ?></textarea>
             </div>
           </div>
           <hr>
