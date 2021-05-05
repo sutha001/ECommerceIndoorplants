@@ -72,7 +72,7 @@ $result = mysqli_query($connect, $sql) or die(mysqli_error($connect) . ":" . $sq
         </nav>
 
         <!--Profile-->
-        <div class="container">
+        <div class="container" style="height: 100vh;">
             <div style="margin-top: 3%;">
                 <a class="btn btn-primary btn-lg" style="width:20%" href="account.php">Account</a>
             </div>
@@ -104,7 +104,7 @@ $result = mysqli_query($connect, $sql) or die(mysqli_error($connect) . ":" . $sq
         </div>
 
         <div class="footer d-flex flex-column" style="margin-top: 3%;">
-            <p>This is a fucking FOOTER.</p>
+            
         </div>
     <?php
     } ?>

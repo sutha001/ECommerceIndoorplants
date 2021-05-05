@@ -20,7 +20,7 @@ include "connect.php";
   <div class="container-fluid h-100">
     <div class="row">
       <div class="imglogin col-sm-12 col-md-6">
-        <img src="../img/test.jpg" width="90%" >
+        <img src="img/test.jpg" width="90%" >
       </div>
       <div class="bigcard col-sm-12 col-md-6 my-sm-5" style="height: auto;">
         <div class="card" style="width: 80%;">
