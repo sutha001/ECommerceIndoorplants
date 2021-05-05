@@ -75,6 +75,8 @@
                                     <td><?php echo $row['email']; ?></td>
                                     <td><?php echo $row['phone_number']; ?></td>
                                     <td><?php echo $row['role']; ?></td>
+
+                                    <td width="10%"><a href='process/admin_delete_user.php?user_id=<?php echo $row['user_id']; ?>' onclick="return confirm('ต้องการที่จะลบผู้ใช้คนนี้ออกจากระบบหรือไม่?')" class="btn btn-dark" style="background-color: #4d4d4d;">ลบ</a></td>
                                 </tr>
                             <?php endwhile ?>
                         </tbody>

@@ -1,7 +1,5 @@
 <?php include '../../connect.php';
 
-$order_id = $_GET['order_id'];
-
 ?>
 
 <!DOCTYPE html>
@@ -21,13 +19,13 @@ $order_id = $_GET['order_id'];
     <div class="area_all" style="background-color: black;">
         <div class="menu_editor">
             <div class="row_edit">
-                <a href="../admin_editor.php" class="btn btn-dark" style="background-color: #4f4f4f;">การจัดการสินค้า</a>
+                <a class="btn btn-dark" style="background-color: #ffffff; color:#1b221b;">การจัดการสินค้า</a>
             </div>
             <div class="row_edit">
-                <a href="../admin-order.php" class="btn btn-dark" style="background-color: #ffffff; color:#1b221b;">Order</a>
+                <a href="admin-order.php" class="btn btn-dark" style="background-color: #4f4f4f;">Order</a>
             </div>
             <div class="row_edit">
-                <a href="../admin_manage_user.php" class="btn btn-dark" style="background-color: #4f4f4f;">การจัดการผู้ใช้</a>
+                <a href="admin_manage_user.php" class="btn btn-dark" style="background-color: #4f4f4f;">การจัดการผู้ใช้</a>
             </div>
         </div>
 
@@ -43,20 +41,13 @@ $order_id = $_GET['order_id'];
 
         $start = ($page - 1) * $perpage;
 
-        $sql = "SELECT * , (amount_order * price) AS totalprice
-        FROM order_detali
-        NATURAL JOIN product
-        WHERE order_id = $order_id
+        $sql = "SELECT *
+        FROM product
+        NATURAL JOIN product_type
+        WHERE type_id = 1
         limit {$start} , {$perpage}";
 
         $result = $connect->query($sql) or die(mysqli_error($connect) . ":" . $sql);
-
-        $sql_order = "SELECT *
-        FROM orders
-        WHERE order_id = $order_id";
-
-        $result2 = $connect->query($sql_order) or die(mysqli_error($connect) . ":" . $sql_order);
-
 
         $total = mysqli_num_rows($result);
         ?>
@@ -64,17 +55,26 @@ $order_id = $_GET['order_id'];
         <div class="other_editor">
             <div class="container">
                 <div class="info_right">
-                    <h1>Order</h1>
+                    <h1>การจัดการสินค้า</h1>
+                    <a class="btn btn-dark" style="background-color: #4d4d4d;" href="manage/admin_add_newproduct.php">เพิ่มสินค้าใหม่</a>
                     <hr>
+                    <div style="margin: 3% 0%;">
+                        <a class="btn btn-dark" style="background-color: #4d4d4d;" href="../admin_editor.php">ทั้งหมด</a>
+                        <a class="btn btn-dark" style="background-color: #ffffff; color:#1b221b;" href="admin_type1.php">ดูดสารพิษ</a>
+                        <a class="btn btn-dark" style="background-color: #4d4d4d;" href="admin_type2.php">ไม่ต้องการแดด</a>
+                        <a class="btn btn-dark" style="background-color: #4d4d4d;" href="admin_type3.php">คลายความชื้น</a>
+                        <a class="btn btn-dark" style="background-color: #4d4d4d;" href="admin_type4.php">มีดอก</a>
+                        <a class="btn btn-dark" style="background-color: #4d4d4d;" href="admin_type5.php">ฟอกอากาศ</a>
+                    </div>
                     <table>
                         <thead>
                             <tr>
-                                <th width="5%">รหัสสินค้า</th>
-                                <th width="15%">ชื่อสินค้า</th>
+                                <th width="5%">ID</th>
+                                <th width="10%">ชื่อ</th>
                                 <th width="10%">รูปภาพ</th>
-                                <th width="10%">ราคา</th>
-                                <th width="10%">จำนวน</th>
-                                <th width="10%">รวม</th>
+                                <th width="10%">ราคา(บาท)</th>
+                                <th width="10%">หมวด</th>
+                                <th width="10%">จำนวนคงเหลือ </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -84,25 +84,21 @@ $order_id = $_GET['order_id'];
                                     <td><?php echo $row['product_name']; ?></td>
                                     <td><?php echo $row['image']; ?></td>
                                     <td><?php echo $row['price']; ?></td>
-                                    <td><?php echo $row['amount_order']; ?></td>
-                                    <td><?php echo $row['totalprice']; ?></td>
+                                    <td><?php echo $row['type_name']; ?></td>
+                                    <td><?php echo $row['amount']; ?></td>
+
+                                    <td width="10%"><a class="btn btn-dark" style="background-color: #4d4d4d;" href="admin_add_product.php?product_id=<?php echo $row['product_id']; ?>">เพิ่มจำนวนสินค้า</a><br></td>
+                                    <td width="10%"><a class="btn btn-dark" style="background-color: #4d4d4d;" href="admin_delete.php?product_id=<?php echo $row['product_id']; ?>" onclick="return confirm('ต้องการที่จะลบสินค้านี้ออกจากระบบหรือไม่ออกจากระบบหรือไม่?')">ลบ</a><br></td>
                                 </tr>
                             <?php endwhile ?>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>ราคารวมทั้งหมด</td>
-                                <?php while ($row = $result2->fetch_assoc()) : ?>
-                                    <td><?php echo $row['total_price']; ?></td>
-                                <?php endwhile ?>
-                            </tr>
                         </tbody>
                     </table>
                     <hr>
                     <?php
-                    $sql2 = "select * from order_detali ";
+                    $sql2 = "SELECT *
+                    FROM product
+                    NATURAL JOIN product_type
+                    WHERE type_id = 1 ";
                     $query2 = mysqli_query($connect, $sql2);
                     $total_record = mysqli_num_rows($query2);
                     $total_page = ceil($total_record / $perpage);
@@ -110,15 +106,15 @@ $order_id = $_GET['order_id'];
                     <nav>
                         <ul class="pagination">
                             <li>
-                                <a class="btn btn-dark" style="background-color: #4d4d4d;" href="admin_order.php" aria-label="Previous">
+                                <a class="btn btn-dark" style="background-color: #4d4d4d;" href="admin_editor.php" aria-label="Previous">
                                     <span aria-hidden="true">&laquo;</span>
                                 </a>
                             </li>
                             <?php for ($i = 1; $i <= $total_page; $i++) { ?>
-                                <li><a class="btn btn-dark" style="background-color: #4d4d4d;" href="admin_order.php?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+                                <li><a class="btn btn-dark" style="background-color: #4d4d4d;" href="admin_editor.php?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
                             <?php } ?>
                             <li>
-                                <a class="btn btn-dark" style="background-color: #4d4d4d;" href="admin_order.php?page=<?php echo $total_page; ?>" aria-label="Next">
+                                <a class="btn btn-dark" style="background-color: #4d4d4d;" href="admin_editor.php?page=<?php echo $total_page; ?>" aria-label="Next">
                                     <span aria-hidden="true">&raquo;</span>
                                 </a>
                             </li>
