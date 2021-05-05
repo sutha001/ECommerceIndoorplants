@@ -34,10 +34,7 @@ $i = 0;
 <body>
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-light">
-    <div class="container-fluid">
-      <a class="navbar-brand px-4" href="index.php">
-                <div style="width:100px; cursor: pointer;"><img src="user/New folder/img/Ser.png" width="100%"></div>
-            </a>
+    <div class="container-fluid">     
       <button class="navbar-toggler" data-bs-target="#menu" data-bs-toggle="collapse">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -177,7 +174,7 @@ $i = 0;
     </div>
   </div>
   <div class="footer d-flex flex-column">
-    <p>This is a fucking FOOTfER.</p>
+    <p></p>
   </div>
 </body>
 <script src="bootstrap/js/bootstrap.min.js"></script>
