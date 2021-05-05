@@ -105,6 +105,7 @@ if (isset($_POST['submit'])) {
 
     echo "<script type='text/javascript'>";
     echo "alert('เพิ่มสินค้าสำเร็จ');";
+    echo "window.location ='../../admin_editor.php';";
     echo "</script>";
 }
 

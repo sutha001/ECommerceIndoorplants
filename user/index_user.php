@@ -47,7 +47,7 @@ $i = 0;
             <a href="cart_user.php" class="nav">Cart</a>
           </li>
           <li class="navbar-item px-5">
-            <a href="check-out_user.php" class="nav">Checkwout</a>
+            <a href="check-out_user.php" class="nav">Checkout</a>
           </li>
           <li class="navbar-item px-5">
             <a href="../account.php" class="nav">Account</a>
@@ -100,7 +100,7 @@ $i = 0;
     </a>
   </div>-->
   <div class="head" style="height: auto; display: flex; align-items: center; justify-content: center;">
-
+    <img src="New folder/img/logo.png" width="45%">
   </div>
   <!--  -->
   <div class="container">
@@ -159,11 +159,11 @@ $i = 0;
 
                 $product_id = $row['product_id'];
                 if ($row['amount'] == 0) {
-                  echo '<a  style="text-align: center; margin:32%; font-size:1.8vw; color:red;" type="AddtoCart" >สินค้าหมด</a>';
+                  echo '<a  style="text-align: center; margin:32%; color:red;" type="AddtoCart" >สินค้าหมด</a>';
                 } else {
 
 
-                  echo "<a class='btn btn-primary btn-lg' style='text-align: center;' type='AddtoCart' href='cart_user.php?product_id=$product_id&act=add'>ใส่ลงตะกร้า</a>";
+                  echo "<a class='btn btn-primary btn-lg' style='text-align: center;' type='AddtoCart' href='cart_user.php?product_id=$product_id&act=add'>ซื้อเลย!</a>";
                 }
                 ?>
               </div>

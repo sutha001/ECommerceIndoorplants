@@ -1,119 +1,141 @@
 .carousel,
 .carousel-inner,
-.carousel-item > img {
-  height: 250px;
+.carousel-item>img {
+    height: 250px;
 }
-.carousel-item > img {
-  object-fit: cover;
+
+.carousel-item>img {
+    object-fit: cover;
 }
+
 .item {
-  margin: auto;
-  max-width: 300px;
+    margin: auto;
+    max-width: 300px;
 }
-body{
-  background-color: whitesmoke;
-  font-family: 'Source Sans Pro', sans-serif;
+
+body {
+    background-color: whitesmoke;
+    font-family: 'Source Sans Pro', sans-serif;
 }
 
 .footer {
-  width: 100%;
-  height: 80px;
-  color: white;
-  background-color:#87b8cf;
-  text-align: center;
-  font-size: 15px;
-  justify-content:center; 
-  align-items:center;
-}
-.btn-primary{
-  width: 100%;
-}
-.searchbar{
-  padding-left: 50px;
-  padding-right: 50px;
-}
-@media only screen and (min-width: 600px) {
-  .carousel,
-  .carousel-inner,
-  .carousel-item > img {
-    height: 500px;
-  }
-}
-.bestsell{
-  display: flex;
-  flex-direction: column;
-  border: 1px solid black;
-  background-color: white;
-  border-radius: 20px;
-  padding-top: 10px;
-  padding-bottom: 20px;
-  margin-top: 50px;
-  margin-bottom: 50px;
-  height: auto;
-}
-#related {
-  width: 20%; /* half-width */
-  height: auto;
-  margin-right: 180px;
-}
-#slideshow{
-    width: 100%; /* full width */
-    height: 500px; /* height of carousel */
-    margin-right:0px ;
-}
-.filtertag{
-  display: flex;
-  align-items: center;
-  justify-content: left;
-  font-size: 20px;
-}
-.filter{
-  display: flex;
-  align-items: center;
-  background-color: rgba(0, 0, 0, 0.3);
-  border: 1px solid black;
-  border-radius: 10px;
-}
-.navbar{
-  background-color:#87b8cf;
-}
-.nav{
-  color: whitesmoke;
-  font-size: 25px;
-  text-decoration: none;
-  border-bottom: 3px solid whitesmoke;
-  transition: 0.3s;
-}
-.nav:hover{
-  color: grey;
-  border-bottom: 3px solid grey;
-}
-.btn-primary{
-  width: 100%;
-  background-color: #87b8cf !important;
-  border: none;
-  transition: 0.3s;
-}
-.btn-primary:hover{
-  background-color: #598faa !important;
-  text-decoration: underline;
-}
-.detail-product{
-  background-color: rgba(135, 184, 207, 0.4);
-  border-radius: 10px;
-}
-p{
-  padding-left:20px;
-  padding-bottom: 5px;
-  font-family: 'Taviraj', serif;
-}
-.first{
-  display: flex;
-  flex-direction: row;
-}
-@media (max-width: 767px) {
-  .first{
-      flex-direction: column;
-  }
+    width: 100%;
+    height: 80px;
+    color: white;
+    background-color: #87b8cf;
+    text-align: center;
+    font-size: 15px;
+    justify-content: center;
+    align-items: center;
 }
 
+.btn-primary {
+    width: 100%;
+}
+
+.searchbar {
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+@media only screen and (min-width: 600px) {
+    .carousel,
+    .carousel-inner,
+    .carousel-item>img {
+        height: 500px;
+    }
+}
+
+.bestsell {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    background-color: white;
+    border-radius: 20px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    height: auto;
+}
+
+#related {
+    width: 20%;
+    /* half-width */
+    height: auto;
+    margin-right: 180px;
+}
+
+#slideshow {
+    width: 100%;
+    /* full width */
+    height: 500px;
+    /* height of carousel */
+    margin-right: 0px;
+}
+
+.filtertag {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    font-size: 20px;
+}
+
+.filter {
+    display: flex;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.navbar {
+    background-color: #87b8cf;
+}
+
+.nav {
+    color: whitesmoke;
+    font-size: 25px;
+    text-decoration: none;
+    border-bottom: 3px solid whitesmoke;
+    transition: 0.3s;
+}
+
+.nav:hover {
+    color: grey;
+    border-bottom: 3px solid grey;
+}
+
+.btn-primary {
+    width: 100%;
+    background-color: #87b8cf !important;
+    border: none;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #598faa !important;
+    text-decoration: underline;
+}
+
+.detail-product {
+    background-color: rgba(135, 184, 207, 0.4);
+    border-radius: 10px;
+}
+
+p {
+    padding-left: 20px;
+    padding-bottom: 5px;
+    font-family: 'Taviraj', serif;
+}
+
+.first {
+    display: flex;
+    flex-direction: row;
+}
+
+@media (max-width: 767px) {
+    .first {
+        flex-direction: column;
+    }
+}

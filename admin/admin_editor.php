@@ -16,6 +16,22 @@
 </head>
 
 <body>
+    <style>
+        #thumbwrap {
+            position: relative;
+        }
+
+        .thumb span {
+            position: absolute;
+            visibility: hidden;
+        }
+
+        .thumb:hover,
+        .thumb:hover span {
+            visibility: visible;
+            z-index: 1;
+        }
+    </style>
     <div class="area_all" style="background-color: black;">
         <div class="menu_editor">
             <div class="row_edit">
@@ -80,7 +96,12 @@
                                 <tr>
                                     <td><?php echo $row['product_id']; ?></td>
                                     <td><?php echo $row['product_name']; ?></td>
-                                    <td><?php echo $row['image']; ?></td>
+                                    <td>
+                                        <div id="thumbwrap">
+                                            <a class="thumb" href="#"><img src="images_product/<?php echo $row['image']; ?>" style="width: 30%;" alt="">
+                                                <span><img src="images_product/<?php echo $row['image']; ?>" alt="" style="width: 200%;"></span></a>
+                                        </div>
+                                    </td>
                                     <td><?php echo $row['price']; ?></td>
                                     <td><?php echo $row['type_name']; ?></td>
                                     <td><?php echo $row['amount']; ?></td>
