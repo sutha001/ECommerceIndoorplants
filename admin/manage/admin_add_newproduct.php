@@ -66,7 +66,7 @@
                             <option value="ไม่ต้องการแดด">ไม่ต้องการแดด</option>
                             <option value="มีดอก">มีดอก</option>
                             <option value="ฟอกอากาศ">ฟอกอากาศ</option>
-                            <option value="ฟอกอากาศ">คลายความชื้น</option>
+                            <option value="คลายความชื้น">คลายความชื้น</option>
                         </select>
                         <label>จำนวน :</label>
                         <input type="number" name="amount" required><br><br>

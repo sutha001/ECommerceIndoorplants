@@ -31,7 +31,7 @@
             </div>
             <div class="form-group col-8 pt-3 pb-1">
               <label for="exampleInputPassword1">Password</label>
-              <input type="text" class="form-control" id="exampleInputPassword1" name="password" placeholder="Password" required>
+              <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Password" required>
             </div>
             <div class="form-group col-8 pt-3 pb-1">
               <label for="exampleInputPassword1">ชื่อ</label>

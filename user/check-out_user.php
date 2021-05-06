@@ -173,7 +173,7 @@ $resultid = mysqli_query($connect, $sql_userid) or die(mysqli_error($connect) . 
         <hr style="margin-top:3%;width:80%;margin-left: auto;border: solid;margin-right: auto;">
 
         <!--Order confirmation-->
-        <form action="admin/orders/process/payment_process.php" method="POST" enctype=multipart/form-data>
+        <form action="../admin/orders/process/payment_process.php" method="POST" enctype=multipart/form-data>
           <div class="container" style="height: auto;">
             <div class="row justify-content-center">
               <h2 style="text-align: center; font-family: 'Source Sans Pro', sans-serif;">Order Confirmation</h2>

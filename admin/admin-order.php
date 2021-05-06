@@ -58,7 +58,7 @@
                     <h1>Order</h1>
                     <hr>
                     <div style="margin: 3% 0%;">
-                        <a class="btn btn-dark" style="background-color: #ffffff; color:#1b221b;" href="admin_order.php">ทั้งหมด</a>
+                        <a class="btn btn-dark" style="background-color: #ffffff; color:#1b221b;" href="admin-order.php">ทั้งหมด</a>
                         <a class="btn btn-dark" style="background-color: #4d4d4d;" href="orders/admin_payment.php">หลักฐาน</a>
                     </div>
                     <table>

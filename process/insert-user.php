@@ -41,14 +41,12 @@ if (isset($_POST['reg_user'])) {
             echo "alert('Username และ Email มีผู้ใช้คนอื่นแล้ว');";  //not showing an alert box.
             echo "window.history.back();";
             echo "</script>";
-        }
-        elseif ($user['username'] === $username) {
+        } elseif ($user['username'] === $username) {
             echo '<script>';
             echo 'alert("Username มีผู้ใช้คนอื่นแล้ว");';
             echo "window.history.back();";  //not showing an alert box.
             echo '</script>';
-        }
-        elseif ($user['email'] === $email) {
+        } elseif ($user['email'] === $email) {
             echo '<script>';
             echo 'alert("Email มีผู้ใช้คนอื่นแล้ว");';
             echo "window.history.back();";  //not showing an alert box.
@@ -66,8 +64,20 @@ if (isset($_POST['reg_user'])) {
                   VALUES('$fname', '$lname', '$address','$email','$phone_number')";
         mysqli_query($connect, $query2);
 
-        echo '<script>';
-        echo 'alert("สมัครสมาชิกเรียบร้อย");';
-        echo '</script>';
+
+        $query = "SELECT * FROM user WHERE username='$username' AND password='$password'";
+        $results = mysqli_query($connect, $query);
+
+
+        while ($row = mysqli_fetch_assoc($results)) {
+            $_SESSION["username"] = $username;
+            $_SESSION["user_id"] = $row['user_id'];
+        }
+        if (isset($_SESSION["username"])) {
+            echo '<script>';
+            echo 'alert("สมัครสมาชิกเรียบร้อย");';
+            echo "window.location ='../user/index_user.php';";
+            echo '</script>';
+        }
     }
 }

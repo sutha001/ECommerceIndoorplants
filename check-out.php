@@ -151,7 +151,7 @@ include "connect.php";
 
       <!--Order confirmation-->
   <div class="container" style="height: auto;">
-          <form action="admin/orders/process/payment_process.php" method="POST" enctype=multipart/form-data>
+          <form action="admin/orders/process/payment_process_orther.php" method="POST" enctype=multipart/form-data>
             <div class="row justify-content-center">
               <h2 style="text-align: center; font-family: 'Source Sans Pro', sans-serif;">Order Confirmation</h2>
               <div class="col-sm-6 col-md-3" style="text-align: center;">
@@ -204,7 +204,7 @@ include "connect.php";
         date_default_timezone_set('Asia/Bangkok');
         $creat_data = date('Y-m-d');
 
-        $sql1  = "INSERT INTO orders (order_date,status,user_id) VALUES('$creat_data','กำลังตรวจสอบ',$user_id)";
+        $sql1  = "INSERT INTO orders (order_date,status,user_id,total_price) VALUES('$creat_data','กำลังตรวจสอบ',$user_id,$total)";
         $query1  = mysqli_query($connect, $sql1);
         //ฟังก์ชั่น MAX() จะคืนค่าที่มากที่สุดในคอลัมน์ที่ระบุ ออกมา หรือจะพูดง่ายๆก็ว่า ใช้สำหรับหาค่าที่มากที่สุด นั่นเอง.
         $sql2 = "SELECT MAX(order_id) AS order_id FROM orders ";
@@ -248,7 +248,7 @@ include "connect.php";
       }
       echo '<script type="text/javascript">';
       echo 'alert("' . $msg . '");';
-      echo "window.location ='index-fix.php';";
+      echo "window.location ='index.php';";
       echo "</script>";
       ?>
 
