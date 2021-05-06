@@ -40,7 +40,7 @@ if ($act == 'update') {
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/cart.css">
     <link rel="stylesheet" href="../main.css">
-    <title>Lab07</title>
+    <title>Cart</title>
 </head>
 
 <body>
