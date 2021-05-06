@@ -23,12 +23,27 @@
     display: flex;
     flex-wrap: wrap;
     margin: 10%;
-    height: 5%;
+    height: auto;
     flex-direction: column;
+}
+
+.row_edit > .btn:hover{
+    transition: 0.3s;
+    background-color: white !important;
+    color: black;
 }
 
 .info_right {
     margin: 3% 0% !important;
+}
+
+@media (max-width: 767px) {
+    .btn{
+        font-size: 15px !important;
+    }
+    body{
+        font-size: 15px !important;
+    }
 }
 
 
