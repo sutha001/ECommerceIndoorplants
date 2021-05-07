@@ -4,6 +4,9 @@ include "connect.php";
 
 session_start();
 
+if (isset($_SESSION['username'])) {
+  header('location: user/index_user.php');
+}
 
 $sql = "SELECT * FROM product NATURAL JOIN product_type";
 $result = mysqli_query($connect, $sql);

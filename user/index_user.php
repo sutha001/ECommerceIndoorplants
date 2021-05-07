@@ -4,6 +4,10 @@ include "../connect.php";
 
 session_start();
 
+if (!isset($_SESSION['username'])) {
+  header('location: ../login.php');
+}
+
 
 $sql = "SELECT * FROM product NATURAL JOIN product_type";
 $result = mysqli_query($connect, $sql);
@@ -32,33 +36,36 @@ $i = 0;
 </head>
 
 <body>
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light">
-    <div class="container-fluid">
-      <button class="navbar-toggler" data-bs-target="#menu" data-bs-toggle="collapse">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="navbar-collapse collapse" id="menu">
-        <ul class="navbar-nav ms-auto">
-          <li class="navbar-item px-5">
-            <a href="cart_user.php" class="nav">Cart</a>
-          </li>
-          <li class="navbar-item px-5">
-            <a href="check-out_user.php" class="nav">Checkout</a>
-          </li>
-          <li class="navbar-item px-5">
-            <a href="../account.php" class="nav">Account</a>
-          </li>
-          <li class="navbar-item px-5">
-            <a href="process/logout-process.php" class="nav">log out</a>
-          </li>
-        </ul>
+  <?php
+  if ($_SESSION["username"]) {
+  ?>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container-fluid">
+        <button class="navbar-toggler" data-bs-target="#menu" data-bs-toggle="collapse">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="menu">
+          <ul class="navbar-nav ms-auto">
+            <li class="navbar-item px-5">
+              <a href="cart_user.php" class="nav">Cart</a>
+            </li>
+            <li class="navbar-item px-5">
+              <a href="check-out_user.php" class="nav">Checkout</a>
+            </li>
+            <li class="navbar-item px-5">
+              <a href="../account.php" class="nav">Account</a>
+            </li>
+            <li class="navbar-item px-5">
+              <a href="process/logout-process.php" class="nav">log out</a>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
-    </div>
-  </nav>
-  <!-- Carousel -->
-  <!--<div id="multi" class="carousel slide">
+      </div>
+    </nav>
+    <!-- Carousel -->
+    <!--<div id="multi" class="carousel slide">
     <ol class="carousel-indicators">
       <li class="active" data-bs-target="#multi" data-bs-slide-to="0"></li>
       <li class="active" data-bs-target="#multi" data-bs-slide-to="1"></li>
@@ -96,89 +103,91 @@ $i = 0;
       <span class="visually-hidden">Next</span>
     </a>
   </div>-->
-  <div class="head" style="height: auto; display: flex; align-items: center; justify-content: center;">
-    <img src="New folder/img/logo.png" width="45%">
-  </div>
-  <!--  -->
-  <div class="container">
-    <div class="row">
+    <div class="head" style="height: auto; display: flex; align-items: center; justify-content: center;">
+      <img src="New folder/img/logo.png" width="45%">
+    </div>
+    <!--  -->
+    <div class="container">
+      <div class="row">
 
-      <div class="bestsell">
-        <div>
-          <h1 style="font-family: 'Source Sans Pro', sans-serif;">Latest Products</h1>
+        <div class="bestsell">
+          <div>
+            <h1 style="font-family: 'Source Sans Pro', sans-serif;">Latest Products</h1>
+          </div>
+
+          <div class="main-carousel" data-flickity='{ "cellAlign": "center", "contain": true, "pageDots": false, "draggable": false}'>
+
+            <?php while ($row = $result_product->fetch_assoc()) : ?>
+              <div class="carousel-cell">
+                <div class="card">
+                  <a href='product.php?product_id=<?php echo $row['product_id']; ?>'>
+                    <img src="../admin/images_product/<?php echo $row['image']; ?>" style="width: 70%; margin: 10% 10% 10% 15%;">
+                  </a>
+                  <div class="card-body">
+                    <p><?php echo $row['product_name']; ?></p>
+                  </div>
+                </div>
+              </div>
+              <?php if ($i == 5) {
+                break;
+              }
+              $i++;
+
+              ?>
+            <?php endwhile ?>
+
+
+          </div>
         </div>
 
-        <div class="main-carousel" data-flickity='{ "cellAlign": "center", "contain": true, "pageDots": false, "draggable": false}'>
+        <div class="button-group filters-button-group">
+          <button class="button is-checked" data-filter="*">ทั้งหมด</button>
+          <button class="button" data-filter=".ดูดสารพิษ">ดูดสารพิษ</button>
+          <button class="button" data-filter=".ไม่ต้องการแดด">ไม่ต้องการแดด</button>
+          <button class="button" data-filter=".คลายความชื้น">คลายความชื้น</button>
+          <button class="button" data-filter=".มีดอก">มีดอก</button>
+          <button class="button" data-filter=".ฟอกอากาศ">ฟอกอากาศ</button>
+        </div>
 
-          <?php while ($row = $result_product->fetch_assoc()) : ?>
-            <div class="carousel-cell">
-              <div class="card">
+        <div class="grid d-flex text-center">
+          <?php while ($row = $result->fetch_assoc()) : ?>
+            <div class="col-lg-3 p-1 my-4 mx-5 element-item <?php echo $row['type_name']; ?>">
+              <div class="carditem card">
                 <a href='product.php?product_id=<?php echo $row['product_id']; ?>'>
-                  <img src="../admin/images_product/<?php echo $row['image']; ?>" style="width: 70%; margin: 10% 10% 10% 15%;">
+                  <img src="../admin/images_product/<?php echo $row['image']; ?>" class="card-img-top p-4" alt="...">
                 </a>
                 <div class="card-body">
-                  <p><?php echo $row['product_name']; ?></p>
+                  <p class="plant-name h3 pb-3"><?php echo $row['product_name']; ?></p>
+                  <p>ราคา : <?php echo $row['price']; ?> บาท</p>
+                  <?php
+
+                  $product_id = $row['product_id'];
+                  if ($row['amount'] == 0) {
+                    echo '<a  style="text-align: center; margin:32%; color:red;" type="AddtoCart" >สินค้าหมด</a>';
+                  } else {
+
+
+                    echo "<a class='btn btn-primary btn-lg' style='text-align: center;' type='AddtoCart' href='cart_user.php?product_id=$product_id&act=add'>ซื้อเลย!</a>";
+                  }
+                  ?>
                 </div>
               </div>
             </div>
-            <?php if ($i == 5) {
-              break;
-            }
-            $i++;
-
-            ?>
           <?php endwhile ?>
-
-
         </div>
+
+
+
+
+
+
       </div>
-
-      <div class="button-group filters-button-group">
-        <button class="button is-checked" data-filter="*">ทั้งหมด</button>
-        <button class="button" data-filter=".ดูดสารพิษ">ดูดสารพิษ</button>
-        <button class="button" data-filter=".ไม่ต้องการแดด">ไม่ต้องการแดด</button>
-        <button class="button" data-filter=".คลายความชื้น">คลายความชื้น</button>
-        <button class="button" data-filter=".มีดอก">มีดอก</button>
-        <button class="button" data-filter=".ฟอกอากาศ">ฟอกอากาศ</button>
-      </div>
-
-      <div class="grid d-flex text-center">
-        <?php while ($row = $result->fetch_assoc()) : ?>
-          <div class="col-lg-3 p-1 my-4 mx-5 element-item <?php echo $row['type_name']; ?>">
-            <div class="carditem card">
-              <a href='product.php?product_id=<?php echo $row['product_id']; ?>'>
-                <img src="../admin/images_product/<?php echo $row['image']; ?>" class="card-img-top p-4" alt="...">
-              </a>
-              <div class="card-body">
-                <p class="plant-name h3 pb-3"><?php echo $row['product_name']; ?></p>
-                <p>ราคา : <?php echo $row['price']; ?> บาท</p>
-                <?php
-
-                $product_id = $row['product_id'];
-                if ($row['amount'] == 0) {
-                  echo '<a  style="text-align: center; margin:32%; color:red;" type="AddtoCart" >สินค้าหมด</a>';
-                } else {
-
-
-                  echo "<a class='btn btn-primary btn-lg' style='text-align: center;' type='AddtoCart' href='cart_user.php?product_id=$product_id&act=add'>ซื้อเลย!</a>";
-                }
-                ?>
-              </div>
-            </div>
-          </div>
-        <?php endwhile ?>
-      </div>
-
-
-
-
-
+    </div>
+    <div class="footer d-flex flex-column">
 
     </div>
-  </div>
-  <div class="footer d-flex flex-column">
-    
-  </div>
+  <?php
+  } ?>
 </body>
 <script src="../bootstrap/js/bootstrap.min.js"></script>
 <script src="/path/to/flickity.pkgd.min.js"></script>
