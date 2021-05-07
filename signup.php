@@ -1,4 +1,5 @@
-<?php include "process/insert-user.php" ?>
+<?php include "connect.php";
+ ?>
 
 
 <!DOCTYPE html>

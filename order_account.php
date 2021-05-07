@@ -57,7 +57,7 @@ $result = mysqli_query($connect, $sql) or die(mysqli_error($connect) . ":" . $sq
                             <a href="user/cart_user.php" class="nav">Cart</a>
                         </li>
                         <li class="navbar-item px-5">
-                            <a href="check-out_user.php" class="nav">Checkout</a>
+                            <a href="user/check-out_user.php" class="nav">Checkout</a>
                         </li>
                         <li class="navbar-item px-5">
                             <a href="account.php" class="nav">Account</a>

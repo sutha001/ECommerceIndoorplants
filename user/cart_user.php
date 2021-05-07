@@ -140,8 +140,9 @@ if ($act == 'update') {
         </div>    
         <div class="footer d-flex flex-column" style="margin-top: 3%;">
             <p style="font-family: 'Source Sans Pro', sans-serif;"></p>
-        </div> 
+        </div>
 
+        <?php } ?>
 </body>
 <script src="../bootstrap/js/bootstrap.min.js"></script>
 
