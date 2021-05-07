@@ -1,6 +1,11 @@
 <?php include '../../connect.php';
 
 $product_id = $_GET['product_id'];
+session_start();
+
+if (!isset($_SESSION['username'])) {
+    header('location: login_admin.php');
+}
 
 ?>
 
@@ -18,73 +23,80 @@ $product_id = $_GET['product_id'];
 </head>
 
 <body>
-    <div class="area_all" style="background-color: black;">
-        <div class="menu_editor">
-            <div class="row_edit">
-                <a href="../admin_editor.php" class="btn btn-dark" style="background-color: #ffffff; color:#1b221b;">การจัดการสินค้า</a>
+    <?php
+    if ($_SESSION["username"]) {
+    ?>
+        <div class="area_all" style="background-color: black;">
+            <div class="menu_editor">
+                <div class="row_edit">
+                    <a href="../admin_editor.php" class="btn btn-dark" style="background-color: #ffffff; color:#1b221b;">การจัดการสินค้า</a>
+                </div>
+                <div class="row_edit">
+                    <a href="../admin-order.php" class="btn btn-dark" style="background-color: #4f4f4f;">Order</a>
+                </div>
+                <div class="row_edit">
+                    <a href="../admin_manage_user.php" class="btn btn-dark" style="background-color: #4f4f4f;">การจัดการผู้ใช้</a>
+                </div>
+                <div class="row_edit">
+                    <a href="../logout-admin-process.php" class="btn btn-dark" style="background-color: #4f4f4f;">ออก</a>
+                </div>
             </div>
-            <div class="row_edit">
-                <a href="../admin-order.php" class="btn btn-dark" style="background-color: #4f4f4f;">Order</a>
-            </div>
-            <div class="row_edit">
-                <a href="../admin_manage_user.php" class="btn btn-dark" style="background-color: #4f4f4f;">การจัดการผู้ใช้</a>
-            </div>
-        </div>
 
-        <?php
+            <?php
 
 
 
 
 
-        $sql = "SELECT *
+            $sql = "SELECT *
         FROM product
         NATURAL JOIN product_type
         WHERE product_id = $product_id";
 
-        $result = $connect->query($sql) or die(mysqli_error($connect) . ":" . $sql);
+            $result = $connect->query($sql) or die(mysqli_error($connect) . ":" . $sql);
 
-        $total = mysqli_num_rows($result);
-        ?>
+            $total = mysqli_num_rows($result);
+            ?>
 
-        <div class="other_editor">
-            <div class="container">
-                <div class="info_right">
-                    <h1>เพิ่มสินค้า</h1>
-                    <hr>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th width="5%">ID</th>
-                                <th width="10%">ชื่อ</th>
-                                <th width="10%">รูปภาพ</th>
-                                <th width="10%">ราคา(บาท)</th>
-                                <th width="10%">หมวด</th>
-                                <th width="10%">จำนวนคงเหลือ </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <form action="#" method="POST">
-                                <?php while ($row = $result->fetch_assoc()) : ?>
-                                    <tr>
-                                        <td><?php echo $row['product_id']; ?></td>
-                                        <td><?php echo $row['product_name']; ?></td>
-                                        <td><?php echo $row['image']; ?></td>
-                                        <td><?php echo $row['price']; ?></td>
-                                        <td><?php echo $row['type_name']; ?></td><?php echo $row['amount']; ?>
+            <div class="other_editor">
+                <div class="container">
+                    <div class="info_right">
+                        <h1>เพิ่มสินค้า</h1>
+                        <hr>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th width="5%">ID</th>
+                                    <th width="10%">ชื่อ</th>
+                                    <th width="10%">รูปภาพ</th>
+                                    <th width="10%">ราคา(บาท)</th>
+                                    <th width="10%">หมวด</th>
+                                    <th width="10%">จำนวนคงเหลือ </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <form action="#" method="POST">
+                                    <?php while ($row = $result->fetch_assoc()) : ?>
+                                        <tr>
+                                            <td><?php echo $row['product_id']; ?></td>
+                                            <td><?php echo $row['product_name']; ?></td>
+                                            <td><?php echo $row['image']; ?></td>
+                                            <td><?php echo $row['price']; ?></td>
+                                            <td><?php echo $row['type_name']; ?></td><?php echo $row['amount']; ?>
 
-                                        <td width="5%"><input type="number" name="amount" style="width: 5rem;" min="0" value="<?php echo $row['amount']; ?>"></td>
-                                        <td width="5%"><input type="submit" name="submit" value="เพิ่ม"></td>
-                                    </tr>
-                                <?php endwhile ?>
-                            </form>
-                        </tbody>
-                    </table>
-                    <hr>
+                                            <td width="5%"><input type="number" name="amount" style="width: 5rem;" min="0" value="<?php echo $row['amount']; ?>"></td>
+                                            <td width="5%"><input type="submit" name="submit" value="เพิ่ม"></td>
+                                        </tr>
+                                    <?php endwhile ?>
+                                </form>
+                            </tbody>
+                        </table>
+                        <hr>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    <?php } ?>
 
     <?php
 

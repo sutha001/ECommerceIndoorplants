@@ -25,7 +25,7 @@ include "../connect.php";
       <div class="bigcard col-sm-12 col-md-6 my-sm-5" style="height: auto;">
         <div class="card" style="width: 80%;">
           <h1 class="card-header  text-center">Admin Log-in</h1>
-          <form action="user/process/login-process.php" method="POST">
+          <form action="login-admin-process.php" method="POST">
             <div class="form-group col-8 pt-3 pb-3">
               <label for="exampleInputEmail1">Username</label>
               <input type="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name ="Username" placeholder="Username">
@@ -34,7 +34,7 @@ include "../connect.php";
               <label for="exampleInputPassword1">Password</label>
               <input type="password" class="form-control" id="exampleInputPassword1" name ="Password" placeholder="Password">
             </div>
-            <button type="submit" name="login" class="btn btn-primary btn-lg btn-block" style="width: 66.67%;">Login</button>
+            <button type="submit" name="login-admin" class="btn btn-primary btn-lg btn-block" style="width: 66.67%;">Login</button>
             <hr>
             <div style="text-align: center;">
             </div>

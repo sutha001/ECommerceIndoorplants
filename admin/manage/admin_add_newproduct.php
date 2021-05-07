@@ -1,5 +1,11 @@
 <?php include '../../connect.php';
 
+session_start();
+
+if (!isset($_SESSION['username'])) {
+    header('location: login_admin.php');
+}
+
 
 ?>
 
@@ -17,66 +23,72 @@
 </head>
 
 <body>
-    <div class="area_all" style="background-color: black;">
-        <div class="menu_editor">
-            <div class="row_edit">
+    <?php
+    if ($_SESSION["username"]) {
+    ?>
+        <div class="area_all" style="background-color: black;">
+            <div class="menu_editor">
+                <div class="row_edit">
 
-                <a href="../admin_editor.php" class="btn btn-dark" style="background-color: #ffffff; color:#1b221b;">การจัดการสินค้า</a>
+                    <a href="../admin_editor.php" class="btn btn-dark" style="background-color: #ffffff; color:#1b221b;">การจัดการสินค้า</a>
+                </div>
+                <div class="row_edit">
+                    <a href="../admin-order.php" class="btn btn-dark" style="background-color: #4f4f4f;">Order</a>
+                </div>
+                <div class="row_edit">
+                    <a href="../admin_manage_user.php" class="btn btn-dark" style="background-color: #4f4f4f;">การจัดการผู้ใช้</a>
+                </div>
+                <div class="row_edit">
+                    <a href="../logout-admin-process.php" class="btn btn-dark" style="background-color: #4f4f4f;">ออก</a>
+                </div>
             </div>
-            <div class="row_edit">
-                <a href="../admin-order.php" class="btn btn-dark" style="background-color: #4f4f4f;">Order</a>
-            </div>
-            <div class="row_edit">
 
-                <a href="../admin_manage_user.php" class="btn btn-dark" style="background-color: #4f4f4f;">การจัดการผู้ใช้</a>
-            </div>
-        </div>
+            <?php
 
-        <?php
+            ?>
 
-        ?>
-
-        <div class="other_editor">
-            <div class="container">
-                <div class="info_right">
-                    <h1>เพิ่มสินค้า</h1>
-                    <hr>
-                    <form action="process_manage/add-product-process.php" method="POST" enctype=multipart/form-data>
-                        <label>ชื่อสินค้า :</label>
-                        <input type="text" name="product_name" required><br><br>
-                        <label>รูปสินค้า (หลัก) :</label>
-                        <input type="file" name="main_image" required><br><br>
-                        <label>รูปสินค้า (รอง1) :</label>
-                        <input type="file" name="image1" required>
-                        <label>รูปสินค้า (รอง2) :</label>
-                        <input type="file" name="image2">
-                        <label>รูปสินค้า (รอง3) :</label>
-                        <input type="file" name="image3"><br><br>
-                        <label>รายละเอียด :</label>
-                        <textarea type="text" name="description" rows="5" cols="50" required></textarea><br><br>
-                        <label>คุณสมบัติ :</label>
-                        <input type="text" name="property" required><br><br>
-                        <label>การดูแลรักษา :</label>
-                        <input type="text" name="care" required><br><br>
-                        <label>ราคา :</label>
-                        <input type="number" name="price" required><br><br>
-                        <label>หมวด :</label>
-                        <select name="type_name" required>
-                            <option value="ดูดสารพิษ">ดูดสารพิษ</option>
-                            <option value="ไม่ต้องการแดด">ไม่ต้องการแดด</option>
-                            <option value="มีดอก">มีดอก</option>
-                            <option value="ฟอกอากาศ">ฟอกอากาศ</option>
-                            <option value="คลายความชื้น">คลายความชื้น</option>
-                        </select>
-                        <label>จำนวน :</label>
-                        <input type="number" name="amount" required><br><br>
+            <div class="other_editor">
+                <div class="container">
+                    <div class="info_right">
+                        <h1>เพิ่มสินค้า</h1>
                         <hr>
-                        <input type="submit" name="submit" class="btn btn-dark">
-                    </form>
+                        <form action="process_manage/add-product-process.php" method="POST" enctype=multipart/form-data>
+                            <label>ชื่อสินค้า :</label>
+                            <input type="text" name="product_name" required><br><br>
+                            <label>รูปสินค้า (หลัก) :</label>
+                            <input type="file" name="main_image" required><br><br>
+                            <label>รูปสินค้า (รอง1) :</label>
+                            <input type="file" name="image1" required>
+                            <label>รูปสินค้า (รอง2) :</label>
+                            <input type="file" name="image2">
+                            <label>รูปสินค้า (รอง3) :</label>
+                            <input type="file" name="image3"><br><br>
+                            <label>รายละเอียด :</label>
+                            <textarea type="text" name="description" rows="5" cols="50" required></textarea><br><br>
+                            <label>คุณสมบัติ :</label>
+                            <input type="text" name="property" required><br><br>
+                            <label>การดูแลรักษา :</label>
+                            <input type="text" name="care" required><br><br>
+                            <label>ราคา :</label>
+                            <input type="number" name="price" required><br><br>
+                            <label>หมวด :</label>
+                            <select name="type_name" required>
+                                <option value="ดูดสารพิษ">ดูดสารพิษ</option>
+                                <option value="ไม่ต้องการแดด">ไม่ต้องการแดด</option>
+                                <option value="มีดอก">มีดอก</option>
+                                <option value="ฟอกอากาศ">ฟอกอากาศ</option>
+                                <option value="คลายความชื้น">คลายความชื้น</option>
+                            </select>
+                            <label>จำนวน :</label>
+                            <input type="number" name="amount" required><br><br>
+                            <hr>
+                            <input type="submit" name="submit" class="btn btn-dark">
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    <?php } ?>
 </body>
 
 

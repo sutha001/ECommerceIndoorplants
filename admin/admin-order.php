@@ -1,5 +1,13 @@
 <?php include '../connect.php';
 
+session_start();
+
+if (!isset($_SESSION['username'])) {
+  header('location: login_admin.php');
+}
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -16,6 +24,9 @@
 </head>
 
 <body>
+<?php
+  if ($_SESSION["username"]) {
+  ?>
     <div class="area_all" style="background-color: black;">
         <div class="menu_editor">
             <div class="row_edit">
@@ -26,6 +37,9 @@
             </div>
             <div class="row_edit">
                 <a href="admin_manage_user.php" class="btn btn-dark" style="background-color: #4f4f4f;">การจัดการผู้ใช้</a>
+            </div>
+            <div class="row_edit">
+                <a href="logout-admin-process.php" class="btn btn-dark" style="background-color: #4f4f4f;">ออก</a>
             </div>
         </div>
 
@@ -109,6 +123,7 @@
             </div>
         </div>
     </div>
+    <?php } ?>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>

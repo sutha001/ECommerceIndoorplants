@@ -1,0 +1,31 @@
+<?php
+include "../connect.php";
+
+session_start();
+if (isset($_POST['login-admin'])) {
+    $username = mysqli_real_escape_string($connect, $_POST['Username']);
+    $password = mysqli_real_escape_string($connect, $_POST['Password']);
+
+
+
+    $password = md5($password);
+    $query = "SELECT * FROM user WHERE username='$username' AND password='$password' AND role = 'admin'";
+    $results = mysqli_query($connect, $query);
+
+
+    while ($row = mysqli_fetch_assoc($results)) {
+        $_SESSION["username"] = $username;
+        $_SESSION["user_id"] = $row['user_id'];
+    }
+    if (isset($_SESSION["username"])) {
+        header("Location: admin_editor.php");
+    }
+    else{
+        echo '<script type="text/javascript">';
+        echo 'alert("Username หรือ Password ไม่ถูกต้อง");';
+        echo "window.location ='login_admin.php';";
+        echo "</script>";
+    }
+}
+
+?>
