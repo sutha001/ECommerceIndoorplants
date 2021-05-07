@@ -71,7 +71,7 @@ if ($act == 'update') {
     <h1 style="text-align: center;">Cart</h1>
   </div>
 
-  <div class="container-fluid" style="height: 100%;">
+  <div class="container-fluid" style="height: 100vh;">
     <div class="row">
       <div class="your-order">
         <h1 style="font-size: 24px;text-align: center;padding-top: 3%;">YOUR ORDER</h1>

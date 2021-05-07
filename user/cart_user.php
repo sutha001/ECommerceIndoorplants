@@ -79,63 +79,68 @@ if ($act == 'update') {
             <h1 style="text-align: center;">Cart</h1>
         </div>
 
-        <div class="container" style="height: 100vh;">
-            <div class="your-order">
-                <h1 style="font-size: 24px;text-align: center;padding-top: 3%;">YOUR ORDER</h1>
-                <table style="margin-top: 2%;">
-                    <form id="frmcart" name="frmcart" method="post" action="?act=update">
-                        <table width="600" border="0" align="center" class="square">
-                            <tr>
-                                <td colspan="5" bgcolor="#CCCCCC">
-                                    <b>ตะกร้าสินค้า</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td bgcolor="#EAEAEA">สินค้า</td>
-                                <td align="center" bgcolor="#EAEAEA">ราคา</td>
-                                <td align="center" bgcolor="#EAEAEA">จำนวน</td>
-                                <td align="center" bgcolor="#EAEAEA">รวม(บาท)</td>
-                                <td align="center" bgcolor="#EAEAEA">ลบ</td>
-                            </tr>
-                            <?php
-                            $total = 0;
-                            if (!empty($_SESSION['cart'])) {
-                                include("../connect.php");
-                                foreach ($_SESSION['cart'] as $product_id => $qty) {
-                                    $sql = "SELECT * FROM product WHERE product_id = $product_id ";
-                                    $query = mysqli_query($connect, $sql) or die(mysqli_error($connect) . ":" . $sql);
-                                    $row = mysqli_fetch_array($query);
-                                    $sum = $row['price'] * $qty;
-                                    $total += $sum;
+        <div class="container-fluid" style="height: 100vh;">
+            <div class="row">
+                <div class="your-order">
+                    <h1 style="font-size: 24px;text-align: center;padding-top: 3%;">YOUR ORDER</h1>
+                    <table style="margin-top: 2%;">
+                        <form id="frmcart" name="frmcart" method="post" action="?act=update">
+                            <table width="600" border="0" align="center" class="square">
+                                <tr>
+                                    <td colspan="5" bgcolor="#CCCCCC">
+                                        <b>ตะกร้าสินค้า</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td bgcolor="#EAEAEA">สินค้า</td>
+                                    <td align="center" bgcolor="#EAEAEA">ราคา</td>
+                                    <td align="center" bgcolor="#EAEAEA">จำนวน</td>
+                                    <td align="center" bgcolor="#EAEAEA">รวม(บาท)</td>
+                                    <td align="center" bgcolor="#EAEAEA">ลบ</td>
+                                </tr>
+                                <?php
+                                $total = 0;
+                                if (!empty($_SESSION['cart'])) {
+                                    include("../connect.php");
+                                    foreach ($_SESSION['cart'] as $product_id => $qty) {
+                                        $sql = "SELECT * FROM product WHERE product_id = $product_id ";
+                                        $query = mysqli_query($connect, $sql) or die(mysqli_error($connect) . ":" . $sql);
+                                        $row = mysqli_fetch_array($query);
+                                        $sum = $row['price'] * $qty;
+                                        $total += $sum;
+                                        echo "<tr>";
+                                        echo "<td width='334'>" . $row["product_name"] . "</td>";
+                                        echo "<td width='46' align='right'>" . number_format($row["price"], 2) . "</td>";
+                                        echo "<td width='57' align='right'>";
+                                        echo "<input type='number' name='amount[$product_id]' value='$qty' style='width: 5em'/></td>";
+                                        echo "<td width='93' align='right'>" . number_format($sum, 2) . "</td>";
+                                        //remove product
+                                        echo "<td width='46' align='center'><a href='cart_user.php?product_id=$product_id&act=remove'>ลบ</a></td>";
+                                        echo "</tr>";
+                                    }
                                     echo "<tr>";
-                                    echo "<td width='334'>" . $row["product_name"] . "</td>";
-                                    echo "<td width='46' align='right'>" . number_format($row["price"], 2) . "</td>";
-                                    echo "<td width='57' align='right'>";
-                                    echo "<input type='number' name='amount[$product_id]' value='$qty' style='width: 5em'/></td>";
-                                    echo "<td width='93' align='right'>" . number_format($sum, 2) . "</td>";
-                                    //remove product
-                                    echo "<td width='46' align='center'><a href='cart_user.php?product_id=$product_id&act=remove'>ลบ</a></td>";
+                                    echo "<td colspan='3' bgcolor='#CEE7FF' align='center'><b>ราคารวม</b></td>";
+                                    echo "<td align='right' bgcolor='#CEE7FF'>" . "<b>" . number_format($total, 2) . "</b>" . "</td>";
+                                    echo "<td align='left' bgcolor='#CEE7FF'></td>";
                                     echo "</tr>";
                                 }
-                                echo "<tr>";
-                                echo "<td colspan='3' bgcolor='#CEE7FF' align='center'><b>ราคารวม</b></td>";
-                                echo "<td align='right' bgcolor='#CEE7FF'>" . "<b>" . number_format($total, 2) . "</b>" . "</td>";
-                                echo "<td align='left' bgcolor='#CEE7FF'></td>";
-                                echo "</tr>";
-                            }
-                            ?>
-                            <tr>
-                                <td><a href="index_user.php">กลับหน้ารายการสินค้า</a></td>
-                                <td colspan="4" align="right">
-                                    <input type="submit" name="button" id="button" value="ปรับปรุง" />
-                                    <input type="button" name="Submit2" value="สั่งซื้อ" onclick="window.location='check-out_user.php';" />
-                                </td>
-                            </tr>
-                        </table>
-                    </form>
-
-                <?php
-            } ?>
+                                ?>
+                                <tr>
+                                    <td><a href="index_user.php">กลับหน้ารายการสินค้า</a></td>
+                                    <td colspan="4" align="right">
+                                        <input type="submit" name="button" id="button" value="ปรับปรุง" />
+                                        <input type="button" name="Submit2" value="สั่งซื้อ" onclick="window.location='check-out_user.php';" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>        
+                    </table>
+                </div>
+            </div>    
+        </div>    
+        <div class="footer d-flex flex-column" style="margin-top: 3%;">
+            <p style="font-family: 'Source Sans Pro', sans-serif;"></p>
+        </div> 
 
 </body>
 <script src="../bootstrap/js/bootstrap.min.js"></script>
